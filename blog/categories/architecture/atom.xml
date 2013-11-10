@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Architecture | Pragmatic API]]></title>
   <link href="http://jasonh-n-austin.github.io/blog/categories/architecture/atom.xml" rel="self"/>
   <link href="http://jasonh-n-austin.github.io/"/>
-  <updated>2013-11-10T08:30:32-06:00</updated>
+  <updated>2013-11-10T08:55:37-06:00</updated>
   <id>http://jasonh-n-austin.github.io/</id>
   <author>
     <name><![CDATA[Jason Harmon]]></name>
@@ -20,15 +20,15 @@
     <id>http://jasonh-n-austin.github.io/2013/03/25/extend-your-crud-http-api-with-sub-resources</id>
     <content type="html"><![CDATA[<p>When it&rsquo;s time to build your web API, there&rsquo;s often a tendency to build everything around data entities. <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>-style APIs use GET/POST/PUT/DELETE to provide the same feel as SELECT/INSERT/UPDATE/DELETE in a traditional relational database.</p>
 
-<p>Once you work through these CRUD-based web API patterns for a while, you will find that it doesn&rsquo;t always match up perfectly to your business needs. I&rsquo;d like to introduce a design pattern which will add some flexibility to your CRUD-stye HTTP API, while maintaining clean semantics and easy usability.</p>
+<p>Once you work through these CRUD-based web API patterns for a while, you will find that it doesn&rsquo;t always match up perfectly to your business needs. I&rsquo;d like to introduce a design pattern which will add some flexibility to your CRUD-stye HTTP API, while maintaining clean semantics and easy usability.
+<img src="http://res.cloudinary.com/jhrmn/image/upload/v1364231618/memecenter_1364231463618_397_eft398.gif" alt="" /></p>
 
 <!-- more -->
 
 
 <p>There are a number of frameworks with actually revolve around creating this clear linkage between a relational database and the &lsquo;four verbs&rsquo; of a typical HTTP API. While the CRUD approach to logical entities will often provide the bulk of an APIs functionality, there are other forms which can be very effective.</p>
 
-<p>Simply put, we can provide an always-existent sub-resource as an extension to your entity-based resource.
-<img src="http://res.cloudinary.com/jhrmn/image/upload/v1364231618/memecenter_1364231463618_397_eft398.gif" alt="" /></p>
+<p>Simply put, we can provide an always-existent sub-resource as an extension to your entity-based resource.</p>
 
 <p>Let&rsquo;s look at a newly created fictional user account.</p>
 
