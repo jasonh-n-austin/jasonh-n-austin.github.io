@@ -108,15 +108,64 @@
 
 <p>As a review, here is our feature file, for testing a basic portion of the public Twitter API. This time around, we&rsquo;ve added a few small differences, in the treatment of querystring parameters. This is meant show that there are various ways to describe your tests, not simply monolithic URLs.</p>
 
-<p>[gist id=4582935]</p>
+<div><script src='https://gist.github.com/4582935.js'></script>
+<noscript><pre><code>@Positive @Get @User
+Scenario: Show twitter user
+  Given I access the resource url &quot;/1/users/show.json&quot;
+        And I provide parameter &quot;screen_name&quot; as &quot;jasonh_n_austin&quot;
+        And I provide parameter &quot;include_entities&quot; as &quot;true&quot;
+    When I retrieve the results
+    Then the status code should be 200
+    And it should have the field &quot;name&quot; containing the value &quot;Jason Harmon&quot;
+    And it should have the field &quot;id&quot; containing the value &quot;57005215&quot;</code></pre></noscript></div>
+
 
 <p>This maps to steps in our RestTests.groovy file, which utilizes the RESTClient class to manage our GET. There are plenty of options out there for a web driver, RESTClient happens to be fairly well suited for our purposes.</p>
 
-<p>[gist id=4536191]</p>
+<div><script src='https://gist.github.com/4536191.js'></script>
+<noscript><pre><code>Given(~&quot;I access the resource url \&quot;([^\&quot;]*)\&quot;&quot;) { String url -&gt; 
+        resp = null
+        status = null
+
+        uri = new URIBuilder(host)        
+    path = url 
+}
+
+Given(~&quot;I provide parameter \&quot;([^\&quot;]*)\&quot; as \&quot;([^\&quot;]*)\&quot;&quot;) { String name, String value -&gt;
+    uri.addQueryParam name, value
+}
+
+When(~&quot;I retrieve the results&quot;) { -&gt;
+        try {
+        restClient = new RESTClient(uri.toString())
+                resp = restClient.get(path: path)
+        } catch (HttpResponseException ex) {
+        status = ex.getStatusCode()
+    }
+        if (resp != null) {
+        status = resp.status
+            assert ( resp.data instanceof net.sf.json.JSON )
+        assert resp.data.status.size() &gt; 0
+        parsed = resp.data
+        }
+}
+
+Then(~&quot;the status code should be (\\d+)&quot;) { int expectedStatusCode -&gt;
+    assert status == expectedStatusCode
+}
+
+Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&quot;(.*)\&quot;&quot;) { String field, String value -&gt;
+    assert parsed.&quot;${field}&quot;.toString().equals(value) 
+} </code></pre></noscript></div>
+
 
 <p>Most of this code is fairly self-explanatory. For those unexposed to the wonders of Groovy JSON handling (and XML as well), the function starting with &ldquo;it should have the field&rdquo; provides some interesting syntax:</p>
 
-<p>[gist id=4582955]</p>
+<div><script src='https://gist.github.com/4582955.js'></script>
+<noscript><pre><code>Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&quot;(.*)\&quot;&quot;) { String field, String value -&gt;
+  assert parsed.&quot;${field}&quot;.toString().equals(value)   
+} </code></pre></noscript></div>
+
 
 <p>The &lsquo;parsed&rsquo; variable holds the parsed JSON data. As we have extracted the &lsquo;field&rsquo; variable , we can use a closure to dynamically evaluate whether that field exists in the results.</p>
 

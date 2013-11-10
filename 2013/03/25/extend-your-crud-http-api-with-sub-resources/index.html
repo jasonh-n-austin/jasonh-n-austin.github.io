@@ -107,25 +107,73 @@
 
 <p><em>NOTE: Authentication is assumed in the following examples, for brevity.</em></p>
 
-<p>[gist id=5234609]</p>
+<div><script src='https://gist.github.com/5234609.js'></script>
+<noscript><pre><code>GET /users/321
+200 OK
+{
+  &quot;id&quot;: 321,
+  &quot;username&quot;: &quot;jhrmn&quot;,
+  &quot;firstName&quot;: &quot;Jason&quot;,
+  &quot;lastName&quot;: &quot;Harmon&quot;,
+  &quot;userType&quot;: &quot;read-only&quot;
+  &quot;status&quot;: &quot;active&quot;
+}</code></pre></noscript></div>
+
 
 <p>It is often the case that we want to maintain a different level of control around a user account than the user&rsquo;s profile. The details of this account might not be made available for the user to change. In our fictional user, the access level/user type is &lsquo;read-only&rsquo;. If I tried to update this user, I might not be permitted.</p>
 
-<p>[gist id=5234612]</p>
+<div><script src='https://gist.github.com/5234612.js'></script>
+<noscript><pre><code>PUT /users/321
+{
+  &quot;id&quot;: 321,
+  &quot;username&quot;: &quot;jason.harmon&quot;,
+  &quot;firstName&quot;: &quot;Jason&quot;,
+  &quot;lastName&quot;: &quot;Harmon&quot;,
+  &quot;userType&quot;: &quot;read-only&quot;
+  &quot;status&quot;: &quot;active&quot;
+}
+
+403 Forbidden</code></pre></noscript></div>
+
 
 <p>However, we might want to provide this user with an update-able profile, that other users can view. When we first touch the profile on a newly created account, it might not be populated in the backend. However, we want to provide the notion that a user profile always exists for a user account, even if they haven&rsquo;t yet updated it. In some cases, there might be calculated fields or other pre-populated data when we first access the sub-resource.</p>
 
-<p>[gist id=5234615]</p>
+<div><script src='https://gist.github.com/5234615.js'></script>
+<noscript><pre><code>GET /users/321/profile
+200 OK
+{
+  &quot;feedback&quot;: 0
+}
+</code></pre></noscript></div>
+
 
 <p>Note that the naming on this URI is singular, &lsquo;profile&rsquo;, not &lsquo;profiles&rsquo;. While I recommend pluralized naming convention for CRUD-style resources (notice &lsquo;users&rsquo;), a sub-resource like this will never be plural. There is a flat 1-to-1 relationship between the selected user and the profile.</p>
 
 <p>Now that we&rsquo;ve recognized the user&rsquo;s profile is basically empty, we can PUT some data to update it.</p>
 
-<p>[gist id=5234620]</p>
+<div><script src='https://gist.github.com/5234620.js'></script>
+<noscript><pre><code>PUT /users/321/profile
+{
+  &quot;feedback&quot;: 0,
+  &quot;photo&quot;: &quot;https://en.gravatar.com/userimage/11130470/deba6005e5c4709589c33fdfdd5cc6b5.jpg&quot;,
+  &quot;preferredShippingCarrier&quot;: &quot;FedEx&quot;,
+  &quot;nickName&quot;: &quot;El Gran Bigote&quot;
+}
+
+204 No Content</code></pre></noscript></div>
+
 
 <p>Note that if the update was successful, we reply with a 204; no need to provide any more context than that. Now we can retrieve this sub-resource, and see that it matches what we provided.</p>
 
-<p>[gist id=5234622]</p>
+<div><script src='https://gist.github.com/5234622.js'></script>
+<noscript><pre><code>GET /users/321/profile
+{
+  &quot;photo&quot;: &quot;https://en.gravatar.com/userimage/11130470/deba6005e5c4709589c33fdfdd5cc6b5.jpg&quot;,
+  &quot;preferredShippingCarrier&quot;: &quot;FedEx&quot;,
+  &quot;nickName&quot;: &quot;The Professor&quot;
+}
+</code></pre></noscript></div>
+
 
 <p>Next time you have a critical resource you need to extend, be sure to think about this flat sub-resource pattern. You&rsquo;ll keep the complexity of your content from growing out of control, and avoid mixed security constraints in one operation.</p>
 </div>

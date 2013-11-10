@@ -4,7 +4,7 @@
   <title><![CDATA[Pragmatic API]]></title>
   <link href="http://jasonh-n-austin.github.io/atom.xml" rel="self"/>
   <link href="http://jasonh-n-austin.github.io/"/>
-  <updated>2013-11-09T20:56:30-06:00</updated>
+  <updated>2013-11-09T21:23:01-06:00</updated>
   <id>http://jasonh-n-austin.github.io/</id>
   <author>
     <name><![CDATA[Jason Harmon]]></name>
@@ -34,25 +34,73 @@
 
 <p><em>NOTE: Authentication is assumed in the following examples, for brevity.</em></p>
 
-<p>[gist id=5234609]</p>
+<div><script src='https://gist.github.com/5234609.js'></script>
+<noscript><pre><code>GET /users/321
+200 OK
+{
+  &quot;id&quot;: 321,
+  &quot;username&quot;: &quot;jhrmn&quot;,
+  &quot;firstName&quot;: &quot;Jason&quot;,
+  &quot;lastName&quot;: &quot;Harmon&quot;,
+  &quot;userType&quot;: &quot;read-only&quot;
+  &quot;status&quot;: &quot;active&quot;
+}</code></pre></noscript></div>
+
 
 <p>It is often the case that we want to maintain a different level of control around a user account than the user&rsquo;s profile. The details of this account might not be made available for the user to change. In our fictional user, the access level/user type is &lsquo;read-only&rsquo;. If I tried to update this user, I might not be permitted.</p>
 
-<p>[gist id=5234612]</p>
+<div><script src='https://gist.github.com/5234612.js'></script>
+<noscript><pre><code>PUT /users/321
+{
+  &quot;id&quot;: 321,
+  &quot;username&quot;: &quot;jason.harmon&quot;,
+  &quot;firstName&quot;: &quot;Jason&quot;,
+  &quot;lastName&quot;: &quot;Harmon&quot;,
+  &quot;userType&quot;: &quot;read-only&quot;
+  &quot;status&quot;: &quot;active&quot;
+}
+
+403 Forbidden</code></pre></noscript></div>
+
 
 <p>However, we might want to provide this user with an update-able profile, that other users can view. When we first touch the profile on a newly created account, it might not be populated in the backend. However, we want to provide the notion that a user profile always exists for a user account, even if they haven&rsquo;t yet updated it. In some cases, there might be calculated fields or other pre-populated data when we first access the sub-resource.</p>
 
-<p>[gist id=5234615]</p>
+<div><script src='https://gist.github.com/5234615.js'></script>
+<noscript><pre><code>GET /users/321/profile
+200 OK
+{
+  &quot;feedback&quot;: 0
+}
+</code></pre></noscript></div>
+
 
 <p>Note that the naming on this URI is singular, &lsquo;profile&rsquo;, not &lsquo;profiles&rsquo;. While I recommend pluralized naming convention for CRUD-style resources (notice &lsquo;users&rsquo;), a sub-resource like this will never be plural. There is a flat 1-to-1 relationship between the selected user and the profile.</p>
 
 <p>Now that we&rsquo;ve recognized the user&rsquo;s profile is basically empty, we can PUT some data to update it.</p>
 
-<p>[gist id=5234620]</p>
+<div><script src='https://gist.github.com/5234620.js'></script>
+<noscript><pre><code>PUT /users/321/profile
+{
+  &quot;feedback&quot;: 0,
+  &quot;photo&quot;: &quot;https://en.gravatar.com/userimage/11130470/deba6005e5c4709589c33fdfdd5cc6b5.jpg&quot;,
+  &quot;preferredShippingCarrier&quot;: &quot;FedEx&quot;,
+  &quot;nickName&quot;: &quot;El Gran Bigote&quot;
+}
+
+204 No Content</code></pre></noscript></div>
+
 
 <p>Note that if the update was successful, we reply with a 204; no need to provide any more context than that. Now we can retrieve this sub-resource, and see that it matches what we provided.</p>
 
-<p>[gist id=5234622]</p>
+<div><script src='https://gist.github.com/5234622.js'></script>
+<noscript><pre><code>GET /users/321/profile
+{
+  &quot;photo&quot;: &quot;https://en.gravatar.com/userimage/11130470/deba6005e5c4709589c33fdfdd5cc6b5.jpg&quot;,
+  &quot;preferredShippingCarrier&quot;: &quot;FedEx&quot;,
+  &quot;nickName&quot;: &quot;The Professor&quot;
+}
+</code></pre></noscript></div>
+
 
 <p>Next time you have a critical resource you need to extend, be sure to think about this flat sub-resource pattern. You&rsquo;ll keep the complexity of your content from growing out of control, and avoid mixed security constraints in one operation.</p>
 ]]></content>
@@ -74,16 +122,64 @@
 
 <p>Let&rsquo;s look at a fictionalized set of API URIs/responses, utilizing JSON. We&rsquo;ll assume that we&rsquo;ve authenticated to our API with something like Oauth, so we have the security context of the API consumer.</p>
 
-<p>[gist id=5097281]</p>
+<div><script src='https://gist.github.com/5097281.js'></script>
+<noscript><pre><code>GET /widget/5
+
+{
+  &quot;id&quot;: 5,
+  &quot;code&quot;: &quot;abc123&quot;,
+  &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
 
 <p>While this is certainly a boring case, thus far it&rsquo;s semantically sound. However, we really don&rsquo;t know what else we can do with the &lsquo;widget&rsquo; we requested.</p>
 
-<p>[gist id=5097293]</p>
+<div><script src='https://gist.github.com/5097293.js'></script>
+<noscript><pre><code>(Login as poweruser)
+GET /widget/5
+
+{
+    &quot;links&quot;: [
+        {
+            &quot;rel&quot;: &quot;Create&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;POST&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        },
+        {
+            &quot;rel&quot;: &quot;List&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;GET&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        }
+    ],
+    &quot;id&quot;: 5,
+    &quot;code&quot;: &quot;abc123&quot;,
+    &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
 
 <p>Now we have a sense of what we&rsquo;re capable of by looking at the &lsquo;links&rsquo; object array. The first link tells me fairly clearly that I can &ldquo;create a Cog by POSTing to /widget/5/cogs&rdquo;. In addition, I can &ldquo;List Cogs by GETing /widget/5/cogs&rdquo;. Obviously there are a variety of potential naming conventions here, but the gist is simple: provide a relationship for the related link, what kind of resource that link is, and what verb+URI to get the job done.
 Our front-end developers can begin to provide actions/buttons for their users to act upon this &ldquo;create Cog&rdquo; link. Not only does the link indicate the capability to complete this action, it also provides the Verb+URI to make it possible. This provides our developers the opportunity to avoid hard-coding that URL, thereby reducing one more hard-coded dependency in their app.</p>
 
-<p>[gist id=5097295]</p>
+<div><script src='https://gist.github.com/5097295.js'></script>
+<noscript><pre><code>(Login as ViewOnlyUser)
+GET /widget/5
+
+{
+    &quot;links&quot;: [
+        {
+            &quot;rel&quot;: &quot;List&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;GET&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        }
+    ],
+    &quot;id&quot;: 5,
+    &quot;code&quot;: &quot;abc123&quot;,
+    &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
 
 <p>Note that when we login as a user with less privileges, we no longer have a link for &ldquo;create Cog&rdquo;. For our front-end developers, this should indicate that they would not provide GUI options for creating this related resource. This should provide a more consistent user experience, where we are not prompting them to take actions which we know will not work for them (thus avoiding trips back to the server for invalid operations/400s/500s).</p>
 
@@ -350,15 +446,64 @@ X-Content-Type-Options: nosniff
 
 <p>As a review, here is our feature file, for testing a basic portion of the public Twitter API. This time around, we&rsquo;ve added a few small differences, in the treatment of querystring parameters. This is meant show that there are various ways to describe your tests, not simply monolithic URLs.</p>
 
-<p>[gist id=4582935]</p>
+<div><script src='https://gist.github.com/4582935.js'></script>
+<noscript><pre><code>@Positive @Get @User
+Scenario: Show twitter user
+  Given I access the resource url &quot;/1/users/show.json&quot;
+        And I provide parameter &quot;screen_name&quot; as &quot;jasonh_n_austin&quot;
+        And I provide parameter &quot;include_entities&quot; as &quot;true&quot;
+    When I retrieve the results
+    Then the status code should be 200
+    And it should have the field &quot;name&quot; containing the value &quot;Jason Harmon&quot;
+    And it should have the field &quot;id&quot; containing the value &quot;57005215&quot;</code></pre></noscript></div>
+
 
 <p>This maps to steps in our RestTests.groovy file, which utilizes the RESTClient class to manage our GET. There are plenty of options out there for a web driver, RESTClient happens to be fairly well suited for our purposes.</p>
 
-<p>[gist id=4536191]</p>
+<div><script src='https://gist.github.com/4536191.js'></script>
+<noscript><pre><code>Given(~&quot;I access the resource url \&quot;([^\&quot;]*)\&quot;&quot;) { String url -&gt; 
+        resp = null
+        status = null
+
+        uri = new URIBuilder(host)        
+    path = url 
+}
+
+Given(~&quot;I provide parameter \&quot;([^\&quot;]*)\&quot; as \&quot;([^\&quot;]*)\&quot;&quot;) { String name, String value -&gt;
+    uri.addQueryParam name, value
+}
+
+When(~&quot;I retrieve the results&quot;) { -&gt;
+        try {
+        restClient = new RESTClient(uri.toString())
+                resp = restClient.get(path: path)
+        } catch (HttpResponseException ex) {
+        status = ex.getStatusCode()
+    }
+        if (resp != null) {
+        status = resp.status
+            assert ( resp.data instanceof net.sf.json.JSON )
+        assert resp.data.status.size() &gt; 0
+        parsed = resp.data
+        }
+}
+
+Then(~&quot;the status code should be (\\d+)&quot;) { int expectedStatusCode -&gt;
+    assert status == expectedStatusCode
+}
+
+Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&quot;(.*)\&quot;&quot;) { String field, String value -&gt;
+    assert parsed.&quot;${field}&quot;.toString().equals(value) 
+} </code></pre></noscript></div>
+
 
 <p>Most of this code is fairly self-explanatory. For those unexposed to the wonders of Groovy JSON handling (and XML as well), the function starting with &ldquo;it should have the field&rdquo; provides some interesting syntax:</p>
 
-<p>[gist id=4582955]</p>
+<div><script src='https://gist.github.com/4582955.js'></script>
+<noscript><pre><code>Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&quot;(.*)\&quot;&quot;) { String field, String value -&gt;
+  assert parsed.&quot;${field}&quot;.toString().equals(value)   
+} </code></pre></noscript></div>
+
 
 <p>The &lsquo;parsed&rsquo; variable holds the parsed JSON data. As we have extracted the &lsquo;field&rsquo; variable , we can use a closure to dynamically evaluate whether that field exists in the results.</p>
 
@@ -392,7 +537,15 @@ X-Content-Type-Options: nosniff
 
 <p>Behavioral Driven Development approaches acceptance testing by using plain english expression as the interface for the tests. This approach lends itself well to explaining the behavior of your RESTful resource in Domain Specific Language, i.e. your own business lingo. Here&rsquo;s an example of what a typical scenario definition might look like for a REST test:</p>
 
-<p>[gist id=4521824]</p>
+<div><script src='https://gist.github.com/4521824.js'></script>
+<noscript><pre><code>@Positive @Get @User
+Scenario: Show twitter user
+  Given I access the resource url &quot;/1/users/show.json?screen_name=jasonh_n_austin&amp;include_entities=true&quot;
+  When I retrieve the results
+  Then the status code should be 200
+  And it should have the field &quot;name&quot; containing the value &quot;Jason Harmon&quot;
+  And it should have the field &quot;id&quot; containing the value &quot;57005215&quot;</code></pre></noscript></div>
+
 
 <p>The above example (functional in the <a href="https://github.com/jasonh-n-austin/TwitterRestTests/blob/master/TwitterRestTests/User.feature">Github</a> project) provides a rudimentary GET test on Twitter&rsquo;s public, no authorization required API. Obviously in authenticated scenarios this would look a bit more complex.</p>
 
@@ -402,15 +555,67 @@ X-Content-Type-Options: nosniff
 
 <p>The &lsquo;step definitions&rsquo; form the code behind the &lsquo;feature&rsquo; file you see above. An example of the step &ldquo;I retrieve the results&rdquo; follows:</p>
 
-<p>[gist id=4521814]</p>
+<div><script src='https://gist.github.com/4521814.js'></script>
+<noscript><pre><code>[Binding]
+public class RestTestSteps
+{
+  private string url;
+  private string content;
+  private WebClient wc = new WebClient();
+  JObject response;
+  HttpStatusCode httpStatus;
+  
+  [Given(@&quot;I access the resource url &quot;&quot;(.*)&quot;&quot;&quot;)]
+  public void GivenIAccessTheResourceUrl(string resourceUrl)
+  {
+  this.url = &quot;https://api.twitter.com&quot; + resourceUrl;
+  }
+  
+  [When(@&quot;I retrieve the results&quot;)]
+  public void WhenRetrieveTheResults()
+  {
+    try
+    {
+      this.content = wc.DownloadString(url);
+      this.httpStatus = HttpStatusCode.OK;
+    }
+    catch (WebException we)
+    {
+      this.httpStatus = ((HttpWebResponse)we.Response).StatusCode;
+    }
+    if (this.httpStatus.Equals(HttpStatusCode.OK))
+    {
+      Assert.IsNotNullOrEmpty(this.content);
+      this.response = (JObject)JToken.Parse(this.content);
+    }
+  }</code></pre></noscript></div>
+
 
 <p>The attribute &lsquo;When&rsquo; defines the regular expression match which matches steps in the feature files. In this case, a simplistic use of the WebClient class provides us with a means to interact with the REST API. Once the interactions have taken place, assertions can take place based on status code, initially:</p>
 
-<p><code>[gist id=4521797]</code></p>
+<div><script src='https://gist.github.com/4521797.js'></script>
+<noscript><pre><code>[Then(@&quot;the status code should be (.*)&quot;)]
+public void ThenTheStatusCodeShouldBe(int statusCode)
+{
+  Assert.AreEqual(statusCode, (int)this.httpStatus);
+}</code></pre></noscript></div>
+
 
 <p>Using JSON.NET, we can parse the result content and verify specific fields and values:</p>
 
-<p><code>[gist id=4521805]</code></p>
+<div><script src='https://gist.github.com/4521805.js'></script>
+<noscript><pre><code>[Then(@&quot;it should have the field &quot;&quot;(.*)&quot;&quot; containing the value &quot;&quot;(.*)&quot;&quot;&quot;)]
+public void ThenItShouldContainTheFieldContainingTheValue(string field, string value)
+  {
+    if (response != null)
+    {
+      JValue val = (JValue)this.response.GetValue(field);
+      string valStr = val.Value().Trim();
+      Assert.IsNotNull(valStr);
+      Assert.AreEqual(valStr, value.Trim());
+    }
+}</code></pre></noscript></div>
+
 
 <p>Of course, these concepts can be taken further to test more details about all aspects of a RESTful API. Of course, the complexity of POST &amp; PUT are going to be more complex and will take some forethought on the approach. Hopefully this will get your thought process starting on how the BDD approach will fit into your acceptance testing strategies for your REST API.</p>
 

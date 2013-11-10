@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Architecture | Pragmatic API]]></title>
   <link href="http://jasonh-n-austin.github.io/blog/categories/architecture/atom.xml" rel="self"/>
   <link href="http://jasonh-n-austin.github.io/"/>
-  <updated>2013-11-09T20:56:30-06:00</updated>
+  <updated>2013-11-09T21:23:01-06:00</updated>
   <id>http://jasonh-n-austin.github.io/</id>
   <author>
     <name><![CDATA[Jason Harmon]]></name>
@@ -34,25 +34,73 @@
 
 <p><em>NOTE: Authentication is assumed in the following examples, for brevity.</em></p>
 
-<p>[gist id=5234609]</p>
+<p><div><script src='https://gist.github.com/5234609.js'></script>
+<noscript><pre><code>GET /users/321
+200 OK
+{
+  &quot;id&quot;: 321,
+  &quot;username&quot;: &quot;jhrmn&quot;,
+  &quot;firstName&quot;: &quot;Jason&quot;,
+  &quot;lastName&quot;: &quot;Harmon&quot;,
+  &quot;userType&quot;: &quot;read-only&quot;
+  &quot;status&quot;: &quot;active&quot;
+}</code></pre></noscript></div>
+</p>
 
 <p>It is often the case that we want to maintain a different level of control around a user account than the user&rsquo;s profile. The details of this account might not be made available for the user to change. In our fictional user, the access level/user type is &lsquo;read-only&rsquo;. If I tried to update this user, I might not be permitted.</p>
 
-<p>[gist id=5234612]</p>
+<p><div><script src='https://gist.github.com/5234612.js'></script>
+<noscript><pre><code>PUT /users/321
+{
+  &quot;id&quot;: 321,
+  &quot;username&quot;: &quot;jason.harmon&quot;,
+  &quot;firstName&quot;: &quot;Jason&quot;,
+  &quot;lastName&quot;: &quot;Harmon&quot;,
+  &quot;userType&quot;: &quot;read-only&quot;
+  &quot;status&quot;: &quot;active&quot;
+}
+
+403 Forbidden</code></pre></noscript></div>
+</p>
 
 <p>However, we might want to provide this user with an update-able profile, that other users can view. When we first touch the profile on a newly created account, it might not be populated in the backend. However, we want to provide the notion that a user profile always exists for a user account, even if they haven&rsquo;t yet updated it. In some cases, there might be calculated fields or other pre-populated data when we first access the sub-resource.</p>
 
-<p>[gist id=5234615]</p>
+<p><div><script src='https://gist.github.com/5234615.js'></script>
+<noscript><pre><code>GET /users/321/profile
+200 OK
+{
+  &quot;feedback&quot;: 0
+}
+</code></pre></noscript></div>
+</p>
 
 <p>Note that the naming on this URI is singular, &lsquo;profile&rsquo;, not &lsquo;profiles&rsquo;. While I recommend pluralized naming convention for CRUD-style resources (notice &lsquo;users&rsquo;), a sub-resource like this will never be plural. There is a flat 1-to-1 relationship between the selected user and the profile.</p>
 
 <p>Now that we&rsquo;ve recognized the user&rsquo;s profile is basically empty, we can PUT some data to update it.</p>
 
-<p>[gist id=5234620]</p>
+<p><div><script src='https://gist.github.com/5234620.js'></script>
+<noscript><pre><code>PUT /users/321/profile
+{
+  &quot;feedback&quot;: 0,
+  &quot;photo&quot;: &quot;https://en.gravatar.com/userimage/11130470/deba6005e5c4709589c33fdfdd5cc6b5.jpg&quot;,
+  &quot;preferredShippingCarrier&quot;: &quot;FedEx&quot;,
+  &quot;nickName&quot;: &quot;El Gran Bigote&quot;
+}
+
+204 No Content</code></pre></noscript></div>
+</p>
 
 <p>Note that if the update was successful, we reply with a 204; no need to provide any more context than that. Now we can retrieve this sub-resource, and see that it matches what we provided.</p>
 
-<p>[gist id=5234622]</p>
+<p><div><script src='https://gist.github.com/5234622.js'></script>
+<noscript><pre><code>GET /users/321/profile
+{
+  &quot;photo&quot;: &quot;https://en.gravatar.com/userimage/11130470/deba6005e5c4709589c33fdfdd5cc6b5.jpg&quot;,
+  &quot;preferredShippingCarrier&quot;: &quot;FedEx&quot;,
+  &quot;nickName&quot;: &quot;The Professor&quot;
+}
+</code></pre></noscript></div>
+</p>
 
 <p>Next time you have a critical resource you need to extend, be sure to think about this flat sub-resource pattern. You&rsquo;ll keep the complexity of your content from growing out of control, and avoid mixed security constraints in one operation.</p>
 ]]></content>
@@ -74,16 +122,64 @@
 
 <p>Let&rsquo;s look at a fictionalized set of API URIs/responses, utilizing JSON. We&rsquo;ll assume that we&rsquo;ve authenticated to our API with something like Oauth, so we have the security context of the API consumer.</p>
 
-<p>[gist id=5097281]</p>
+<p><div><script src='https://gist.github.com/5097281.js'></script>
+<noscript><pre><code>GET /widget/5
+
+{
+  &quot;id&quot;: 5,
+  &quot;code&quot;: &quot;abc123&quot;,
+  &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+</p>
 
 <p>While this is certainly a boring case, thus far it&rsquo;s semantically sound. However, we really don&rsquo;t know what else we can do with the &lsquo;widget&rsquo; we requested.</p>
 
-<p>[gist id=5097293]</p>
+<p><div><script src='https://gist.github.com/5097293.js'></script>
+<noscript><pre><code>(Login as poweruser)
+GET /widget/5
+
+{
+    &quot;links&quot;: [
+        {
+            &quot;rel&quot;: &quot;Create&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;POST&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        },
+        {
+            &quot;rel&quot;: &quot;List&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;GET&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        }
+    ],
+    &quot;id&quot;: 5,
+    &quot;code&quot;: &quot;abc123&quot;,
+    &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+</p>
 
 <p>Now we have a sense of what we&rsquo;re capable of by looking at the &lsquo;links&rsquo; object array. The first link tells me fairly clearly that I can &ldquo;create a Cog by POSTing to /widget/5/cogs&rdquo;. In addition, I can &ldquo;List Cogs by GETing /widget/5/cogs&rdquo;. Obviously there are a variety of potential naming conventions here, but the gist is simple: provide a relationship for the related link, what kind of resource that link is, and what verb+URI to get the job done.
 Our front-end developers can begin to provide actions/buttons for their users to act upon this &ldquo;create Cog&rdquo; link. Not only does the link indicate the capability to complete this action, it also provides the Verb+URI to make it possible. This provides our developers the opportunity to avoid hard-coding that URL, thereby reducing one more hard-coded dependency in their app.</p>
 
-<p>[gist id=5097295]</p>
+<p><div><script src='https://gist.github.com/5097295.js'></script>
+<noscript><pre><code>(Login as ViewOnlyUser)
+GET /widget/5
+
+{
+    &quot;links&quot;: [
+        {
+            &quot;rel&quot;: &quot;List&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;GET&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        }
+    ],
+    &quot;id&quot;: 5,
+    &quot;code&quot;: &quot;abc123&quot;,
+    &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+</p>
 
 <p>Note that when we login as a user with less privileges, we no longer have a link for &ldquo;create Cog&rdquo;. For our front-end developers, this should indicate that they would not provide GUI options for creating this related resource. This should provide a more consistent user experience, where we are not prompting them to take actions which we know will not work for them (thus avoiding trips back to the server for invalid operations/400s/500s).</p>
 

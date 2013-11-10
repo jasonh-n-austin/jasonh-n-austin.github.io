@@ -102,16 +102,64 @@
 
 <p>Let&rsquo;s look at a fictionalized set of API URIs/responses, utilizing JSON. We&rsquo;ll assume that we&rsquo;ve authenticated to our API with something like Oauth, so we have the security context of the API consumer.</p>
 
-<p>[gist id=5097281]</p>
+<div><script src='https://gist.github.com/5097281.js'></script>
+<noscript><pre><code>GET /widget/5
+
+{
+  &quot;id&quot;: 5,
+  &quot;code&quot;: &quot;abc123&quot;,
+  &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
 
 <p>While this is certainly a boring case, thus far it&rsquo;s semantically sound. However, we really don&rsquo;t know what else we can do with the &lsquo;widget&rsquo; we requested.</p>
 
-<p>[gist id=5097293]</p>
+<div><script src='https://gist.github.com/5097293.js'></script>
+<noscript><pre><code>(Login as poweruser)
+GET /widget/5
+
+{
+    &quot;links&quot;: [
+        {
+            &quot;rel&quot;: &quot;Create&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;POST&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        },
+        {
+            &quot;rel&quot;: &quot;List&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;GET&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        }
+    ],
+    &quot;id&quot;: 5,
+    &quot;code&quot;: &quot;abc123&quot;,
+    &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
 
 <p>Now we have a sense of what we&rsquo;re capable of by looking at the &lsquo;links&rsquo; object array. The first link tells me fairly clearly that I can &ldquo;create a Cog by POSTing to /widget/5/cogs&rdquo;. In addition, I can &ldquo;List Cogs by GETing /widget/5/cogs&rdquo;. Obviously there are a variety of potential naming conventions here, but the gist is simple: provide a relationship for the related link, what kind of resource that link is, and what verb+URI to get the job done.
 Our front-end developers can begin to provide actions/buttons for their users to act upon this &ldquo;create Cog&rdquo; link. Not only does the link indicate the capability to complete this action, it also provides the Verb+URI to make it possible. This provides our developers the opportunity to avoid hard-coding that URL, thereby reducing one more hard-coded dependency in their app.</p>
 
-<p>[gist id=5097295]</p>
+<div><script src='https://gist.github.com/5097295.js'></script>
+<noscript><pre><code>(Login as ViewOnlyUser)
+GET /widget/5
+
+{
+    &quot;links&quot;: [
+        {
+            &quot;rel&quot;: &quot;List&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;GET&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        }
+    ],
+    &quot;id&quot;: 5,
+    &quot;code&quot;: &quot;abc123&quot;,
+    &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
 
 <p>Note that when we login as a user with less privileges, we no longer have a link for &ldquo;create Cog&rdquo;. For our front-end developers, this should indicate that they would not provide GUI options for creating this related resource. This should provide a more consistent user experience, where we are not prompting them to take actions which we know will not work for them (thus avoiding trips back to the server for invalid operations/400s/500s).</p>
 

@@ -104,7 +104,15 @@
 
 <p>Behavioral Driven Development approaches acceptance testing by using plain english expression as the interface for the tests. This approach lends itself well to explaining the behavior of your RESTful resource in Domain Specific Language, i.e. your own business lingo. Here&rsquo;s an example of what a typical scenario definition might look like for a REST test:</p>
 
-<p>[gist id=4521824]</p>
+<div><script src='https://gist.github.com/4521824.js'></script>
+<noscript><pre><code>@Positive @Get @User
+Scenario: Show twitter user
+  Given I access the resource url &quot;/1/users/show.json?screen_name=jasonh_n_austin&amp;include_entities=true&quot;
+  When I retrieve the results
+  Then the status code should be 200
+  And it should have the field &quot;name&quot; containing the value &quot;Jason Harmon&quot;
+  And it should have the field &quot;id&quot; containing the value &quot;57005215&quot;</code></pre></noscript></div>
+
 
 <p>The above example (functional in the <a href="https://github.com/jasonh-n-austin/TwitterRestTests/blob/master/TwitterRestTests/User.feature">Github</a> project) provides a rudimentary GET test on Twitter&rsquo;s public, no authorization required API. Obviously in authenticated scenarios this would look a bit more complex.</p>
 
@@ -114,15 +122,67 @@
 
 <p>The &lsquo;step definitions&rsquo; form the code behind the &lsquo;feature&rsquo; file you see above. An example of the step &ldquo;I retrieve the results&rdquo; follows:</p>
 
-<p>[gist id=4521814]</p>
+<div><script src='https://gist.github.com/4521814.js'></script>
+<noscript><pre><code>[Binding]
+public class RestTestSteps
+{
+  private string url;
+  private string content;
+  private WebClient wc = new WebClient();
+  JObject response;
+  HttpStatusCode httpStatus;
+  
+  [Given(@&quot;I access the resource url &quot;&quot;(.*)&quot;&quot;&quot;)]
+  public void GivenIAccessTheResourceUrl(string resourceUrl)
+  {
+  this.url = &quot;https://api.twitter.com&quot; + resourceUrl;
+  }
+  
+  [When(@&quot;I retrieve the results&quot;)]
+  public void WhenRetrieveTheResults()
+  {
+    try
+    {
+      this.content = wc.DownloadString(url);
+      this.httpStatus = HttpStatusCode.OK;
+    }
+    catch (WebException we)
+    {
+      this.httpStatus = ((HttpWebResponse)we.Response).StatusCode;
+    }
+    if (this.httpStatus.Equals(HttpStatusCode.OK))
+    {
+      Assert.IsNotNullOrEmpty(this.content);
+      this.response = (JObject)JToken.Parse(this.content);
+    }
+  }</code></pre></noscript></div>
+
 
 <p>The attribute &lsquo;When&rsquo; defines the regular expression match which matches steps in the feature files. In this case, a simplistic use of the WebClient class provides us with a means to interact with the REST API. Once the interactions have taken place, assertions can take place based on status code, initially:</p>
 
-<p><code>[gist id=4521797]</code></p>
+<div><script src='https://gist.github.com/4521797.js'></script>
+<noscript><pre><code>[Then(@&quot;the status code should be (.*)&quot;)]
+public void ThenTheStatusCodeShouldBe(int statusCode)
+{
+  Assert.AreEqual(statusCode, (int)this.httpStatus);
+}</code></pre></noscript></div>
+
 
 <p>Using JSON.NET, we can parse the result content and verify specific fields and values:</p>
 
-<p><code>[gist id=4521805]</code></p>
+<div><script src='https://gist.github.com/4521805.js'></script>
+<noscript><pre><code>[Then(@&quot;it should have the field &quot;&quot;(.*)&quot;&quot; containing the value &quot;&quot;(.*)&quot;&quot;&quot;)]
+public void ThenItShouldContainTheFieldContainingTheValue(string field, string value)
+  {
+    if (response != null)
+    {
+      JValue val = (JValue)this.response.GetValue(field);
+      string valStr = val.Value().Trim();
+      Assert.IsNotNull(valStr);
+      Assert.AreEqual(valStr, value.Trim());
+    }
+}</code></pre></noscript></div>
+
 
 <p>Of course, these concepts can be taken further to test more details about all aspects of a RESTful API. Of course, the complexity of POST &amp; PUT are going to be more complex and will take some forethought on the approach. Hopefully this will get your thought process starting on how the BDD approach will fit into your acceptance testing strategies for your REST API.</p>
 
