@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>BDD / ATDD for your Agile REST API - Pragmatic API</title>
+  <meta name="author" content="Jason Harmon">
+
+  
+  <meta name="description" content="In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jasonh-n-austin.github.io/2013/01/11/bdd-atdd-for-your-agile-rest-api">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Pragmatic API" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Pragmatic API</a></h1>
+  
+    <h2>Exploring the world of Web APIs, REST, and BDD.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jasonh-n-austin.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">BDD / ATDD for Your Agile REST API</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-11T21:36:31-06:00" pubdate data-updated="true">Jan 11<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often following TDD-oriented practices. In agile terms, stakeholders and product owners often never see or grasp what&rsquo;s being tested. Within the unit testing and integration testing tiers, this tends to make sense. However <a href="http://en.wikipedia.org/wiki/Behavior-driven_development">Behavioral Driven Development</a> (aka Acceptance Test Driven Development) begins with acceptance criteria definition and finishes with the acceptance of a story, providing engagement for all members of an agile team from start to finish.</p>
+
+<!-- more -->
+
+
+<p><em>NOTE: All code from this post is on github: <a href="https://github.com/jasonh-n-austin/TwitterRestTests">https://github.com/jasonh-n-austin/TwitterRestTests</a>.</em></p>
+
+<p>In the world of defining acceptance criteria for API development, this approach can be very useful. For those of us on dedicated API teams who have tried to utilize Agile demos using SoapUI or the like, we know the cold dead eyes of bored stakeholders and product owners. It&rsquo;s hard to think about adding value to your business domain when we&rsquo;re all staring at URLs, headers, and status codes. However, the alternative of never showing anyone in the business how your API works certainly loses a depth of understanding that is requisite in today&rsquo;s web platforms.</p>
+
+<p>In some cases, a pervasive culture of <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD/Test-Driven Development</a> can provide the only practice providing cohesion between developers and business. If anything, business folks might understand terms like &ldquo;code coverage&rdquo; or &ldquo;test case&rdquo;, but really have to trust that the developer has built adequate testing when they accept the quality of new features.</p>
+
+<p>Behavioral Driven Development approaches acceptance testing by using plain english expression as the interface for the tests. This approach lends itself well to explaining the behavior of your RESTful resource in Domain Specific Language, i.e. your own business lingo. Here&rsquo;s an example of what a typical scenario definition might look like for a REST test:</p>
+
+<p>[gist id=4521824]</p>
+
+<p>The above example (functional in the <a href="https://github.com/jasonh-n-austin/TwitterRestTests/blob/master/TwitterRestTests/User.feature">Github</a> project) provides a rudimentary GET test on Twitter&rsquo;s public, no authorization required API. Obviously in authenticated scenarios this would look a bit more complex.</p>
+
+<p>These semantics are fairly easy to understand, and provide some means to abstract away the complexities of testing. In addition, if there are standards within the API platform that need to be verified, that can be addressed within underlying testing code, without re-establishing all of the standards in every test.</p>
+
+<p>Note the tags (delineated by the &ldquo;@&rdquo; symbol). This provides a means to provide some logical groupings by which to call various resources+verbs.</p>
+
+<p>The &lsquo;step definitions&rsquo; form the code behind the &lsquo;feature&rsquo; file you see above. An example of the step &ldquo;I retrieve the results&rdquo; follows:</p>
+
+<p>[gist id=4521814]</p>
+
+<p>The attribute &lsquo;When&rsquo; defines the regular expression match which matches steps in the feature files. In this case, a simplistic use of the WebClient class provides us with a means to interact with the REST API. Once the interactions have taken place, assertions can take place based on status code, initially:</p>
+
+<p><code>[gist id=4521797]</code></p>
+
+<p>Using JSON.NET, we can parse the result content and verify specific fields and values:</p>
+
+<p><code>[gist id=4521805]</code></p>
+
+<p>Of course, these concepts can be taken further to test more details about all aspects of a RESTful API. Of course, the complexity of POST &amp; PUT are going to be more complex and will take some forethought on the approach. Hopefully this will get your thought process starting on how the BDD approach will fit into your acceptance testing strategies for your REST API.</p>
+
+<p>Once you have a test suite developed, and your team engaged in defining BDD-based acceptance criteria and running tests, you should immediately look to get integrated into a <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> server such as TeamCity or Jenkins.</p>
+
+<p><em> </em></p>
+
+<p><em>All samples utilize , a .NET-based BDD framework. These same concepts would work equally well with <a href="http://cukes.info/">Cucumber</a>, <a href="https://github.com/cucumber/cucumber-jvm">Cucumber-JVM</a>, or any <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin</a> &ndash; based framework.</em></p>
+
+<p>For SpecFlow installation in VS2012, please refer to the documentation: <a href="https://github.com/techtalk/SpecFlow/wiki/Install-IDE-Installation">https://github.com/techtalk/SpecFlow/wiki/Install-IDE-Installation</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">jhrmn</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-11T21:36:31-06:00" pubdate data-updated="true">Jan 11<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/testing-automation/'>Testing Automation</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jasonh-n-austin.github.io/2013/01/11/bdd-atdd-for-your-agile-rest-api/" data-via="" data-counturl="http://jasonh-n-austin.github.io/2013/01/11/bdd-atdd-for-your-agile-rest-api/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/" title="Previous Post: REST Roadmap - Upgrading in the Richardson Maturity Model">&laquo; REST Roadmap - Upgrading in the Richardson Maturity Model</a>
+      
+      
+        <a class="basic-alignment right" href="/2013/01/20/bdd-atdd-for-your-agile-rest-api-part-2/" title="Next Post: BDD / ATDD for your Agile REST API, part 2">BDD / ATDD for your Agile REST API, part 2 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/03/25/extend-your-crud-http-api-with-sub-resources/">Extend Your CRUD HTTP API With Sub-resources</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/03/06/rest-roadmap-hypermedia-for-permissions/">REST Roadmap - API Hypermedia for Permissions Patterns</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/28/api-makersconsumers-do-you-sometimes-feel-like-no-one-really-gets-you/">#API Makers/consumers: Do You Sometimes Feel Like No One Really Gets You?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012/">API Slides and Retros Collected From Twitter #apistrat #NYC 2013</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/13/restful-patterns-for-the-head-verb/">RESTful Patterns for the HEAD Verb</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jason Harmon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

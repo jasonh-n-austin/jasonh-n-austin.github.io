@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Testing Automation | Pragmatic API]]></title>
+  <link href="http://jasonh-n-austin.github.io/blog/categories/testing-automation/atom.xml" rel="self"/>
+  <link href="http://jasonh-n-austin.github.io/"/>
+  <updated>2013-11-09T20:38:43-06:00</updated>
+  <id>http://jasonh-n-austin.github.io/</id>
+  <author>
+    <name><![CDATA[Jason Harmon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[BDD / ATDD for your Agile REST API, part 2]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/01/20/bdd-atdd-for-your-agile-rest-api-part-2/"/>
+    <updated>2013-01-20T19:30:27-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/01/20/bdd-atdd-for-your-agile-rest-api-part-2</id>
+    <content type="html"><![CDATA[<p>Part 1: <a href="http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/">http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/</a></p>
+
+<p>I recently covered how BDD principles can provide a great touch stone for acceptance testing in REST-based API platforms. In this brief followup, I&rsquo;ll show how the Cucumber-JVM framework provides all of the same functionality that we saw in .NET&rsquo;s SpecFlow, using the Groovy programming language.</p>
+
+<!-- more -->
+
+
+<p>Code for this example can be found on <a href="https://github.com/jasonh-n-austin/TwitterRestTestsGroovy">Github</a>. This should provide you with a working example of BDD testing the Twitter API using Cucumber-JVM, Gradle, and Groovy.</p>
+
+<p>Much like the CLR in .NET, we can use the JVM to provide access to a variety of programming languages. JUnit tests can be developed with Cucumber-JVM, looking almost just like the NUnit-based SpecFlow tests in Part 1. However, this example will show how JUnit, and thereby, any unit testing framework, doesn&rsquo;t necessarily need to be utilized.</p>
+
+<p>Using groovy command-line based invocation of Cucumber tests can be very useful in scenarios where there is interoperability with other Groovy-based tools, namely SoapUI (commonly used in QA web services testing). It is easily possible to create classes which encapsulate the logic necessary to test your API, providing hooks for your Cucumber tests alongside SoapUI, or any other Groovy-based tools.</p>
+
+<p>It is easily arguable that Groovy is well suited for this task. Groovy has some great features like the built in JsonSlurper, great library support (such as the excellent utility <a href="http://groovy.codehaus.org/modules/http-builder/doc/rest.html">RESTClient</a> library), and dynamic ability to walk JSON &amp; XML data.</p>
+
+<p>As a review, here is our feature file, for testing a basic portion of the public Twitter API. This time around, we&rsquo;ve added a few small differences, in the treatment of querystring parameters. This is meant show that there are various ways to describe your tests, not simply monolithic URLs.</p>
+
+<p>[gist id=4582935]</p>
+
+<p>This maps to steps in our RestTests.groovy file, which utilizes the RESTClient class to manage our GET. There are plenty of options out there for a web driver, RESTClient happens to be fairly well suited for our purposes.</p>
+
+<p>[gist id=4536191]</p>
+
+<p>Most of this code is fairly self-explanatory. For those unexposed to the wonders of Groovy JSON handling (and XML as well), the function starting with &ldquo;it should have the field&rdquo; provides some interesting syntax:</p>
+
+<p>[gist id=4582955]</p>
+
+<p>The &lsquo;parsed&rsquo; variable holds the parsed JSON data. As we have extracted the &lsquo;field&rsquo; variable , we can use a closure to dynamically evaluate whether that field exists in the results.</p>
+
+<p>When we run <strong><em>&ldquo;gradle &mdash;quiet cucumber&rdquo;</em></strong>, we see the following output.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658828/groovy_cucumber_twitter_lpg6yj.png" alt="" /></p>
+
+<p>Overall, compared to either Java or C#, we end up with some very terse code using Groovy. While the difference is not stark with this very simple example, the delta will start to widen as the complexity increases, especially when complex response validation comes into play. In addition, Groovy has some great built-in libraries for building up JSON data, which can be very useful when testing PUT &amp; POST scenarios.</p>
+
+<p>While the Gherkin syntax that SpecFlow and Cucumber-JVM share give us a fundamental link, the BDD premises in defining steps in plain English are really the most powerful aspect, regardless of technology. RESTful API testing can be very daunting with many of the commercial and open source tools available; it is my opinion that BDD/Cucumber based testing is a natural fit. Hopefully you&rsquo;ll find the same to be true after working with the examples in this article and the preceding article.</p>
+
+<p>Happy testing!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BDD / ATDD for your Agile REST API]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/01/11/bdd-atdd-for-your-agile-rest-api/"/>
+    <updated>2013-01-11T21:36:31-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/01/11/bdd-atdd-for-your-agile-rest-api</id>
+    <content type="html"><![CDATA[<p>In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often following TDD-oriented practices. In agile terms, stakeholders and product owners often never see or grasp what&rsquo;s being tested. Within the unit testing and integration testing tiers, this tends to make sense. However <a href="http://en.wikipedia.org/wiki/Behavior-driven_development">Behavioral Driven Development</a> (aka Acceptance Test Driven Development) begins with acceptance criteria definition and finishes with the acceptance of a story, providing engagement for all members of an agile team from start to finish.</p>
+
+<!-- more -->
+
+
+<p><em>NOTE: All code from this post is on github: <a href="https://github.com/jasonh-n-austin/TwitterRestTests">https://github.com/jasonh-n-austin/TwitterRestTests</a>.</em></p>
+
+<p>In the world of defining acceptance criteria for API development, this approach can be very useful. For those of us on dedicated API teams who have tried to utilize Agile demos using SoapUI or the like, we know the cold dead eyes of bored stakeholders and product owners. It&rsquo;s hard to think about adding value to your business domain when we&rsquo;re all staring at URLs, headers, and status codes. However, the alternative of never showing anyone in the business how your API works certainly loses a depth of understanding that is requisite in today&rsquo;s web platforms.</p>
+
+<p>In some cases, a pervasive culture of <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD/Test-Driven Development</a> can provide the only practice providing cohesion between developers and business. If anything, business folks might understand terms like &ldquo;code coverage&rdquo; or &ldquo;test case&rdquo;, but really have to trust that the developer has built adequate testing when they accept the quality of new features.</p>
+
+<p>Behavioral Driven Development approaches acceptance testing by using plain english expression as the interface for the tests. This approach lends itself well to explaining the behavior of your RESTful resource in Domain Specific Language, i.e. your own business lingo. Here&rsquo;s an example of what a typical scenario definition might look like for a REST test:</p>
+
+<p>[gist id=4521824]</p>
+
+<p>The above example (functional in the <a href="https://github.com/jasonh-n-austin/TwitterRestTests/blob/master/TwitterRestTests/User.feature">Github</a> project) provides a rudimentary GET test on Twitter&rsquo;s public, no authorization required API. Obviously in authenticated scenarios this would look a bit more complex.</p>
+
+<p>These semantics are fairly easy to understand, and provide some means to abstract away the complexities of testing. In addition, if there are standards within the API platform that need to be verified, that can be addressed within underlying testing code, without re-establishing all of the standards in every test.</p>
+
+<p>Note the tags (delineated by the &ldquo;@&rdquo; symbol). This provides a means to provide some logical groupings by which to call various resources+verbs.</p>
+
+<p>The &lsquo;step definitions&rsquo; form the code behind the &lsquo;feature&rsquo; file you see above. An example of the step &ldquo;I retrieve the results&rdquo; follows:</p>
+
+<p>[gist id=4521814]</p>
+
+<p>The attribute &lsquo;When&rsquo; defines the regular expression match which matches steps in the feature files. In this case, a simplistic use of the WebClient class provides us with a means to interact with the REST API. Once the interactions have taken place, assertions can take place based on status code, initially:</p>
+
+<p><code>[gist id=4521797]</code></p>
+
+<p>Using JSON.NET, we can parse the result content and verify specific fields and values:</p>
+
+<p><code>[gist id=4521805]</code></p>
+
+<p>Of course, these concepts can be taken further to test more details about all aspects of a RESTful API. Of course, the complexity of POST &amp; PUT are going to be more complex and will take some forethought on the approach. Hopefully this will get your thought process starting on how the BDD approach will fit into your acceptance testing strategies for your REST API.</p>
+
+<p>Once you have a test suite developed, and your team engaged in defining BDD-based acceptance criteria and running tests, you should immediately look to get integrated into a <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> server such as TeamCity or Jenkins.</p>
+
+<p><em> </em></p>
+
+<p><em>All samples utilize , a .NET-based BDD framework. These same concepts would work equally well with <a href="http://cukes.info/">Cucumber</a>, <a href="https://github.com/cucumber/cucumber-jvm">Cucumber-JVM</a>, or any <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin</a> &ndash; based framework.</em></p>
+
+<p>For SpecFlow installation in VS2012, please refer to the documentation: <a href="https://github.com/techtalk/SpecFlow/wiki/Install-IDE-Installation">https://github.com/techtalk/SpecFlow/wiki/Install-IDE-Installation</a></p>
+]]></content>
+  </entry>
+  
+</feed>

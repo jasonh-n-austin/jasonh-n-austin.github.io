@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>BDD / ATDD for your Agile REST API, part 2 - Pragmatic API</title>
+  <meta name="author" content="Jason Harmon">
+
+  
+  <meta name="description" content="Part 1: http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/ I recently covered how BDD principles can provide a great touch stone &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jasonh-n-austin.github.io/2013/01/20/bdd-atdd-for-your-agile-rest-api-part-2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Pragmatic API" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Pragmatic API</a></h1>
+  
+    <h2>Exploring the world of Web APIs, REST, and BDD.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jasonh-n-austin.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">BDD / ATDD for Your Agile REST API, Part 2</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-20T19:30:27-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Part 1: <a href="http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/">http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/</a></p>
+
+<p>I recently covered how BDD principles can provide a great touch stone for acceptance testing in REST-based API platforms. In this brief followup, I&rsquo;ll show how the Cucumber-JVM framework provides all of the same functionality that we saw in .NET&rsquo;s SpecFlow, using the Groovy programming language.</p>
+
+<!-- more -->
+
+
+<p>Code for this example can be found on <a href="https://github.com/jasonh-n-austin/TwitterRestTestsGroovy">Github</a>. This should provide you with a working example of BDD testing the Twitter API using Cucumber-JVM, Gradle, and Groovy.</p>
+
+<p>Much like the CLR in .NET, we can use the JVM to provide access to a variety of programming languages. JUnit tests can be developed with Cucumber-JVM, looking almost just like the NUnit-based SpecFlow tests in Part 1. However, this example will show how JUnit, and thereby, any unit testing framework, doesn&rsquo;t necessarily need to be utilized.</p>
+
+<p>Using groovy command-line based invocation of Cucumber tests can be very useful in scenarios where there is interoperability with other Groovy-based tools, namely SoapUI (commonly used in QA web services testing). It is easily possible to create classes which encapsulate the logic necessary to test your API, providing hooks for your Cucumber tests alongside SoapUI, or any other Groovy-based tools.</p>
+
+<p>It is easily arguable that Groovy is well suited for this task. Groovy has some great features like the built in JsonSlurper, great library support (such as the excellent utility <a href="http://groovy.codehaus.org/modules/http-builder/doc/rest.html">RESTClient</a> library), and dynamic ability to walk JSON &amp; XML data.</p>
+
+<p>As a review, here is our feature file, for testing a basic portion of the public Twitter API. This time around, we&rsquo;ve added a few small differences, in the treatment of querystring parameters. This is meant show that there are various ways to describe your tests, not simply monolithic URLs.</p>
+
+<p>[gist id=4582935]</p>
+
+<p>This maps to steps in our RestTests.groovy file, which utilizes the RESTClient class to manage our GET. There are plenty of options out there for a web driver, RESTClient happens to be fairly well suited for our purposes.</p>
+
+<p>[gist id=4536191]</p>
+
+<p>Most of this code is fairly self-explanatory. For those unexposed to the wonders of Groovy JSON handling (and XML as well), the function starting with &ldquo;it should have the field&rdquo; provides some interesting syntax:</p>
+
+<p>[gist id=4582955]</p>
+
+<p>The &lsquo;parsed&rsquo; variable holds the parsed JSON data. As we have extracted the &lsquo;field&rsquo; variable , we can use a closure to dynamically evaluate whether that field exists in the results.</p>
+
+<p>When we run <strong><em>&ldquo;gradle &mdash;quiet cucumber&rdquo;</em></strong>, we see the following output.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658828/groovy_cucumber_twitter_lpg6yj.png" alt="" /></p>
+
+<p>Overall, compared to either Java or C#, we end up with some very terse code using Groovy. While the difference is not stark with this very simple example, the delta will start to widen as the complexity increases, especially when complex response validation comes into play. In addition, Groovy has some great built-in libraries for building up JSON data, which can be very useful when testing PUT &amp; POST scenarios.</p>
+
+<p>While the Gherkin syntax that SpecFlow and Cucumber-JVM share give us a fundamental link, the BDD premises in defining steps in plain English are really the most powerful aspect, regardless of technology. RESTful API testing can be very daunting with many of the commercial and open source tools available; it is my opinion that BDD/Cucumber based testing is a natural fit. Hopefully you&rsquo;ll find the same to be true after working with the examples in this article and the preceding article.</p>
+
+<p>Happy testing!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">jhrmn</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-20T19:30:27-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/testing-automation/'>Testing Automation</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jasonh-n-austin.github.io/2013/01/20/bdd-atdd-for-your-agile-rest-api-part-2/" data-via="" data-counturl="http://jasonh-n-austin.github.io/2013/01/20/bdd-atdd-for-your-agile-rest-api-part-2/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/01/11/bdd-atdd-for-your-agile-rest-api/" title="Previous Post: BDD / ATDD for your Agile REST API">&laquo; BDD / ATDD for your Agile REST API</a>
+      
+      
+        <a class="basic-alignment right" href="/2013/02/13/restful-patterns-for-the-head-verb/" title="Next Post: RESTful patterns for the HEAD verb">RESTful patterns for the HEAD verb &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/03/25/extend-your-crud-http-api-with-sub-resources/">Extend Your CRUD HTTP API With Sub-resources</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/03/06/rest-roadmap-hypermedia-for-permissions/">REST Roadmap - API Hypermedia for Permissions Patterns</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/28/api-makersconsumers-do-you-sometimes-feel-like-no-one-really-gets-you/">#API Makers/consumers: Do You Sometimes Feel Like No One Really Gets You?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012/">API Slides and Retros Collected From Twitter #apistrat #NYC 2013</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/13/restful-patterns-for-the-head-verb/">RESTful Patterns for the HEAD Verb</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jason Harmon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

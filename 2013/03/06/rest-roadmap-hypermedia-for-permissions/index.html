@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>REST Roadmap - API Hypermedia for permissions patterns - Pragmatic API</title>
+  <meta name="author" content="Jason Harmon">
+
+  
+  <meta name="description" content="It&rsquo;s been a while since my first post in the REST Roadmap series on RMM Level 2 / verbs / HTTP status codes. I&rsquo;d like to continue moving &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jasonh-n-austin.github.io/2013/03/06/rest-roadmap-hypermedia-for-permissions">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Pragmatic API" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Pragmatic API</a></h1>
+  
+    <h2>Exploring the world of Web APIs, REST, and BDD.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jasonh-n-austin.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">REST Roadmap - API Hypermedia for Permissions Patterns</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-06T08:02:14-06:00" pubdate data-updated="true">Mar 6<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>It&rsquo;s been a while since my first post in the REST Roadmap series on <a href="http://pragmaticapi.com/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/">RMM Level 2 / verbs / HTTP status codes</a>. I&rsquo;d like to continue moving up the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">RMM</a> chain, looking at Hypermedia as the Level 3, according to Martin Fowler and Leon Richardson.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658583/rmm_level_3_zf1hpv.png" alt="" /></p>
+
+<p>In the spirit of pragmatism, I&rsquo;d like to tune out a lot of the chatter about media types, link formats, and the like when it comes to hypermedia for the sake of this post. We&rsquo;ll focus completely on the notion of how to use Hypermedia concepts to provide security context to our users without creating an arbitrary security construct.</p>
+
+<!-- more -->
+
+
+<p>Let&rsquo;s look at a fictionalized set of API URIs/responses, utilizing JSON. We&rsquo;ll assume that we&rsquo;ve authenticated to our API with something like Oauth, so we have the security context of the API consumer.</p>
+
+<p>[gist id=5097281]</p>
+
+<p>While this is certainly a boring case, thus far it&rsquo;s semantically sound. However, we really don&rsquo;t know what else we can do with the &lsquo;widget&rsquo; we requested.</p>
+
+<p>[gist id=5097293]</p>
+
+<p>Now we have a sense of what we&rsquo;re capable of by looking at the &lsquo;links&rsquo; object array. The first link tells me fairly clearly that I can &ldquo;create a Cog by POSTing to /widget/5/cogs&rdquo;. In addition, I can &ldquo;List Cogs by GETing /widget/5/cogs&rdquo;. Obviously there are a variety of potential naming conventions here, but the gist is simple: provide a relationship for the related link, what kind of resource that link is, and what verb+URI to get the job done.
+Our front-end developers can begin to provide actions/buttons for their users to act upon this &ldquo;create Cog&rdquo; link. Not only does the link indicate the capability to complete this action, it also provides the Verb+URI to make it possible. This provides our developers the opportunity to avoid hard-coding that URL, thereby reducing one more hard-coded dependency in their app.</p>
+
+<p>[gist id=5097295]</p>
+
+<p>Note that when we login as a user with less privileges, we no longer have a link for &ldquo;create Cog&rdquo;. For our front-end developers, this should indicate that they would not provide GUI options for creating this related resource. This should provide a more consistent user experience, where we are not prompting them to take actions which we know will not work for them (thus avoiding trips back to the server for invalid operations/400s/500s).</p>
+
+<p>Obviously links can take many forms. In my experience, the typical relationships are list, item, create, update, delete. In typical pragmatic REST fashion, you should tailor this to your specific needs, while keeping in mind future sustainability.</p>
+
+<p>Hopefully this gives you a start on implementing a Hypermedia strategy in your RESTful API which will give your front-end developers some quick bang for their buck. More poignantly, our application end-users will have the opportunity for a more consistent user experience while utilizing the apps that are fed from our API. Everybody wins ;)</p>
+
+<p>I&rsquo;m sure this will invite plenty of flamebait for criticisms of the hypermedia implementation noted. I invite your feedback, let&rsquo;s just stay focused on pragmatic approaches, and not get too academic or dogmatically prescriptive, hopefully we can all learn something. I think it&rsquo;s safe to say none of us have this figured out perfectly yet, my hope is this helps folks get the ball rolling, while getting some quick wins.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">jhrmn</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-06T08:02:14-06:00" pubdate data-updated="true">Mar 6<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/architecture/'>Architecture</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jasonh-n-austin.github.io/2013/03/06/rest-roadmap-hypermedia-for-permissions/" data-via="" data-counturl="http://jasonh-n-austin.github.io/2013/03/06/rest-roadmap-hypermedia-for-permissions/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/02/28/api-makersconsumers-do-you-sometimes-feel-like-no-one-really-gets-you/" title="Previous Post: #API makers/consumers: Do you sometimes feel like no one really gets you?">&laquo; #API makers/consumers: Do you sometimes feel like no one really gets you?</a>
+      
+      
+        <a class="basic-alignment right" href="/2013/03/25/extend-your-crud-http-api-with-sub-resources/" title="Next Post: Extend your CRUD HTTP API with sub-resources">Extend your CRUD HTTP API with sub-resources &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/03/25/extend-your-crud-http-api-with-sub-resources/">Extend Your CRUD HTTP API With Sub-resources</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/03/06/rest-roadmap-hypermedia-for-permissions/">REST Roadmap - API Hypermedia for Permissions Patterns</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/28/api-makersconsumers-do-you-sometimes-feel-like-no-one-really-gets-you/">#API Makers/consumers: Do You Sometimes Feel Like No One Really Gets You?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012/">API Slides and Retros Collected From Twitter #apistrat #NYC 2013</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/13/restful-patterns-for-the-head-verb/">RESTful Patterns for the HEAD Verb</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jason Harmon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

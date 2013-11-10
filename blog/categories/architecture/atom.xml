@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Architecture | Pragmatic API]]></title>
+  <link href="http://jasonh-n-austin.github.io/blog/categories/architecture/atom.xml" rel="self"/>
+  <link href="http://jasonh-n-austin.github.io/"/>
+  <updated>2013-11-09T20:38:43-06:00</updated>
+  <id>http://jasonh-n-austin.github.io/</id>
+  <author>
+    <name><![CDATA[Jason Harmon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Extend your CRUD HTTP API with sub-resources]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/03/25/extend-your-crud-http-api-with-sub-resources/"/>
+    <updated>2013-03-25T12:21:40-05:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/03/25/extend-your-crud-http-api-with-sub-resources</id>
+    <content type="html"><![CDATA[<p>When it&rsquo;s time to build your web API, there&rsquo;s often a tendency to build everything around data entities. <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>-style APIs use GET/POST/PUT/DELETE to provide the same feel as SELECT/INSERT/UPDATE/DELETE in a traditional relational database.</p>
+
+<p>Once you work through these CRUD-based web API patterns for a while, you will find that it doesn&rsquo;t always match up perfectly to your business needs. I&rsquo;d like to introduce a design pattern which will add some flexibility to your CRUD-stye HTTP API, while maintaining clean semantics and easy usability.</p>
+
+<!-- more -->
+
+
+<p>There are a number of frameworks with actually revolve around creating this clear linkage between a relational database and the &lsquo;four verbs&rsquo; of a typical HTTP API. While the CRUD approach to logical entities will often provide the bulk of an APIs functionality, there are other forms which can be very effective.</p>
+
+<p>Simply put, we can provide an always-existent sub-resource as an extension to your entity-based resource.
+<img src="http://res.cloudinary.com/jhrmn/image/upload/v1364231618/memecenter_1364231463618_397_eft398.gif" alt="" /></p>
+
+<p>Let&rsquo;s look at a newly created fictional user account.</p>
+
+<p><em>NOTE: Authentication is assumed in the following examples, for brevity.</em></p>
+
+<p>[gist id=5234609]</p>
+
+<p>It is often the case that we want to maintain a different level of control around a user account than the user&rsquo;s profile. The details of this account might not be made available for the user to change. In our fictional user, the access level/user type is &lsquo;read-only&rsquo;. If I tried to update this user, I might not be permitted.</p>
+
+<p>[gist id=5234612]</p>
+
+<p>However, we might want to provide this user with an update-able profile, that other users can view. When we first touch the profile on a newly created account, it might not be populated in the backend. However, we want to provide the notion that a user profile always exists for a user account, even if they haven&rsquo;t yet updated it. In some cases, there might be calculated fields or other pre-populated data when we first access the sub-resource.</p>
+
+<p>[gist id=5234615]</p>
+
+<p>Note that the naming on this URI is singular, &lsquo;profile&rsquo;, not &lsquo;profiles&rsquo;. While I recommend pluralized naming convention for CRUD-style resources (notice &lsquo;users&rsquo;), a sub-resource like this will never be plural. There is a flat 1-to-1 relationship between the selected user and the profile.</p>
+
+<p>Now that we&rsquo;ve recognized the user&rsquo;s profile is basically empty, we can PUT some data to update it.</p>
+
+<p>[gist id=5234620]</p>
+
+<p>Note that if the update was successful, we reply with a 204; no need to provide any more context than that. Now we can retrieve this sub-resource, and see that it matches what we provided.</p>
+
+<p>[gist id=5234622]</p>
+
+<p>Next time you have a critical resource you need to extend, be sure to think about this flat sub-resource pattern. You&rsquo;ll keep the complexity of your content from growing out of control, and avoid mixed security constraints in one operation.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[REST Roadmap - API Hypermedia for permissions patterns]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/03/06/rest-roadmap-hypermedia-for-permissions/"/>
+    <updated>2013-03-06T08:02:14-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/03/06/rest-roadmap-hypermedia-for-permissions</id>
+    <content type="html"><![CDATA[<p>It&rsquo;s been a while since my first post in the REST Roadmap series on <a href="http://pragmaticapi.com/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/">RMM Level 2 / verbs / HTTP status codes</a>. I&rsquo;d like to continue moving up the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">RMM</a> chain, looking at Hypermedia as the Level 3, according to Martin Fowler and Leon Richardson.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658583/rmm_level_3_zf1hpv.png" alt="" /></p>
+
+<p>In the spirit of pragmatism, I&rsquo;d like to tune out a lot of the chatter about media types, link formats, and the like when it comes to hypermedia for the sake of this post. We&rsquo;ll focus completely on the notion of how to use Hypermedia concepts to provide security context to our users without creating an arbitrary security construct.</p>
+
+<!-- more -->
+
+
+<p>Let&rsquo;s look at a fictionalized set of API URIs/responses, utilizing JSON. We&rsquo;ll assume that we&rsquo;ve authenticated to our API with something like Oauth, so we have the security context of the API consumer.</p>
+
+<p>[gist id=5097281]</p>
+
+<p>While this is certainly a boring case, thus far it&rsquo;s semantically sound. However, we really don&rsquo;t know what else we can do with the &lsquo;widget&rsquo; we requested.</p>
+
+<p>[gist id=5097293]</p>
+
+<p>Now we have a sense of what we&rsquo;re capable of by looking at the &lsquo;links&rsquo; object array. The first link tells me fairly clearly that I can &ldquo;create a Cog by POSTing to /widget/5/cogs&rdquo;. In addition, I can &ldquo;List Cogs by GETing /widget/5/cogs&rdquo;. Obviously there are a variety of potential naming conventions here, but the gist is simple: provide a relationship for the related link, what kind of resource that link is, and what verb+URI to get the job done.
+Our front-end developers can begin to provide actions/buttons for their users to act upon this &ldquo;create Cog&rdquo; link. Not only does the link indicate the capability to complete this action, it also provides the Verb+URI to make it possible. This provides our developers the opportunity to avoid hard-coding that URL, thereby reducing one more hard-coded dependency in their app.</p>
+
+<p>[gist id=5097295]</p>
+
+<p>Note that when we login as a user with less privileges, we no longer have a link for &ldquo;create Cog&rdquo;. For our front-end developers, this should indicate that they would not provide GUI options for creating this related resource. This should provide a more consistent user experience, where we are not prompting them to take actions which we know will not work for them (thus avoiding trips back to the server for invalid operations/400s/500s).</p>
+
+<p>Obviously links can take many forms. In my experience, the typical relationships are list, item, create, update, delete. In typical pragmatic REST fashion, you should tailor this to your specific needs, while keeping in mind future sustainability.</p>
+
+<p>Hopefully this gives you a start on implementing a Hypermedia strategy in your RESTful API which will give your front-end developers some quick bang for their buck. More poignantly, our application end-users will have the opportunity for a more consistent user experience while utilizing the apps that are fed from our API. Everybody wins ;)</p>
+
+<p>I&rsquo;m sure this will invite plenty of flamebait for criticisms of the hypermedia implementation noted. I invite your feedback, let&rsquo;s just stay focused on pragmatic approaches, and not get too academic or dogmatically prescriptive, hopefully we can all learn something. I think it&rsquo;s safe to say none of us have this figured out perfectly yet, my hope is this helps folks get the ball rolling, while getting some quick wins.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[RESTful patterns for the HEAD verb]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/02/13/restful-patterns-for-the-head-verb/"/>
+    <updated>2013-02-13T23:25:05-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/13/restful-patterns-for-the-head-verb</id>
+    <content type="html"><![CDATA[<p>In the typical usage of HTTP, the GET and POST verbs seem to get the most mileage. I&rsquo;ve previously covered some aspects of moving up the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a> scale. Implementing the PUT and DELETE verbs is typically a step up to RMM Level 2. There are other HTTP verbs, outside of the &lsquo;by the book&rsquo; RESTful patterns, which can prove very useful in certain situations. One of the easiest to implement verbs, with some great benefits in scaling terms, is the HEAD verb.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658838/rest_head_tpp1jm.jpg" alt="" /></p>
+
+<!-- more -->
+
+
+<p>If you&rsquo;re not familiar with HTTP HEAD, it&rsquo;s best to start with the specifications at <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html</a></p>
+
+<h3>9.4 HEAD</h3>
+
+<blockquote><p><em>The HEAD method is identical to GET except that the server MUST NOT return a message-body in the response. The metainformation contained in the HTTP headers in response to a HEAD request SHOULD be identical to the information sent in response to a GET request. This method can be used for obtaining metainformation about the entity implied by the request without transferring the entity-body itself. This method is often used for testing hypertext links for validity, accessibility, and recent modification.</em></p></blockquote>
+
+<p><em>The response to a HEAD request MAY be cacheable in the sense that the information contained in the response MAY be used to update a previously cached entity from that resource. If the new field values indicate that the cached entity differs from the current entity (as would be indicated by a change in Content-Length, Content-MD5, ETag or Last-Modified), then the cache MUST treat the cache entry as stale.</em></p>
+
+<p>Simply put, HEAD returns all of the HTTP headers, just like GET, but provides no body content. All of the same rules regarding content caching can be applied, regarding headers in the request/response.</p>
+
+<p>There are a few scenarios where HEAD is exceptionally useful:</p>
+
+<p><strong>Existence checks:</strong></p>
+
+<p>In cases where the content of a resource is not particularly important, but the existence of the resource is, HEAD is perfect. We can do everything just like a GET and check the response code, without the weight of the response body.</p>
+
+<p>As an example, we&rsquo;ll look at Twitter&rsquo;s public profile API.</p>
+
+<pre><code>GET http://api.twitter.com/1/users/show.json?screen_name=jasonh_n_austin
+</code></pre>
+
+<p>The server responds:</p>
+
+<pre><code>200 OK
+{
+"id": 57005215,
+"id_str": "57005215",
+"name": "Jason Harmon",
+"screen_name": "jasonh_n_austin",
+"location": "Austin, TX",
+"url": "http://pragmaticapi.com",
+&lt;snip&gt;
+</code></pre>
+
+<ul>
+<li>Cache checks:</li>
+</ul>
+
+
+<p>When we call this using GET, there is a definite weight to the response body&hellip;enough that I&rsquo;ll snip it for sake of brevity. If we wanted to simply validate that a profile exists, we could use HEAD and simply evaluate the HTTP status (as there will be no response body):</p>
+
+<pre><code>HEAD http://api.twitter.com/1/users/show.json?screen_name=jasonh_n_austin
+</code></pre>
+
+<p>The server responds:</p>
+
+<pre><code>200 OK
+</code></pre>
+
+<p>That&rsquo;s it! In cases where the profile doesn&rsquo;t exist, the response code will be a 404 (much like you&rsquo;ve seen when you request a non-existent web page).</p>
+
+<pre><code>HEAD http://api.twitter.com/1/users/show.json?screen_name=jasonh_n_portland
+</code></pre>
+
+<p>The server responds:</p>
+
+<pre><code>404 OK
+</code></pre>
+
+<p>There&rsquo;s really no simpler way to determine if a resource exists in an API. This is very nice when there is a secured resource (such as a username or email of some user) which you cannot expose the details of. HEAD prevents any potential information being exposed, other than the existence of that item.</p>
+
+<p><strong>Cache check</strong></p>
+
+<p>When the resource in use supports caching, HEAD can be useful to check if there is a new version of the resource you have previously retrieved. When you are dealing with distributed scenarios in which data is potentially cached for periods of time (such as with a mobile device), it can be advantageous to use HEAD to investigate the previously retrieved resources. If there has been a change, the 200 status code indicates there has been an update; otherwise 304 indicates the data is the same as when you retrieved it last.</p>
+
+<p>A well-implemented example of this in a public API is at Github. They implement two models of cache validation in the response headers:</p>
+
+<ol>
+<li><p>ETag: this is typically a calculated hash on the output object, expressed in the &ldquo;ETag&rdquo; response header.</p></li>
+<li><p>In the next request, the If-None-Match request header should utilized the ETag as previously supplied in the response.</p></li>
+<li><p>Last-Modified: normally a database-or-otherwise-maintained &ldquo;last modified date&rdquo; is maintained for the resource, which is supplied in the &ldquo;Last-Modified&rdquo; response header.</p></li>
+<li><p>In the subsequent request, the If-Modified-Since request header can be populated with the previously retrieved &lsquo;last modified-date&rsquo;.</p></li>
+</ol>
+
+
+<p>In either case, the results are simple; 200 means there is new content, 304 means nothing has changed.</p>
+
+<p>While HEAD can be useful for certain caching situations, most folks elect to simply use GET here, as the 304 will not supply a body, and the 200 will reply with the new content in the body. This saves the extra hit for HEAD+200 as well as GET+200+Content. However if you have one process which looks for updates, and another which does the work of retrieving the new content, this model can be very helpful in reducing traffic over the wires.</p>
+
+<p>Example request:</p>
+
+<pre><code>curl -i https://api.github.com/users/jasonh-n-austin
+HTTP/1.1 200 OK
+Server: GitHub.com
+Date: Thu, 14 Feb 2013 04:52:06 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 50
+Vary: Accept
+Cache-Control: public, max-age=60, s-maxage=60
+Last-Modified: Tue, 12 Feb 2013 02:58:46 GMT
+ETag: "f3effd3e870e79f8aed863cf8c8b319f"
+X-GitHub-Media-Type: github.beta
+X-Content-Type-Options: nosniff
+Content-Length: 1482
+
+{
+"login": "jasonh-n-austin",
+"id": 1305160,
+"avatar_url": "https://secure.gravatar.com/avatar/366e53efc68d5899edc95b2c4c9c2619?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png",
+&lt;&gt;
+</code></pre>
+
+<p>Now that we have content, let&rsquo;s check to see if it has changed:</p>
+
+<pre><code>curl --head -i https://api.github.com/users/jasonh-n-austin -H "If-Modified-Since: Tue, 12 Feb 2013 02:58:46 GMT"
+HTTP/1.1 304 Not Modified
+Server: GitHub.com
+Date: Thu, 14 Feb 2013 04:52:32 GMT
+Connection: keep-alive
+Status: 304 Not Modified
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 50
+Vary: Accept
+Cache-Control: public, max-age=60, s-maxage=60
+Last-Modified: Tue, 12 Feb 2013 02:58:46 GMT
+X-Content-Type-Options: nosniff
+</code></pre>
+
+<p>Note that the If-Modified-Since request header matches the value in the original Last-Modified response header.</p>
+
+<p><strong>Summary</strong></p>
+
+<p>In REST talk, we usually refer to the four verbs, GET/PUT/POST/DELETE, as though that&rsquo;s all there is to HTTP. The HEAD verb reminds us that we have more tools in our bag, especially when wire traffic, data access costs, and potentially large response bodies are a big concern. Implementing HEAD is typically fairly simple in most RESTful application frameworks, and can pay real dividends in terms of scaling a platform, when used wisely.</p>
+
+<p>Good luck!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[REST Roadmap - Upgrading in the Richardson Maturity Model]]></title>
+    <link href="http://jasonh-n-austin.github.io/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/"/>
+    <updated>2012-12-25T00:30:26-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model</id>
+    <content type="html"><![CDATA[<h2>REST Roadmap Series</h2>
+
+<p>I&rsquo;d like to kick off my new blog with a series I&rsquo;m calling, &ldquo;REST Roadmap&rdquo;. The idea is to put together a series of basic changes to the typical API which will ensure future success. The first installment is around getting a feel for what REST really is via the Richardson Maturity Model. In my experience, most organizations have made some progress, intentionally or inadvertently, in this regard, and are starting at around Level 1 of RMM.</p>
+
+<!-- more -->
+
+
+<h2>Background on RMM (the Richardson Maturity Model)</h2>
+
+<p>In the software industry (namely the Free Software Movement), the phrase &ldquo;standing on the shoulders of giants&rdquo; is oft used. When we investigate REST, proverbial technology giants like <a href="http://en.wikipedia.org/wiki/Roy_Fielding">Roy Fielding</a>, <a href="http://www.crummy.com/self/">Leonard Richardson</a>, and <a href="http://en.wikipedia.org/wiki/Martin_Fowler">Martin Fowler</a> come to mind. Fowler worked directly with Leonard Richardson, Jim Webber and others to put together some guidelines on how to architecturally construct a REST API. A wonderful culmination of their respective genius is in Martin Fowler&rsquo;s article titled <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a>.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658921/rmm_alxpgg.png" alt="" /></p>
+
+<p><em>(Image credit: Martin Fowler)</em></p>
+
+<p>The nearly oversimplified concept in this article is that a RESTful API can be built in a series of building block-style steps. In practice, there are many gritty details that occur naturally in traversing these steps.</p>
+
+<p>In my experience, reaching the first level of the RMM is fairly common &lsquo;in the wild&rsquo;. Anybody who wants to follow some sort of modern notion of REST tries not to build resources which &ldquo;smell like SOAP&rdquo;. Martin Fowler refers to this style as &ldquo;The Swamp of POX&rdquo;, aka &ldquo;Plain old XML&rdquo;. Desiging resource URIs which try to represent the CRUD style of &lsquo;objects&rsquo; in the domain is becoming more common.</p>
+
+<p>However, CRUD-driven objects as resource URIs is really only the beginning. The RMM diagram in Martin Fowler&rsquo;s document suggests we are really only halfway there at RMM Level 1.</p>
+
+<h2>Your API is not really RESTful</h2>
+
+<p>As you start to read more deeply into the world of REST, you will find that according to many experts in the field, this is the most common starting point. While everyone wants to discuss their &ldquo;REST API&rdquo;, until you have reached fully agile Hypermedia status, you are really not meeting up to the standards of <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Roy Fielding&rsquo;s 2001 dissertation on REST</a>.</p>
+
+<p>Once organizations move past &ldquo;the Swamp of POX&rdquo;, they move into using resource-oriented, CRUD-based URIs. This is an important step in the evolution of an API, but certainly should not be looked at as a stopping point.</p>
+
+<p>Many of the common misconceptions about what a REST API is comprised of are well summarized in Roy Fielding&rsquo;s article dubbed <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">REST APIs must be hypertext-driven</a>.</p>
+
+<h2>HTTP Verbs &ndash; RMM Level 1 => 2</h2>
+
+<p>We&rsquo;ve recently been working on mobile applications, moving toward utilizing HTTP status and verbs to drive action, versus binding that workflow up in application-specific JSON. As much as error/exception handling can be an afterthought in the average development cycle, it has to be a first-class citizen in an API driven world. As part of Layer 7&rsquo;s &ldquo;API Academy&rdquo; series, they did a great job at describing the &lsquo;rights&rsquo; and &lsquo;wrongs&rsquo; in the video titled <a href="http://www.youtube.com/watch?v=NTObb3ZS1nk">Handle Errors on the Web</a>.</p>
+
+<p>I put together a some materials to help walk our mobile and API teams through the steps we were about to take on this journey up the RMM ladder. I&rsquo;ve since amended the presentation with cleaned up audio, thus upgrading it to a screencast!</p>
+
+<p><a href="http://www.youtube.com/watch?v=7ue3aMk4g2I">http://www.youtube.com/watch?v=7ue3aMk4g2I</a></p>
+
+<h2>HTTP Status Codes</h2>
+
+<p>The most important thing to note is that while the RMM description talks about implementing verbs as the heart of RMM Level 2, this is an empty effort without effective communication of error statuses. HTTP Status Codes should serve to provide you with low-level, protocol-grade feedback on the state of any resource/verb you are working with. Digging into applicaiton specific messaging should only really provide you with application-specific, and/or user-specific details which allow you to address the error/exception.</p>
+
+<p>The ability to quickly recognize that an API call is not going to answer with &ldquo;OK&rdquo; is the first priority in any interaction, providing you with a responsive UI, regardless of mobile/web/whatever client. This quick protocol-level feedback also provides scaling advantages. If I&rsquo;m creating or updating a resource, there is no need to reverberate back what was provided to the server. 201/Created or 204/No Content are often the best appropriate response to indicate that the operation requested was not errant. More importantly the lack of body content means that wire traffic is non-existent past the headers.</p>
+
+<h2>Summary and What&rsquo;s Next</h2>
+
+<p>In my next article on BDD and REST, I&rsquo;ll address some of the difficulties in testing APIs that only answer in 200 &amp; 500, or OK and Oh $h1t! Looking beyond the basic CRUD functionality of a resource, and trying to envision the Hypermedia-driven behavior of a future resource/revisions is well aided by BDD/ATDD strategies.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Conferences | Pragmatic API]]></title>
+  <link href="http://jasonh-n-austin.github.io/blog/categories/conferences/atom.xml" rel="self"/>
+  <link href="http://jasonh-n-austin.github.io/"/>
+  <updated>2013-11-09T20:38:43-06:00</updated>
+  <id>http://jasonh-n-austin.github.io/</id>
+  <author>
+    <name><![CDATA[Jason Harmon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[API slides and retros collected from Twitter #apistrat #NYC 2013]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012/"/>
+    <updated>2013-02-25T12:04:39-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012</id>
+    <content type="html"><![CDATA[<p>I had a blast at the API Strategy and Practices Conference in NYC over the weekend. I learned things, I shared and socialized ideas, and was generally awed by the level of brainshare happening. In an effort to share this with folks who didn&rsquo;t make it, I&rsquo;ve collected all I could along the way, and I&rsquo;m sharing it.</p>
+
+<p>Please send me anything I&rsquo;ve missed, whether you presented it or just took better notes than me.</p>
+
+<p>Content:</p>
+
+<p><a href="https://speakerdeck.com/johnsheehan/apis-for-humans-api-strategy-and-practice-edition">APIs for Humans &ndash; API Strategy and Practice Edition &ndash; John Sheehan, Runscope</a></p>
+
+<p><a href="http://rknla.github.com/rdio-projects/apistrat2013/index.html">The Future of Music APIs &ndash; R. Kevin Nelson, Rdio (and top live tweeter just above me at #apistrat ;)</a></p>
+
+<p><a href="http://amberonrails.com/building-stripes-api/">Building Stripe&rsquo;s API &ndash; Amber Feng</a></p>
+
+<p><a href="http://www.slideshare.net/danieljacobson/api-revolutions-16755403">http://www.slideshare.net/danieljacobson/api-revolutions-16755403</a></p>
+
+<p><a href="http://www.slideshare.net/Boiler279/walgreens-api-api-strategy-conference-nyc-022113-16680579">http://www.slideshare.net/Boiler279/walgreens-api-api-strategy-conference-nyc-022113-16680579</a></p>
+
+<p><a href="http://www.slideshare.net/matt_bishop5/l3-rest">http://www.slideshare.net/matt_bishop5/l3-rest</a></p>
+
+<p><a href="http://www.slideshare.net/harmophone/api-strategy-harmophone">http://www.slideshare.net/harmophone/api-strategy-harmophone</a></p>
+
+<p><a href="http://www.slideshare.net/cobiacomm/2012-11adoptapiproductmindsetv2">http://www.slideshare.net/cobiacomm/2012-11adoptapiproductmindsetv2</a></p>
+
+<p><a href="http://www.slideshare.net/ajotwani/unpacking-developer-experience">http://www.slideshare.net/ajotwani/unpacking-developer-experience</a></p>
+
+<p><a href="http://www.slideshare.net/duvander/make-your-api-irresistible">http://www.slideshare.net/duvander/make-your-api-irresistible</a></p>
+
+<p><a href="http://www.slideshare.net/jmusser/j-musser-apibizmodels2013">http://www.slideshare.net/jmusser/j-musser-apibizmodels2013</a></p>
+
+<p><a href="http://www.slideshare.net/fehguy/swagger-foryourapi">http://www.slideshare.net/fehguy/swagger-foryourapi</a></p>
+
+<p><a href="http://www.slideshare.net/bpedro/bruno-pedrocloudwork">http://www.slideshare.net/bpedro/bruno-pedrocloudwork</a></p>
+
+<p><a href="http://www.slideshare.net/SmartBear_Software/managing-the-risks-of-third-party-apis">http://www.slideshare.net/SmartBear_Software/managing-the-risks-of-third-party-apis</a></p>
+
+<p><a href="http://www.slideshare.net/twilio/we-are-software-people-jeff-lawson-api-strategy-conference">http://www.slideshare.net/twilio/we-are-software-people-jeff-lawson-api-strategy-conference</a></p>
+
+<p><a href="http://www.slideshare.net/chuckstar/api-strat">http://www.slideshare.net/chuckstar/api-strat</a></p>
+
+<p>Retros:
+<a href="http://seabourneinc.com/2013/02/25/three-takeaways-from-the-api-strategy-and-practice-conference/">Three takeaways – Mike Reich, Seabourne</a></p>
+
+<p><a href="http://www.3scale.net/2013/02/five-things-we-learned-at-apistrat/">Five things we learned – Steven Willmott, 3scale</a></p>
+
+<p><a href="http://blog.mashery.com/content/api-strategy-practice-conference-summary">API Strategy &amp; Practice Conference Summary &ndash; Mashery</a></p>
+
+<p><a href="http://www.apievangelist.com/2013/02/25/exactly-the-api-strategy-and-practice-conference-i-envisioned/">Exactly the API Strategy &amp; Practice Conference I Envisioned &ndash; Kin Lane / API Evangelist</a></p>
+
+<p><a href="http://developer.pearson.com/blog/technologists-flocked-nyc-first-ever-apistrat-conference-last-week">Technologists Flocked to NYC for the First-ever #apistrat Conference Last Week &ndash; Anthony</a></p>
+
+<p><a href="http://developers-blog.helloreverb.com/api-strategy-conference-recap/">API Strategy Conference Recap &ndash; Reverb Software</a></p>
+
+<p><a href="http://olensmar.blogspot.se/2013/03/another-apistrat-conference-recap.html">Another #APIStrat Conference Recap &ndash; @Olensmar of @SoapUI</a></p>
+
+<p>Thanks to all who attended for your open-mindedness and inclusive attitudes. It was great to connect with everyone I met.</p>
+]]></content>
+  </entry>
+  
+</feed>
