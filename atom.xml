@@ -4,7 +4,7 @@
   <title><![CDATA[Pragmatic API]]></title>
   <link href="http://jasonh-n-austin.github.io/atom.xml" rel="self"/>
   <link href="http://jasonh-n-austin.github.io/"/>
-  <updated>2013-11-10T09:37:21-06:00</updated>
+  <updated>2013-11-10T09:49:15-06:00</updated>
   <id>http://jasonh-n-austin.github.io/</id>
   <author>
     <name><![CDATA[Jason Harmon]]></name>
@@ -266,31 +266,70 @@ GET /widget/5
 
 <p><a href="http://amberonrails.com/building-stripes-api/">Building Stripe&rsquo;s API &ndash; Amber Feng</a></p>
 
-<p><a href="http://www.slideshare.net/danieljacobson/api-revolutions-16755403">http://www.slideshare.net/danieljacobson/api-revolutions-16755403</a></p>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16755403 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
 
-<p><a href="http://www.slideshare.net/Boiler279/walgreens-api-api-strategy-conference-nyc-022113-16680579">http://www.slideshare.net/Boiler279/walgreens-api-api-strategy-conference-nyc-022113-16680579</a></p>
 
-<p><a href="http://www.slideshare.net/matt_bishop5/l3-rest">http://www.slideshare.net/matt_bishop5/l3-rest</a></p>
+<p></p>
 
-<p><a href="http://www.slideshare.net/harmophone/api-strategy-harmophone">http://www.slideshare.net/harmophone/api-strategy-harmophone</a></p>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16680579 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
 
-<p><a href="http://www.slideshare.net/cobiacomm/2012-11adoptapiproductmindsetv2">http://www.slideshare.net/cobiacomm/2012-11adoptapiproductmindsetv2</a></p>
 
-<p><a href="http://www.slideshare.net/ajotwani/unpacking-developer-experience">http://www.slideshare.net/ajotwani/unpacking-developer-experience</a></p>
+<p></p>
 
-<p><a href="http://www.slideshare.net/duvander/make-your-api-irresistible">http://www.slideshare.net/duvander/make-your-api-irresistible</a></p>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16700885 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
 
-<p><a href="http://www.slideshare.net/jmusser/j-musser-apibizmodels2013">http://www.slideshare.net/jmusser/j-musser-apibizmodels2013</a></p>
 
-<p><a href="http://www.slideshare.net/fehguy/swagger-foryourapi">http://www.slideshare.net/fehguy/swagger-foryourapi</a></p>
+<p></p>
 
-<p><a href="http://www.slideshare.net/bpedro/bruno-pedrocloudwork">http://www.slideshare.net/bpedro/bruno-pedrocloudwork</a></p>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16699720 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
 
-<p><a href="http://www.slideshare.net/SmartBear_Software/managing-the-risks-of-third-party-apis">http://www.slideshare.net/SmartBear_Software/managing-the-risks-of-third-party-apis</a></p>
 
-<p><a href="http://www.slideshare.net/twilio/we-are-software-people-jeff-lawson-api-strategy-conference">http://www.slideshare.net/twilio/we-are-software-people-jeff-lawson-api-strategy-conference</a></p>
+<p></p>
 
-<p><a href="http://www.slideshare.net/chuckstar/api-strat">http://www.slideshare.net/chuckstar/api-strat</a></p>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16752508 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16706151 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16091425 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16695001 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16678743 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16843890 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16719073 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16912487 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16679450 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
 
 <p>Retros:
 <a href="http://seabourneinc.com/2013/02/25/three-takeaways-from-the-api-strategy-and-practice-conference/">Three takeaways – Mike Reich, Seabourne</a></p>
