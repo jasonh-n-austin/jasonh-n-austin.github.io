@@ -30,15 +30,15 @@ It is easily arguable that Groovy is well suited for this task. Groovy has some 
 
 As a review, here is our feature file, for testing a basic portion of the public Twitter API. This time around, we've added a few small differences, in the treatment of querystring parameters. This is meant show that there are various ways to describe your tests, not simply monolithic URLs.
 
-[gist id=4582935]
+{% gist 4582935 %}
 
 This maps to steps in our RestTests.groovy file, which utilizes the RESTClient class to manage our GET. There are plenty of options out there for a web driver, RESTClient happens to be fairly well suited for our purposes.
 
-[gist id=4536191]
+{% gist 4536191 %}
 
 Most of this code is fairly self-explanatory. For those unexposed to the wonders of Groovy JSON handling (and XML as well), the function starting with "it should have the field" provides some interesting syntax:
 
-[gist id=4582955]
+{% gist 4582955 %}
 
 The 'parsed' variable holds the parsed JSON data. As we have extracted the 'field' variable , we can use a closure to dynamically evaluate whether that field exists in the results.
 

@@ -42,20 +42,20 @@ Let's look at a newly created fictional user account.
   
 _NOTE: Authentication is assumed in the following examples, for brevity._
 
-[gist id=5234609]
+{% gist 5234609 %}
 
 
 
 It is often the case that we want to maintain a different level of control around a user account than the user's profile. The details of this account might not be made available for the user to change. In our fictional user, the access level/user type is 'read-only'. If I tried to update this user, I might not be permitted.
 
-[gist id=5234612]
+{% gist 5234612 %}
 
 
 
 
 However, we might want to provide this user with an update-able profile, that other users can view. When we first touch the profile on a newly created account, it might not be populated in the backend. However, we want to provide the notion that a user profile always exists for a user account, even if they haven't yet updated it. In some cases, there might be calculated fields or other pre-populated data when we first access the sub-resource.
 
-[gist id=5234615]
+{% gist 5234615 %}
 
 
 
@@ -65,14 +65,14 @@ Note that the naming on this URI is singular, 'profile', not 'profiles'. While I
 
 Now that we've recognized the user's profile is basically empty, we can PUT some data to update it.
 
-[gist id=5234620]
+{% gist 5234620 %}
 
 
 
 
 Note that if the update was successful, we reply with a 204; no need to provide any more context than that. Now we can retrieve this sub-resource, and see that it matches what we provided.
 
-[gist id=5234622]
+{% gist 5234622 %}
 
 Next time you have a critical resource you need to extend, be sure to think about this flat sub-resource pattern. You'll keep the complexity of your content from growing out of control, and avoid mixed security constraints in one operation.
 

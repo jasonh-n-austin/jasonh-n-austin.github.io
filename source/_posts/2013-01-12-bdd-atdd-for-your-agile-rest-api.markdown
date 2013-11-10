@@ -25,7 +25,7 @@ In some cases, a pervasive culture of [TDD/Test-Driven Development](http://en.wi
 
 Behavioral Driven Development approaches acceptance testing by using plain english expression as the interface for the tests. This approach lends itself well to explaining the behavior of your RESTful resource in Domain Specific Language, i.e. your own business lingo. Here's an example of what a typical scenario definition might look like for a REST test:
 
-[gist id=4521824]
+{% gist 4521824 %}
 
 The above example (functional in the [Github](https://github.com/jasonh-n-austin/TwitterRestTests/blob/master/TwitterRestTests/User.feature) project) provides a rudimentary GET test on Twitter's public, no authorization required API. Obviously in authenticated scenarios this would look a bit more complex.
 
@@ -35,15 +35,15 @@ Note the tags (delineated by the "@" symbol). This provides a means to provide s
 
 The 'step definitions' form the code behind the 'feature' file you see above. An example of the step "I retrieve the results" follows:
 
-[gist id=4521814]
+{% gist id=4521814 %}
 
 The attribute 'When' defines the regular expression match which matches steps in the feature files. In this case, a simplistic use of the WebClient class provides us with a means to interact with the REST API. Once the interactions have taken place, assertions can take place based on status code, initially:
 
-` [gist id=4521797]`
+{% gist 4521797 %}
 
 Using JSON.NET, we can parse the result content and verify specific fields and values:
 
-`[gist id=4521805]`
+{% gist 4521805 %}
 
 Of course, these concepts can be taken further to test more details about all aspects of a RESTful API. Of course, the complexity of POST & PUT are going to be more complex and will take some forethought on the approach. Hopefully this will get your thought process starting on how the BDD approach will fit into your acceptance testing strategies for your REST API.
 
