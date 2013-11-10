@@ -4,7 +4,7 @@
   <title><![CDATA[Pragmatic API]]></title>
   <link href="http://jasonh-n-austin.github.io/atom.xml" rel="self"/>
   <link href="http://jasonh-n-austin.github.io/"/>
-  <updated>2013-11-09T21:51:02-06:00</updated>
+  <updated>2013-11-10T07:41:29-06:00</updated>
   <id>http://jasonh-n-austin.github.io/</id>
   <author>
     <name><![CDATA[Jason Harmon]]></name>
@@ -283,9 +283,9 @@ GET /widget/5
   
   <entry>
     <title type="html"><![CDATA[RESTful patterns for the HEAD verb]]></title>
-    <link href="http://jasonh-n-austin.github.io/2013/02/13/restful-patterns-for-the-head-verb/"/>
-    <updated>2013-02-13T23:25:05-06:00</updated>
-    <id>http://jasonh-n-austin.github.io/2013/02/13/restful-patterns-for-the-head-verb</id>
+    <link href="http://jasonh-n-austin.github.io/2013/02/14/restful-patterns-for-the-head-verb/"/>
+    <updated>2013-02-14T04:25:05-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/14/restful-patterns-for-the-head-verb</id>
     <content type="html"><![CDATA[<p>In the typical usage of HTTP, the GET and POST verbs seem to get the most mileage. I&rsquo;ve previously covered some aspects of moving up the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a> scale. Implementing the PUT and DELETE verbs is typically a step up to RMM Level 2. There are other HTTP verbs, outside of the &lsquo;by the book&rsquo; RESTful patterns, which can prove very useful in certain situations. One of the easiest to implement verbs, with some great benefits in scaling terms, is the HEAD verb.</p>
 
 <p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658838/rest_head_tpp1jm.jpg" alt="" /></p>
@@ -426,9 +426,9 @@ X-Content-Type-Options: nosniff
   
   <entry>
     <title type="html"><![CDATA[BDD / ATDD for your Agile REST API, part 2]]></title>
-    <link href="http://jasonh-n-austin.github.io/2013/01/20/bdd-atdd-for-your-agile-rest-api-part-2/"/>
-    <updated>2013-01-20T19:30:27-06:00</updated>
-    <id>http://jasonh-n-austin.github.io/2013/01/20/bdd-atdd-for-your-agile-rest-api-part-2</id>
+    <link href="http://jasonh-n-austin.github.io/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2/"/>
+    <updated>2013-01-21T00:30:27-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2</id>
     <content type="html"><![CDATA[<p>Part 1: <a href="http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/">http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/</a></p>
 
 <p>I recently covered how BDD principles can provide a great touch stone for acceptance testing in REST-based API platforms. In this brief followup, I&rsquo;ll show how the Cucumber-JVM framework provides all of the same functionality that we saw in .NET&rsquo;s SpecFlow, using the Groovy programming language.</p>
@@ -521,9 +521,9 @@ Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&q
   
   <entry>
     <title type="html"><![CDATA[BDD / ATDD for your Agile REST API]]></title>
-    <link href="http://jasonh-n-austin.github.io/2013/01/11/bdd-atdd-for-your-agile-rest-api/"/>
-    <updated>2013-01-11T21:36:31-06:00</updated>
-    <id>http://jasonh-n-austin.github.io/2013/01/11/bdd-atdd-for-your-agile-rest-api</id>
+    <link href="http://jasonh-n-austin.github.io/2013/01/12/bdd-atdd-for-your-agile-rest-api/"/>
+    <updated>2013-01-12T02:36:31-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/01/12/bdd-atdd-for-your-agile-rest-api</id>
     <content type="html"><![CDATA[<p>In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often following TDD-oriented practices. In agile terms, stakeholders and product owners often never see or grasp what&rsquo;s being tested. Within the unit testing and integration testing tiers, this tends to make sense. However <a href="http://en.wikipedia.org/wiki/Behavior-driven_development">Behavioral Driven Development</a> (aka Acceptance Test Driven Development) begins with acceptance criteria definition and finishes with the acceptance of a story, providing engagement for all members of an agile team from start to finish.</p>
 
 <!-- more -->

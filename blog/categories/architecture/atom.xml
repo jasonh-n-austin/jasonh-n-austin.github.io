@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Architecture | Pragmatic API]]></title>
   <link href="http://jasonh-n-austin.github.io/blog/categories/architecture/atom.xml" rel="self"/>
   <link href="http://jasonh-n-austin.github.io/"/>
-  <updated>2013-11-09T21:51:02-06:00</updated>
+  <updated>2013-11-10T07:41:29-06:00</updated>
   <id>http://jasonh-n-austin.github.io/</id>
   <author>
     <name><![CDATA[Jason Harmon]]></name>
@@ -193,9 +193,9 @@ GET /widget/5
   
   <entry>
     <title type="html"><![CDATA[RESTful patterns for the HEAD verb]]></title>
-    <link href="http://jasonh-n-austin.github.io/2013/02/13/restful-patterns-for-the-head-verb/"/>
-    <updated>2013-02-13T23:25:05-06:00</updated>
-    <id>http://jasonh-n-austin.github.io/2013/02/13/restful-patterns-for-the-head-verb</id>
+    <link href="http://jasonh-n-austin.github.io/2013/02/14/restful-patterns-for-the-head-verb/"/>
+    <updated>2013-02-14T04:25:05-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/14/restful-patterns-for-the-head-verb</id>
     <content type="html"><![CDATA[<p>In the typical usage of HTTP, the GET and POST verbs seem to get the most mileage. I&rsquo;ve previously covered some aspects of moving up the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a> scale. Implementing the PUT and DELETE verbs is typically a step up to RMM Level 2. There are other HTTP verbs, outside of the &lsquo;by the book&rsquo; RESTful patterns, which can prove very useful in certain situations. One of the easiest to implement verbs, with some great benefits in scaling terms, is the HEAD verb.</p>
 
 <p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658838/rest_head_tpp1jm.jpg" alt="" /></p>
