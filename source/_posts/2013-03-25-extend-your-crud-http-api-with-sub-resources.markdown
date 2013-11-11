@@ -22,6 +22,7 @@ When it's time to build your web API, there's often a tendency to build everythi
 
 
 Once you work through these CRUD-based web API patterns for a while, you will find that it doesn't always match up perfectly to your business needs. I'd like to introduce a design pattern which will add some flexibility to your CRUD-stye HTTP API, while maintaining clean semantics and easy usability. 
+![](http://res.cloudinary.com/jhrmn/image/upload/v1364231618/memecenter_1364231463618_397_eft398.gif)
 <!-- more -->
 
 
@@ -33,7 +34,6 @@ There are a number of frameworks with actually revolve around creating this clea
 
 
 Simply put, we can provide an always-existent sub-resource as an extension to your entity-based resource. 
-![](http://res.cloudinary.com/jhrmn/image/upload/v1364231618/memecenter_1364231463618_397_eft398.gif)
 
 
 

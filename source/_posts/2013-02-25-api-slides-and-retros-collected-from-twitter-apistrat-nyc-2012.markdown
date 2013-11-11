@@ -15,7 +15,8 @@ tags:
 I had a blast at the API Strategy and Practices Conference in NYC over the weekend. I learned things, I shared and socialized ideas, and was generally awed by the level of brainshare happening. In an effort to share this with folks who didn't make it, I've collected all I could along the way, and I'm sharing it.
 
 Please send me anything I've missed, whether you presented it or just took better notes than me.
-
+![APIStrat](http://farm9.staticflickr.com/8513/8514152556_d7b16ae346.jpg)
+<!-- more -->
 
 
 Content:
@@ -26,32 +27,31 @@ Content:
 
 [Building Stripe's API - Amber Feng](http://amberonrails.com/building-stripes-api/)
 
-http://www.slideshare.net/danieljacobson/api-revolutions-16755403
+{% slideshare 16755403 %}
 
-http://www.slideshare.net/Boiler279/walgreens-api-api-strategy-conference-nyc-022113-16680579
+{% slideshare 16680579 %}
 
-http://www.slideshare.net/matt_bishop5/l3-rest
+{% slideshare 16700885 %}
 
-http://www.slideshare.net/harmophone/api-strategy-harmophone
+{% slideshare 16699720 %}
 
-http://www.slideshare.net/cobiacomm/2012-11adoptapiproductmindsetv2
+{% slideshare 16752508 %}
 
-http://www.slideshare.net/ajotwani/unpacking-developer-experience
+{% slideshare 16706151 %}
 
-http://www.slideshare.net/duvander/make-your-api-irresistible
+{% slideshare 16091425 %}
 
-http://www.slideshare.net/jmusser/j-musser-apibizmodels2013
+{% slideshare 16695001 %}
 
-http://www.slideshare.net/fehguy/swagger-foryourapi
+{% slideshare 16678743 %}
 
-http://www.slideshare.net/bpedro/bruno-pedrocloudwork
+{% slideshare 16843890 %}
 
-http://www.slideshare.net/SmartBear_Software/managing-the-risks-of-third-party-apis
+{% slideshare 16719073 %}
 
-http://www.slideshare.net/twilio/we-are-software-people-jeff-lawson-api-strategy-conference
+{% slideshare 16912487 %}
 
-http://www.slideshare.net/chuckstar/api-strat
-
+{% slideshare 16679450 %}
 
 
 Retros:

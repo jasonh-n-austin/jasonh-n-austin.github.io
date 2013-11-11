@@ -1,7 +1,7 @@
 ---
 author: jhrmn
 comments: true
-date: 2013-01-12 03:36:31+00:00
+date: 2013-01-12 03:36:31-05:00
 layout: post
 slug: bdd-atdd-for-your-agile-rest-api
 title: BDD / ATDD for your Agile REST API

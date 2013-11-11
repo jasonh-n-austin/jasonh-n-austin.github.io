@@ -1,0 +1,8 @@
+To build site
+- rake generate
+To deploy
+- rake build
+To save source
+- git add .
+- git commit -m "stuff"
+- git push origin source

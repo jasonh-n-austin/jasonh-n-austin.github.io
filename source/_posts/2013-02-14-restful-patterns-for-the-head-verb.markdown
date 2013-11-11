@@ -1,7 +1,7 @@
 ---
 author: jhrmn
 comments: true
-date: 2013-02-14 05:25:05+00:00
+date: 2013-02-14 05:25:05-05:00
 layout: post
 slug: restful-patterns-for-the-head-verb
 title: RESTful patterns for the HEAD verb
