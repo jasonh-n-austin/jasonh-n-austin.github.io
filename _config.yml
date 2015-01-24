@@ -63,6 +63,10 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # post_asides:
 # page_asides:
 
+# HPSTR
+site.avatar : http://res.cloudinary.com/jhrmn/image/upload/c_scale,r_16,w_500/v1384091899/2013-05_Profile_ftr6f3.png
+
+
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #

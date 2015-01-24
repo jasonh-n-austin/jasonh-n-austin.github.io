@@ -1,6 +1,7 @@
-@import "base/solarized";
-@import "base/syntax";
-@import "base/bootstrap";
-@import "base/bootstrap-responsive";
-@import "base/foundation";
-@import "base/theme";
+@import "base/variables.scss";
+@import "base/mixins.scss";
+@import "base/reset.scss";
+@import "base/utilities.scss";
+@import "base/typography.scss";
+@import "base/pygments.scss";
+@import "base/layout.scss";
