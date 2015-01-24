@@ -1,0 +1,13 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Owner: Jason Harmon
+  Site: http://jhr.mn
+  Twitter: @jasonh_n_austin
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Octopress, Jekyll
+  Software: Vim

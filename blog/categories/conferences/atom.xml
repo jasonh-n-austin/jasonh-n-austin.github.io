@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Conferences | Pragmatic API]]></title>
+  <link href="http://jasonh-n-austin.github.io/blog/categories/conferences/atom.xml" rel="self"/>
+  <link href="http://jasonh-n-austin.github.io/"/>
+  <updated>2015-01-24T17:29:34-06:00</updated>
+  <id>http://jasonh-n-austin.github.io/</id>
+  <author>
+    <name><![CDATA[Jason Harmon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[API Slides and Retros Collected From Twitter #apistrat #NYC 2013]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012/"/>
+    <updated>2013-02-25T12:04:39-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012</id>
+    <content type="html"><![CDATA[<p>I had a blast at the API Strategy and Practices Conference in NYC over the weekend. I learned things, I shared and socialized ideas, and was generally awed by the level of brainshare happening. In an effort to share this with folks who didn&rsquo;t make it, I&rsquo;ve collected all I could along the way, and I&rsquo;m sharing it.</p>
+
+<p>Please send me anything I&rsquo;ve missed, whether you presented it or just took better notes than me.
+<img src="http://farm9.staticflickr.com/8513/8514152556_d7b16ae346.jpg" alt="APIStrat" /></p>
+
+<!-- more -->
+
+
+<p>Content:</p>
+
+<p><a href="https://speakerdeck.com/johnsheehan/apis-for-humans-api-strategy-and-practice-edition">APIs for Humans - API Strategy and Practice Edition - John Sheehan, Runscope</a></p>
+
+<p><a href="http://rknla.github.com/rdio-projects/apistrat2013/index.html">The Future of Music APIs - R. Kevin Nelson, Rdio (and top live tweeter just above me at #apistrat ;)</a></p>
+
+<p><a href="http://amberonrails.com/building-stripes-api/">Building Stripe&rsquo;s API - Amber Feng</a></p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16755403 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16680579 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16700885 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16699720 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16752508 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16706151 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16091425 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16695001 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16678743 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16843890 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16719073 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16912487 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/16679450 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+
+<p>Retros:
+<a href="http://seabourneinc.com/2013/02/25/three-takeaways-from-the-api-strategy-and-practice-conference/">Three takeaways – Mike Reich, Seabourne</a></p>
+
+<p><a href="http://www.3scale.net/2013/02/five-things-we-learned-at-apistrat/">Five things we learned – Steven Willmott, 3scale</a></p>
+
+<p><a href="http://blog.mashery.com/content/api-strategy-practice-conference-summary">API Strategy &amp; Practice Conference Summary - Mashery</a></p>
+
+<p><a href="http://www.apievangelist.com/2013/02/25/exactly-the-api-strategy-and-practice-conference-i-envisioned/">Exactly the API Strategy &amp; Practice Conference I Envisioned - Kin Lane / API Evangelist</a></p>
+
+<p><a href="http://developer.pearson.com/blog/technologists-flocked-nyc-first-ever-apistrat-conference-last-week">Technologists Flocked to NYC for the First-ever #apistrat Conference Last Week - Anthony</a></p>
+
+<p><a href="http://developers-blog.helloreverb.com/api-strategy-conference-recap/">API Strategy Conference Recap - Reverb Software</a></p>
+
+<p><a href="http://olensmar.blogspot.se/2013/03/another-apistrat-conference-recap.html">Another #APIStrat Conference Recap - @Olensmar of @SoapUI</a></p>
+
+<p>Thanks to all who attended for your open-mindedness and inclusive attitudes. It was great to connect with everyone I met.</p>
+]]></content>
+  </entry>
+  
+</feed>

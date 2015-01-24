@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Pragmatic API]]></title>
+  <link href="http://jasonh-n-austin.github.io/atom.xml" rel="self"/>
+  <link href="http://jasonh-n-austin.github.io/"/>
+  <updated>2015-01-24T17:29:34-06:00</updated>
+  <id>http://jasonh-n-austin.github.io/</id>
+  <author>
+    <name><![CDATA[Jason Harmon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A New Chapter on Youtube]]></title>
+    <link href="http://jasonh-n-austin.github.io/2015/01/25/5-new-chapter-on-youtube/"/>
+    <updated>2015-01-25T13:28:00-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2015/01/25/5-new-chapter-on-youtube</id>
+    <content type="html"><![CDATA[<p>2014 was an extremely busy year at Paypal: heading up the API Design team, in an effort to API-ify over 80% of the company&rsquo;s capabilities. I only managed to get out three blog posts, all on <a href="http://apiux.com/author/jasonharmon/">http://APIUX.com</a>. As I looked at revising my strategy for sharing with the community for 2015, I had to reflect on 2014.</p>
+
+<ul>
+<li>Public speaking: I attended 12 events, I think 10 of which I gave talks at. 90% of them required travel.</li>
+<li>Work travel: I underestimated the amount of travel that my role at Paypal would entail. I visited San Jose on average every 6 weeks, Scottsdale 1x, Chicago 1x and even India/Bangalore for a week.</li>
+<li>Meetups: as part of the events I visited, some were meetups. While I really enjoyed it, the meetup I love most, <a href="http://austinapi.com">Austin API</a> was the one I visited the least. I also contributed very little to organizing, which I feel put an unfair burden on my co-organizers.</li>
+</ul>
+
+
+<h3>Unfinished business</h3>
+
+<p>I&rsquo;ve been writing all year. My Evernote has quite a few stubs for blog posts (usually written on planes with no wifi) that never seem to get to a point I feel comfortable posting. My brain gets cleared up by writing down all the lessons I learn in reviewing hundreds of REST API designs. However, I wanted to be able to provide more context to some of the content, as some of it is somewhat critical in nature. In essence, I&rsquo;ve collected lots of common mistakes and basics for folks who might not know much about APIs in general.</p>
+
+<h3>Seeds of inspiration</h3>
+
+<p>I&rsquo;ve been working with our technical trainers at Paypal on building a video series teaching API design principles, and helping guide our developers through our standards and guidance. While I felt at ease on camera, I realized how different the experience was from writing. I felt inspired to learn as much as I could about the video production and writing process.</p>
+
+<p>I spent the holidays getting my personal life in order (namely home projects), as I realized I hadn&rsquo;t been present for more than a few weeks all year (usually catching up on short-term needs). As part of cleaning up the wreckage of the post-travel dump zone known as my home office, I thought more about sharing with the API community again.</p>
+
+<p>I got a new webcam as a Christmas gift, based on a mention to a family member that I&rsquo;d thought about using video as a way to better communicate these concepts. Now that I had a clean office space, I started experimenting. By the end of my two weeks off, I had built a low grade production studio. I also eBay&rsquo;d off a bunch of old gadgets while cleaning up the office, enough to fund the purchase of a decent camera, microphones and lighting.</p>
+
+<h3>Staying home</h3>
+
+<p>I&rsquo;ve turned down quite a few speaking events for this year. I&rsquo;m cutting back to events where I know I&rsquo;ll be in the best environment for what I&rsquo;m passionate about. Additionally, I&rsquo;m hoping for a year at Paypal where things are more stable, and travel won&rsquo;t be such a big requirement.</p>
+
+<p>After visiting non-stop conferences the last few years, I have a new perspective. While we&rsquo;re finding audiences and meeting people in person (and visiting with other conference traveling friends), there&rsquo;s nothing going on in between conferences. It&rsquo;s a very time consuming proposition to attend all the API conferences, as there&rsquo;s bene such a proliferation in the last year.</p>
+
+<p>I&rsquo;ve also re-committed myself to making the Austin API Meetup a top priority. The Austin startup and tech scene in general is exploding, and there&rsquo;s so many people to share with and learn from. We&rsquo;ve made it two years, organizing top notch speakers every month&hellip;I&rsquo;m not aware of any other API meetup in the country that&rsquo;s maintained that pace. I want us to continue to strengthen the community, and I hope it leads to bigger events coming to Austin focused on APIs. I need to be home to help make all this happen.</p>
+
+<p>It sort of clicked to me that broadcasting video is a way I can be home for my family more, and still stay connected with the API community that I love spending time with.</p>
+
+<h3>Motivation</h3>
+
+<p>My kids are nuts about Youtube. As I&rsquo;ve leared more about it from them, I find myself spending most of my time on Youtube shows, and almost zero no TV. I&rsquo;ve also discovered that modern youth culture is not focused around reading, and moreso on video learning.</p>
+
+<p>For better or worse, I&rsquo;ve come to believe there are a younger generation of developers who want to learn from video, and really don&rsquo;t have the capacity to read 1000 words to learn something. I love mentoring new developers, and helping guide them to learn about the cutting edge, and video started to feel like a way I could broadcast that connection.</p>
+
+<h3>Video is hard</h3>
+
+<p>Editing a sentence in blogs is easy, when you change your mind later. With video, that often means reshooting a segment, editing and re-rending an entire episode. I&rsquo;m learning a lot, and it&rsquo;s forcing me to boil down topics more succinctly. I&rsquo;ve also had to learn how to speak to a camera, instead of a crowd.</p>
+
+<h3>A new chapter</h3>
+
+<p>I launched a new <a href="https://www.youtube.com/channel/UCKK2ir0jqCvfB-kzBGka_Lg">Youtube channel</a> yesterday, titled &ldquo;API Workshop&rdquo;. I&rsquo;m hoping to engage a different-minded aspect of the API community. Video learning oriented, perhaps younger, and hopefully thirsty for knowledge.</p>
+
+<p>My biggest backlog of unfinished posts is on common API design mistakes, which a friend helped me label <a href="https://www.youtube.com/playlist?list=PLmi7Sd1Nw3uljsMw9WE2lXE42cdZ0nEsH">&ldquo;Not Good APIs&rdquo;</a> (I laughed for days after he suggested it). As such, the first video is part of this series, titled <a href="https://www.youtube.com/watch?v=-MBXsmSrKE8&amp;list=TLUxDYVMx3C_s">&ldquo;REST API Design: Avoid future proofing with the JSON junk drawer&rdquo;</a>.</p>
+
+<p>The community response has been amazing, including a <a href="https://www.youtube.com/watch?v=Eib2IXVEq-E">video reply</a> from my friend Kin Lane, &ldquo;The API Evangelist&rdquo;. The fact that he and I were able to discuss important design concepts, and the future of APIs.json in the public space was really exciting for me.</p>
+
+<p>I&rsquo;m still hoping to get some writing done this year, but it&rsquo;s probably going to take me some time to get fast at my production process for video. Until then, see you on Youtube!</p>
+
+<p>Here&rsquo;s the first episode from the channel, enjoy!</p>
+
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/oWSKdadSsmQ "></iframe></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BDD for APIs Talk at APIStrat SF 2013]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/11/10/bdd-for-apis-talk-at-apistrat-sf-2013/"/>
+    <updated>2013-11-10T08:58:00-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/11/10/bdd-for-apis-talk-at-apistrat-sf-2013</id>
+    <content type="html"><![CDATA[<p>I recently attended the API Strategy &amp; Practices conference in San Francisco. I also attended earlier this year in New York, but this time I came as a speaker. I enjoyed the panel format in NYC so much, I decided I had to be a part of it. I wanted to bring something that I haven&rsquo;t heard before at API-related conferences.
+I&rsquo;ve blogged quite a bit in the past on the topic of BDD for APIs. I have a theory that many API developers use this methodology for functional/acceptance testing, but just aren&rsquo;t talking about it. Presenting on this topic gave me an opportunity to meet folks from a variety of industries who all agreed this is a very effective approach for giving APIs a business language for testing.</p>
+
+<!--more-->
+
+
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/UuxKpmIrK4w "></iframe></div>
+
+
+<p>My talk starts at 37 minutes, 54 seconds, but I recommend watching the whole panel if you are truly interested in testing and debugging APIs.</p>
+
+<h2>Some of my prior posts on BDD:</h2>
+
+<p><a href="http://www.pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/">BDD / ATDD for your Agile REST API</a></p>
+
+<p><a href="http://www.pragmaticapi.com/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2/">BDD / ATDD for your Agile REST API, part 2</a></p>
+
+<p><a href="https://github.com/jasonh-n-austin/api-bdd-tests">Code samples for this talk</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Extend Your CRUD HTTP API With Sub-resources]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/03/25/extend-your-crud-http-api-with-sub-resources/"/>
+    <updated>2013-03-25T12:21:40-05:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/03/25/extend-your-crud-http-api-with-sub-resources</id>
+    <content type="html"><![CDATA[<p>When it&rsquo;s time to build your web API, there&rsquo;s often a tendency to build everything around data entities. <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>-style APIs use GET/POST/PUT/DELETE to provide the same feel as SELECT/INSERT/UPDATE/DELETE in a traditional relational database.</p>
+
+<p>Once you work through these CRUD-based web API patterns for a while, you will find that it doesn&rsquo;t always match up perfectly to your business needs. I&rsquo;d like to introduce a design pattern which will add some flexibility to your CRUD-stye HTTP API, while maintaining clean semantics and easy usability.
+<img src="http://res.cloudinary.com/jhrmn/image/upload/v1364231618/memecenter_1364231463618_397_eft398.gif" alt="" /></p>
+
+<!-- more -->
+
+
+<p>There are a number of frameworks with actually revolve around creating this clear linkage between a relational database and the &lsquo;four verbs&rsquo; of a typical HTTP API. While the CRUD approach to logical entities will often provide the bulk of an APIs functionality, there are other forms which can be very effective.</p>
+
+<p>Simply put, we can provide an always-existent sub-resource as an extension to your entity-based resource.</p>
+
+<p>Let&rsquo;s look at a newly created fictional user account.</p>
+
+<p><em>NOTE: Authentication is assumed in the following examples, for brevity.</em></p>
+
+<div><script src='https://gist.github.com/5234609.js'></script>
+<noscript><pre><code>GET /users/321
+200 OK
+{
+  &quot;id&quot;: 321,
+  &quot;username&quot;: &quot;jhrmn&quot;,
+  &quot;firstName&quot;: &quot;Jason&quot;,
+  &quot;lastName&quot;: &quot;Harmon&quot;,
+  &quot;userType&quot;: &quot;read-only&quot;
+  &quot;status&quot;: &quot;active&quot;
+}</code></pre></noscript></div>
+
+
+<p>It is often the case that we want to maintain a different level of control around a user account than the user&rsquo;s profile. The details of this account might not be made available for the user to change. In our fictional user, the access level/user type is &lsquo;read-only&rsquo;. If I tried to update this user, I might not be permitted.</p>
+
+<div><script src='https://gist.github.com/5234612.js'></script>
+<noscript><pre><code>PUT /users/321
+{
+  &quot;id&quot;: 321,
+  &quot;username&quot;: &quot;jason.harmon&quot;,
+  &quot;firstName&quot;: &quot;Jason&quot;,
+  &quot;lastName&quot;: &quot;Harmon&quot;,
+  &quot;userType&quot;: &quot;read-only&quot;
+  &quot;status&quot;: &quot;active&quot;
+}
+
+403 Forbidden</code></pre></noscript></div>
+
+
+<p>However, we might want to provide this user with an update-able profile, that other users can view. When we first touch the profile on a newly created account, it might not be populated in the backend. However, we want to provide the notion that a user profile always exists for a user account, even if they haven&rsquo;t yet updated it. In some cases, there might be calculated fields or other pre-populated data when we first access the sub-resource.</p>
+
+<div><script src='https://gist.github.com/5234615.js'></script>
+<noscript><pre><code>GET /users/321/profile
+200 OK
+{
+  &quot;feedback&quot;: 0
+}
+</code></pre></noscript></div>
+
+
+<p>Note that the naming on this URI is singular, &lsquo;profile&rsquo;, not &lsquo;profiles&rsquo;. While I recommend pluralized naming convention for CRUD-style resources (notice &lsquo;users&rsquo;), a sub-resource like this will never be plural. There is a flat 1-to-1 relationship between the selected user and the profile.</p>
+
+<p>Now that we&rsquo;ve recognized the user&rsquo;s profile is basically empty, we can PUT some data to update it.</p>
+
+<div><script src='https://gist.github.com/5234620.js'></script>
+<noscript><pre><code>PUT /users/321/profile
+{
+  &quot;feedback&quot;: 0,
+  &quot;photo&quot;: &quot;https://en.gravatar.com/userimage/11130470/deba6005e5c4709589c33fdfdd5cc6b5.jpg&quot;,
+  &quot;preferredShippingCarrier&quot;: &quot;FedEx&quot;,
+  &quot;nickName&quot;: &quot;El Gran Bigote&quot;
+}
+
+204 No Content</code></pre></noscript></div>
+
+
+<p>Note that if the update was successful, we reply with a 204; no need to provide any more context than that. Now we can retrieve this sub-resource, and see that it matches what we provided.</p>
+
+<div><script src='https://gist.github.com/5234622.js'></script>
+<noscript><pre><code>GET /users/321/profile
+{
+  &quot;photo&quot;: &quot;https://en.gravatar.com/userimage/11130470/deba6005e5c4709589c33fdfdd5cc6b5.jpg&quot;,
+  &quot;preferredShippingCarrier&quot;: &quot;FedEx&quot;,
+  &quot;nickName&quot;: &quot;The Professor&quot;
+}
+</code></pre></noscript></div>
+
+
+<p>Next time you have a critical resource you need to extend, be sure to think about this flat sub-resource pattern. You&rsquo;ll keep the complexity of your content from growing out of control, and avoid mixed security constraints in one operation.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[REST Roadmap - API Hypermedia for Permissions Patterns]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/03/06/rest-roadmap-hypermedia-for-permissions/"/>
+    <updated>2013-03-06T08:02:14-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/03/06/rest-roadmap-hypermedia-for-permissions</id>
+    <content type="html"><![CDATA[<p>It&rsquo;s been a while since my first post in the REST Roadmap series on <a href="http://pragmaticapi.com/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/">RMM Level 2 / verbs / HTTP status codes</a>. I&rsquo;d like to continue moving up the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">RMM</a> chain, looking at Hypermedia as the Level 3, according to Martin Fowler and Leon Richardson.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658583/rmm_level_3_zf1hpv.png" alt="" /></p>
+
+<p>In the spirit of pragmatism, I&rsquo;d like to tune out a lot of the chatter about media types, link formats, and the like when it comes to hypermedia for the sake of this post. We&rsquo;ll focus completely on the notion of how to use Hypermedia concepts to provide security context to our users without creating an arbitrary security construct.</p>
+
+<!-- more -->
+
+
+<p>Let&rsquo;s look at a fictionalized set of API URIs/responses, utilizing JSON. We&rsquo;ll assume that we&rsquo;ve authenticated to our API with something like Oauth, so we have the security context of the API consumer.</p>
+
+<div><script src='https://gist.github.com/5097281.js'></script>
+<noscript><pre><code>GET /widget/5
+
+{
+  &quot;id&quot;: 5,
+  &quot;code&quot;: &quot;abc123&quot;,
+  &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
+
+<p>While this is certainly a boring case, thus far it&rsquo;s semantically sound. However, we really don&rsquo;t know what else we can do with the &lsquo;widget&rsquo; we requested.</p>
+
+<div><script src='https://gist.github.com/5097293.js'></script>
+<noscript><pre><code>(Login as poweruser)
+GET /widget/5
+
+{
+    &quot;links&quot;: [
+        {
+            &quot;rel&quot;: &quot;Create&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;POST&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        },
+        {
+            &quot;rel&quot;: &quot;List&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;GET&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        }
+    ],
+    &quot;id&quot;: 5,
+    &quot;code&quot;: &quot;abc123&quot;,
+    &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
+
+<p>Now we have a sense of what we&rsquo;re capable of by looking at the &lsquo;links&rsquo; object array. The first link tells me fairly clearly that I can &ldquo;create a Cog by POSTing to /widget/5/cogs&rdquo;. In addition, I can &ldquo;List Cogs by GETing /widget/5/cogs&rdquo;. Obviously there are a variety of potential naming conventions here, but the gist is simple: provide a relationship for the related link, what kind of resource that link is, and what verb+URI to get the job done.
+Our front-end developers can begin to provide actions/buttons for their users to act upon this &ldquo;create Cog&rdquo; link. Not only does the link indicate the capability to complete this action, it also provides the Verb+URI to make it possible. This provides our developers the opportunity to avoid hard-coding that URL, thereby reducing one more hard-coded dependency in their app.</p>
+
+<div><script src='https://gist.github.com/5097295.js'></script>
+<noscript><pre><code>(Login as ViewOnlyUser)
+GET /widget/5
+
+{
+    &quot;links&quot;: [
+        {
+            &quot;rel&quot;: &quot;List&quot;,
+            &quot;title&quot;: &quot;Cog&quot;,
+            &quot;verb&quot;: &quot;GET&quot;,
+            &quot;href&quot;: &quot;/widget/5/cogs&quot;
+        }
+    ],
+    &quot;id&quot;: 5,
+    &quot;code&quot;: &quot;abc123&quot;,
+    &quot;name&quot;: &quot;Widget I know of&quot;
+}</code></pre></noscript></div>
+
+
+<p>Note that when we login as a user with less privileges, we no longer have a link for &ldquo;create Cog&rdquo;. For our front-end developers, this should indicate that they would not provide GUI options for creating this related resource. This should provide a more consistent user experience, where we are not prompting them to take actions which we know will not work for them (thus avoiding trips back to the server for invalid operations/400s/500s).</p>
+
+<p>Obviously links can take many forms. In my experience, the typical relationships are list, item, create, update, delete. In typical pragmatic REST fashion, you should tailor this to your specific needs, while keeping in mind future sustainability.</p>
+
+<p>Hopefully this gives you a start on implementing a Hypermedia strategy in your RESTful API which will give your front-end developers some quick bang for their buck. More poignantly, our application end-users will have the opportunity for a more consistent user experience while utilizing the apps that are fed from our API. Everybody wins ;)</p>
+
+<p>I&rsquo;m sure this will invite plenty of flamebait for criticisms of the hypermedia implementation noted. I invite your feedback, let&rsquo;s just stay focused on pragmatic approaches, and not get too academic or dogmatically prescriptive, hopefully we can all learn something. I think it&rsquo;s safe to say none of us have this figured out perfectly yet, my hope is this helps folks get the ball rolling, while getting some quick wins.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[#API Makers/consumers: Do You Sometimes Feel Like No One Really Gets You?]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/02/28/api-makersconsumers-do-you-sometimes-feel-like-no-one-really-gets-you/"/>
+    <updated>2013-02-28T03:30:50-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/28/api-makersconsumers-do-you-sometimes-feel-like-no-one-really-gets-you</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve found myself explaining to lots of people what it is that I do, in working with APIs. Sure, at the office or a conference, I feel understood. However in social settings or around family, I sometimes feel like people just think I&rsquo;m making this stuff up. When I try to use acronym and industry jargon filled phrases, I often just get glazed over stares and slow head nodding.</p>
+
+<blockquote><p>&ldquo;I offer a series of integration points for mobile, web, and B2B web services consumers. Our RESTful API provides partners and developers and opportunity to monetize their application development by utilizing our marketplace platform.&rdquo;</p>
+
+<p>&hellip;&ldquo;{crickets chirping}&rdquo;&hellip;</p></blockquote>
+
+<!-- more -->
+
+
+<p>I&rsquo;ve tried to come up with some metaphors and analogies which help describe, to the uninitiated, what exactly an API builder does. In some situations, I think some of them have fallen flat on their faces, and others have switched on lightbulbs. Your mileage may vary, take it for what it&rsquo;s worth.</p>
+
+<ol>
+<li><p> <strong>&ldquo;All of your mobile apps are powered by APIs&rdquo;</strong>. This one gets a positive reaction (everyone wants to understand how those snazzy mobile apps work), albeit a still somewhat ambiguous vibe. I don&rsquo;t think that most folks know the difference between a SQL database connection, a NoSQL database connection, and a RESTful API call. They just know data comes from somewhere to paint a screen on their phone.</p></li>
+<li><p> <strong>&ldquo;You can&rsquo;t build a car/plane/whatever without good components&rdquo;</strong>. This starts out rough, but gets easier, at least in describing hacked compilations of various APIs. I try to explain that a car or plane company doesn&rsquo;t make gauges, shocks, and sensors; they rely on specialists to provide those components. In terms of apps/sites which can do lots of different things, they rely on API providers to create great components in their various fields of specialty.</p></li>
+<li><p> <strong>&ldquo;Brain of the business&rdquo;</strong>. I think this comes off as arrogant sometimes, but it&rsquo;s my attempt to explain the value of APIs. The notion that an API attempts to consolidate business logic behind some facade is where this comes from. This idea that we have some abstracted rug under which all business logic is swept. This has worked best for talking about more enterprise type scenarios.</p></li>
+<li><p> <strong>&ldquo;We are librarians managing the card catalog&rdquo;</strong>. Far and away my most abused metaphor, probably due to my obsession with wanting a really cool old handcrafted card catalog in my home office. I think I&rsquo;ve used this primarily in terms of describing the sorts of personalities we look for in talent acquisition for API builders. Unfortunately for younger people out there, I&rsquo;m afraid they&rsquo;ve probably never used a card catalog in a library, but I tend to hope they at least get comparison. There is a discipline in what we do which requires a deliberation of minutia not often seen in software, much like the discipline of running a library full of books. Knowing that we have to accurately describe the functionality of some abstracted business concept, and describe it&rsquo;s interaction patterns in painstaking detail. Anyone can walk into the library and lookup their book by various parameters in a consistent manner by using the card catalog, much like we expect that our API consumers can find the data they need in the same way.</p></li>
+</ol>
+
+
+<p>I&rsquo;d love to hear how you describe how APIs work to family/friends/business associates. Our field is one of disciplined craftsmen, quite often also some of the more intimately creative people I&rsquo;ve had the pleasure of meeting. Hopefully some of you are more eloquent at describing this than I am, and can help provide me with better ways of evangelizing the virtues of our practice.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[API Slides and Retros Collected From Twitter #apistrat #NYC 2013]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012/"/>
+    <updated>2013-02-25T12:04:39-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/25/api-slides-and-retros-collected-from-twitter-apistrat-nyc-2012</id>
+    <content type="html"><![CDATA[<p>I had a blast at the API Strategy and Practices Conference in NYC over the weekend. I learned things, I shared and socialized ideas, and was generally awed by the level of brainshare happening. In an effort to share this with folks who didn&rsquo;t make it, I&rsquo;ve collected all I could along the way, and I&rsquo;m sharing it.</p>
+
+<p>Please send me anything I&rsquo;ve missed, whether you presented it or just took better notes than me.
+<img src="http://farm9.staticflickr.com/8513/8514152556_d7b16ae346.jpg" alt="APIStrat" /></p>
+
+<!-- more -->
+
+
+<p>Content:</p>
+
+<p><a href="https://speakerdeck.com/johnsheehan/apis-for-humans-api-strategy-and-practice-edition">APIs for Humans - API Strategy and Practice Edition - John Sheehan, Runscope</a></p>
+
+<p><a href="http://rknla.github.com/rdio-projects/apistrat2013/index.html">The Future of Music APIs - R. Kevin Nelson, Rdio (and top live tweeter just above me at #apistrat ;)</a></p>
+
+<p><a href="http://amberonrails.com/building-stripes-api/">Building Stripe&rsquo;s API - Amber Feng</a></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16755403 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16680579 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16700885 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16699720 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16752508 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16706151 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16091425 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16695001 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16678743 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16843890 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16719073 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16912487 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16679450 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
+
+
+<p></p>
+
+<p>Retros:
+<a href="http://seabourneinc.com/2013/02/25/three-takeaways-from-the-api-strategy-and-practice-conference/">Three takeaways – Mike Reich, Seabourne</a></p>
+
+<p><a href="http://www.3scale.net/2013/02/five-things-we-learned-at-apistrat/">Five things we learned – Steven Willmott, 3scale</a></p>
+
+<p><a href="http://blog.mashery.com/content/api-strategy-practice-conference-summary">API Strategy &amp; Practice Conference Summary - Mashery</a></p>
+
+<p><a href="http://www.apievangelist.com/2013/02/25/exactly-the-api-strategy-and-practice-conference-i-envisioned/">Exactly the API Strategy &amp; Practice Conference I Envisioned - Kin Lane / API Evangelist</a></p>
+
+<p><a href="http://developer.pearson.com/blog/technologists-flocked-nyc-first-ever-apistrat-conference-last-week">Technologists Flocked to NYC for the First-ever #apistrat Conference Last Week - Anthony</a></p>
+
+<p><a href="http://developers-blog.helloreverb.com/api-strategy-conference-recap/">API Strategy Conference Recap - Reverb Software</a></p>
+
+<p><a href="http://olensmar.blogspot.se/2013/03/another-apistrat-conference-recap.html">Another #APIStrat Conference Recap - @Olensmar of @SoapUI</a></p>
+
+<p>Thanks to all who attended for your open-mindedness and inclusive attitudes. It was great to connect with everyone I met.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[RESTful Patterns for the HEAD Verb]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/02/14/restful-patterns-for-the-head-verb/"/>
+    <updated>2013-02-14T04:25:05-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/14/restful-patterns-for-the-head-verb</id>
+    <content type="html"><![CDATA[<p>In the typical usage of HTTP, the GET and POST verbs seem to get the most mileage. I&rsquo;ve previously covered some aspects of moving up the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a> scale. Implementing the PUT and DELETE verbs is typically a step up to RMM Level 2. There are other HTTP verbs, outside of the &lsquo;by the book&rsquo; RESTful patterns, which can prove very useful in certain situations. One of the easiest to implement verbs, with some great benefits in scaling terms, is the HEAD verb.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658838/rest_head_tpp1jm.jpg" alt="" /></p>
+
+<!-- more -->
+
+
+<p>If you&rsquo;re not familiar with HTTP HEAD, it&rsquo;s best to start with the specifications at <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html</a></p>
+
+<h3>9.4 HEAD</h3>
+
+<blockquote><p><em>The HEAD method is identical to GET except that the server MUST NOT return a message-body in the response. The metainformation contained in the HTTP headers in response to a HEAD request SHOULD be identical to the information sent in response to a GET request. This method can be used for obtaining metainformation about the entity implied by the request without transferring the entity-body itself. This method is often used for testing hypertext links for validity, accessibility, and recent modification.</em></p></blockquote>
+
+<p><em>The response to a HEAD request MAY be cacheable in the sense that the information contained in the response MAY be used to update a previously cached entity from that resource. If the new field values indicate that the cached entity differs from the current entity (as would be indicated by a change in Content-Length, Content-MD5, ETag or Last-Modified), then the cache MUST treat the cache entry as stale.</em></p>
+
+<p>Simply put, HEAD returns all of the HTTP headers, just like GET, but provides no body content. All of the same rules regarding content caching can be applied, regarding headers in the request/response.</p>
+
+<p>There are a few scenarios where HEAD is exceptionally useful:</p>
+
+<p><strong>Existence checks:</strong></p>
+
+<p>In cases where the content of a resource is not particularly important, but the existence of the resource is, HEAD is perfect. We can do everything just like a GET and check the response code, without the weight of the response body.</p>
+
+<p>As an example, we&rsquo;ll look at Twitter&rsquo;s public profile API.</p>
+
+<pre><code>GET http://api.twitter.com/1/users/show.json?screen_name=jasonh_n_austin
+</code></pre>
+
+<p>The server responds:</p>
+
+<pre><code>200 OK
+{
+"id": 57005215,
+"id_str": "57005215",
+"name": "Jason Harmon",
+"screen_name": "jasonh_n_austin",
+"location": "Austin, TX",
+"url": "http://pragmaticapi.com",
+&lt;snip&gt;
+</code></pre>
+
+<ul>
+<li>Cache checks:</li>
+</ul>
+
+
+<p>When we call this using GET, there is a definite weight to the response body&hellip;enough that I&rsquo;ll snip it for sake of brevity. If we wanted to simply validate that a profile exists, we could use HEAD and simply evaluate the HTTP status (as there will be no response body):</p>
+
+<pre><code>HEAD http://api.twitter.com/1/users/show.json?screen_name=jasonh_n_austin
+</code></pre>
+
+<p>The server responds:</p>
+
+<pre><code>200 OK
+</code></pre>
+
+<p>That&rsquo;s it! In cases where the profile doesn&rsquo;t exist, the response code will be a 404 (much like you&rsquo;ve seen when you request a non-existent web page).</p>
+
+<pre><code>HEAD http://api.twitter.com/1/users/show.json?screen_name=jasonh_n_portland
+</code></pre>
+
+<p>The server responds:</p>
+
+<pre><code>404 OK
+</code></pre>
+
+<p>There&rsquo;s really no simpler way to determine if a resource exists in an API. This is very nice when there is a secured resource (such as a username or email of some user) which you cannot expose the details of. HEAD prevents any potential information being exposed, other than the existence of that item.</p>
+
+<p><strong>Cache check</strong></p>
+
+<p>When the resource in use supports caching, HEAD can be useful to check if there is a new version of the resource you have previously retrieved. When you are dealing with distributed scenarios in which data is potentially cached for periods of time (such as with a mobile device), it can be advantageous to use HEAD to investigate the previously retrieved resources. If there has been a change, the 200 status code indicates there has been an update; otherwise 304 indicates the data is the same as when you retrieved it last.</p>
+
+<p>A well-implemented example of this in a public API is at Github. They implement two models of cache validation in the response headers:</p>
+
+<ol>
+<li><p>ETag: this is typically a calculated hash on the output object, expressed in the &ldquo;ETag&rdquo; response header.</p></li>
+<li><p>In the next request, the If-None-Match request header should utilized the ETag as previously supplied in the response.</p></li>
+<li><p>Last-Modified: normally a database-or-otherwise-maintained &ldquo;last modified date&rdquo; is maintained for the resource, which is supplied in the &ldquo;Last-Modified&rdquo; response header.</p></li>
+<li><p>In the subsequent request, the If-Modified-Since request header can be populated with the previously retrieved &lsquo;last modified-date&rsquo;.</p></li>
+</ol>
+
+
+<p>In either case, the results are simple; 200 means there is new content, 304 means nothing has changed.</p>
+
+<p>While HEAD can be useful for certain caching situations, most folks elect to simply use GET here, as the 304 will not supply a body, and the 200 will reply with the new content in the body. This saves the extra hit for HEAD+200 as well as GET+200+Content. However if you have one process which looks for updates, and another which does the work of retrieving the new content, this model can be very helpful in reducing traffic over the wires.</p>
+
+<p>Example request:</p>
+
+<pre><code>curl -i https://api.github.com/users/jasonh-n-austin
+HTTP/1.1 200 OK
+Server: GitHub.com
+Date: Thu, 14 Feb 2013 04:52:06 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 50
+Vary: Accept
+Cache-Control: public, max-age=60, s-maxage=60
+Last-Modified: Tue, 12 Feb 2013 02:58:46 GMT
+ETag: "f3effd3e870e79f8aed863cf8c8b319f"
+X-GitHub-Media-Type: github.beta
+X-Content-Type-Options: nosniff
+Content-Length: 1482
+
+{
+"login": "jasonh-n-austin",
+"id": 1305160,
+"avatar_url": "https://secure.gravatar.com/avatar/366e53efc68d5899edc95b2c4c9c2619?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png",
+&lt;&gt;
+</code></pre>
+
+<p>Now that we have content, let&rsquo;s check to see if it has changed:</p>
+
+<pre><code>curl --head -i https://api.github.com/users/jasonh-n-austin -H "If-Modified-Since: Tue, 12 Feb 2013 02:58:46 GMT"
+HTTP/1.1 304 Not Modified
+Server: GitHub.com
+Date: Thu, 14 Feb 2013 04:52:32 GMT
+Connection: keep-alive
+Status: 304 Not Modified
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 50
+Vary: Accept
+Cache-Control: public, max-age=60, s-maxage=60
+Last-Modified: Tue, 12 Feb 2013 02:58:46 GMT
+X-Content-Type-Options: nosniff
+</code></pre>
+
+<p>Note that the If-Modified-Since request header matches the value in the original Last-Modified response header.</p>
+
+<p><strong>Summary</strong></p>
+
+<p>In REST talk, we usually refer to the four verbs, GET/PUT/POST/DELETE, as though that&rsquo;s all there is to HTTP. The HEAD verb reminds us that we have more tools in our bag, especially when wire traffic, data access costs, and potentially large response bodies are a big concern. Implementing HEAD is typically fairly simple in most RESTful application frameworks, and can pay real dividends in terms of scaling a platform, when used wisely.</p>
+
+<p>Good luck!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BDD / ATDD for Your Agile REST API, Part 2]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2/"/>
+    <updated>2013-01-21T00:30:27-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2</id>
+    <content type="html"><![CDATA[<p>Part 1: <a href="http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/">http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/</a></p>
+
+<p>I recently covered how BDD principles can provide a great touch stone for acceptance testing in REST-based API platforms. In this brief followup, I&rsquo;ll show how the Cucumber-JVM framework provides all of the same functionality that we saw in .NET&rsquo;s SpecFlow, using the Groovy programming language.</p>
+
+<!-- more -->
+
+
+<p>Code for this example can be found on <a href="https://github.com/jasonh-n-austin/TwitterRestTestsGroovy">Github</a>. This should provide you with a working example of BDD testing the Twitter API using Cucumber-JVM, Gradle, and Groovy.</p>
+
+<p>Much like the CLR in .NET, we can use the JVM to provide access to a variety of programming languages. JUnit tests can be developed with Cucumber-JVM, looking almost just like the NUnit-based SpecFlow tests in Part 1. However, this example will show how JUnit, and thereby, any unit testing framework, doesn&rsquo;t necessarily need to be utilized.</p>
+
+<p>Using groovy command-line based invocation of Cucumber tests can be very useful in scenarios where there is interoperability with other Groovy-based tools, namely SoapUI (commonly used in QA web services testing). It is easily possible to create classes which encapsulate the logic necessary to test your API, providing hooks for your Cucumber tests alongside SoapUI, or any other Groovy-based tools.</p>
+
+<p>It is easily arguable that Groovy is well suited for this task. Groovy has some great features like the built in JsonSlurper, great library support (such as the excellent utility <a href="http://groovy.codehaus.org/modules/http-builder/doc/rest.html">RESTClient</a> library), and dynamic ability to walk JSON &amp; XML data.</p>
+
+<p>As a review, here is our feature file, for testing a basic portion of the public Twitter API. This time around, we&rsquo;ve added a few small differences, in the treatment of querystring parameters. This is meant show that there are various ways to describe your tests, not simply monolithic URLs.</p>
+
+<div><script src='https://gist.github.com/4582935.js'></script>
+<noscript><pre><code>@Positive @Get @User
+Scenario: Show twitter user
+  Given I access the resource url &quot;/1/users/show.json&quot;
+        And I provide parameter &quot;screen_name&quot; as &quot;jasonh_n_austin&quot;
+        And I provide parameter &quot;include_entities&quot; as &quot;true&quot;
+    When I retrieve the results
+    Then the status code should be 200
+    And it should have the field &quot;name&quot; containing the value &quot;Jason Harmon&quot;
+    And it should have the field &quot;id&quot; containing the value &quot;57005215&quot;</code></pre></noscript></div>
+
+
+<p>This maps to steps in our RestTests.groovy file, which utilizes the RESTClient class to manage our GET. There are plenty of options out there for a web driver, RESTClient happens to be fairly well suited for our purposes.</p>
+
+<div><script src='https://gist.github.com/4536191.js'></script>
+<noscript><pre><code>Given(~&quot;I access the resource url \&quot;([^\&quot;]*)\&quot;&quot;) { String url -&gt; 
+        resp = null
+        status = null
+
+        uri = new URIBuilder(host)        
+    path = url 
+}
+
+Given(~&quot;I provide parameter \&quot;([^\&quot;]*)\&quot; as \&quot;([^\&quot;]*)\&quot;&quot;) { String name, String value -&gt;
+    uri.addQueryParam name, value
+}
+
+When(~&quot;I retrieve the results&quot;) { -&gt;
+        try {
+        restClient = new RESTClient(uri.toString())
+                resp = restClient.get(path: path)
+        } catch (HttpResponseException ex) {
+        status = ex.getStatusCode()
+    }
+        if (resp != null) {
+        status = resp.status
+            assert ( resp.data instanceof net.sf.json.JSON )
+        assert resp.data.status.size() &gt; 0
+        parsed = resp.data
+        }
+}
+
+Then(~&quot;the status code should be (\\d+)&quot;) { int expectedStatusCode -&gt;
+    assert status == expectedStatusCode
+}
+
+Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&quot;(.*)\&quot;&quot;) { String field, String value -&gt;
+    assert parsed.&quot;${field}&quot;.toString().equals(value) 
+} </code></pre></noscript></div>
+
+
+<p>Most of this code is fairly self-explanatory. For those unexposed to the wonders of Groovy JSON handling (and XML as well), the function starting with &ldquo;it should have the field&rdquo; provides some interesting syntax:</p>
+
+<div><script src='https://gist.github.com/4582955.js'></script>
+<noscript><pre><code>Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&quot;(.*)\&quot;&quot;) { String field, String value -&gt;
+  assert parsed.&quot;${field}&quot;.toString().equals(value)   
+} </code></pre></noscript></div>
+
+
+<p>The &lsquo;parsed&rsquo; variable holds the parsed JSON data. As we have extracted the &lsquo;field&rsquo; variable , we can use a closure to dynamically evaluate whether that field exists in the results.</p>
+
+<p>When we run <strong><em>&ldquo;gradle &ndash;quiet cucumber&rdquo;</em></strong>, we see the following output.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658828/groovy_cucumber_twitter_lpg6yj.png" alt="" /></p>
+
+<p>Overall, compared to either Java or C#, we end up with some very terse code using Groovy. While the difference is not stark with this very simple example, the delta will start to widen as the complexity increases, especially when complex response validation comes into play. In addition, Groovy has some great built-in libraries for building up JSON data, which can be very useful when testing PUT &amp; POST scenarios.</p>
+
+<p>While the Gherkin syntax that SpecFlow and Cucumber-JVM share give us a fundamental link, the BDD premises in defining steps in plain English are really the most powerful aspect, regardless of technology. RESTful API testing can be very daunting with many of the commercial and open source tools available; it is my opinion that BDD/Cucumber based testing is a natural fit. Hopefully you&rsquo;ll find the same to be true after working with the examples in this article and the preceding article.</p>
+
+<p>Happy testing!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BDD / ATDD for Your Agile REST API]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/01/12/bdd-atdd-for-your-agile-rest-api/"/>
+    <updated>2013-01-12T02:36:31-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/01/12/bdd-atdd-for-your-agile-rest-api</id>
+    <content type="html"><![CDATA[<p>In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often following TDD-oriented practices. In agile terms, stakeholders and product owners often never see or grasp what&rsquo;s being tested. Within the unit testing and integration testing tiers, this tends to make sense. However <a href="http://en.wikipedia.org/wiki/Behavior-driven_development">Behavioral Driven Development</a> (aka Acceptance Test Driven Development) begins with acceptance criteria definition and finishes with the acceptance of a story, providing engagement for all members of an agile team from start to finish.</p>
+
+<!-- more -->
+
+
+<p><em>NOTE: All code from this post is on github: <a href="https://github.com/jasonh-n-austin/TwitterRestTests">https://github.com/jasonh-n-austin/TwitterRestTests</a>.</em></p>
+
+<p>In the world of defining acceptance criteria for API development, this approach can be very useful. For those of us on dedicated API teams who have tried to utilize Agile demos using SoapUI or the like, we know the cold dead eyes of bored stakeholders and product owners. It&rsquo;s hard to think about adding value to your business domain when we&rsquo;re all staring at URLs, headers, and status codes. However, the alternative of never showing anyone in the business how your API works certainly loses a depth of understanding that is requisite in today&rsquo;s web platforms.</p>
+
+<p>In some cases, a pervasive culture of <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD/Test-Driven Development</a> can provide the only practice providing cohesion between developers and business. If anything, business folks might understand terms like &ldquo;code coverage&rdquo; or &ldquo;test case&rdquo;, but really have to trust that the developer has built adequate testing when they accept the quality of new features.</p>
+
+<p>Behavioral Driven Development approaches acceptance testing by using plain english expression as the interface for the tests. This approach lends itself well to explaining the behavior of your RESTful resource in Domain Specific Language, i.e. your own business lingo. Here&rsquo;s an example of what a typical scenario definition might look like for a REST test:</p>
+
+<div><script src='https://gist.github.com/4521824.js'></script>
+<noscript><pre><code>@Positive @Get @User
+Scenario: Show twitter user
+  Given I access the resource url &quot;/1/users/show.json?screen_name=jasonh_n_austin&amp;include_entities=true&quot;
+  When I retrieve the results
+  Then the status code should be 200
+  And it should have the field &quot;name&quot; containing the value &quot;Jason Harmon&quot;
+  And it should have the field &quot;id&quot; containing the value &quot;57005215&quot;</code></pre></noscript></div>
+
+
+<p>The above example (functional in the <a href="https://github.com/jasonh-n-austin/TwitterRestTests/blob/master/TwitterRestTests/User.feature">Github</a> project) provides a rudimentary GET test on Twitter&rsquo;s public, no authorization required API. Obviously in authenticated scenarios this would look a bit more complex.</p>
+
+<p>These semantics are fairly easy to understand, and provide some means to abstract away the complexities of testing. In addition, if there are standards within the API platform that need to be verified, that can be addressed within underlying testing code, without re-establishing all of the standards in every test.</p>
+
+<p>Note the tags (delineated by the &ldquo;@&rdquo; symbol). This provides a means to provide some logical groupings by which to call various resources+verbs.</p>
+
+<p>The &lsquo;step definitions&rsquo; form the code behind the &lsquo;feature&rsquo; file you see above. An example of the step &ldquo;I retrieve the results&rdquo; follows:</p>
+
+<div><script src='https://gist.github.com/4521814.js'></script>
+<noscript><pre><code>[Binding]
+public class RestTestSteps
+{
+  private string url;
+  private string content;
+  private WebClient wc = new WebClient();
+  JObject response;
+  HttpStatusCode httpStatus;
+  
+  [Given(@&quot;I access the resource url &quot;&quot;(.*)&quot;&quot;&quot;)]
+  public void GivenIAccessTheResourceUrl(string resourceUrl)
+  {
+  this.url = &quot;https://api.twitter.com&quot; + resourceUrl;
+  }
+  
+  [When(@&quot;I retrieve the results&quot;)]
+  public void WhenRetrieveTheResults()
+  {
+    try
+    {
+      this.content = wc.DownloadString(url);
+      this.httpStatus = HttpStatusCode.OK;
+    }
+    catch (WebException we)
+    {
+      this.httpStatus = ((HttpWebResponse)we.Response).StatusCode;
+    }
+    if (this.httpStatus.Equals(HttpStatusCode.OK))
+    {
+      Assert.IsNotNullOrEmpty(this.content);
+      this.response = (JObject)JToken.Parse(this.content);
+    }
+  }</code></pre></noscript></div>
+
+
+<p>The attribute &lsquo;When&rsquo; defines the regular expression match which matches steps in the feature files. In this case, a simplistic use of the WebClient class provides us with a means to interact with the REST API. Once the interactions have taken place, assertions can take place based on status code, initially:</p>
+
+<div><script src='https://gist.github.com/4521797.js'></script>
+<noscript><pre><code>[Then(@&quot;the status code should be (.*)&quot;)]
+public void ThenTheStatusCodeShouldBe(int statusCode)
+{
+  Assert.AreEqual(statusCode, (int)this.httpStatus);
+}</code></pre></noscript></div>
+
+
+<p>Using JSON.NET, we can parse the result content and verify specific fields and values:</p>
+
+<div><script src='https://gist.github.com/4521805.js'></script>
+<noscript><pre><code>[Then(@&quot;it should have the field &quot;&quot;(.*)&quot;&quot; containing the value &quot;&quot;(.*)&quot;&quot;&quot;)]
+public void ThenItShouldContainTheFieldContainingTheValue(string field, string value)
+  {
+    if (response != null)
+    {
+      JValue val = (JValue)this.response.GetValue(field);
+      string valStr = val.Value().Trim();
+      Assert.IsNotNull(valStr);
+      Assert.AreEqual(valStr, value.Trim());
+    }
+}</code></pre></noscript></div>
+
+
+<p>Of course, these concepts can be taken further to test more details about all aspects of a RESTful API. Of course, the complexity of POST &amp; PUT are going to be more complex and will take some forethought on the approach. Hopefully this will get your thought process starting on how the BDD approach will fit into your acceptance testing strategies for your REST API.</p>
+
+<p>Once you have a test suite developed, and your team engaged in defining BDD-based acceptance criteria and running tests, you should immediately look to get integrated into a <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> server such as TeamCity or Jenkins.</p>
+
+<p><em> </em></p>
+
+<p><em>All samples utilize , a .NET-based BDD framework. These same concepts would work equally well with <a href="http://cukes.info/">Cucumber</a>, <a href="https://github.com/cucumber/cucumber-jvm">Cucumber-JVM</a>, or any <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin</a> - based framework.</em></p>
+
+<p>For SpecFlow installation in VS2012, please refer to the documentation: <a href="https://github.com/techtalk/SpecFlow/wiki/Install-IDE-Installation">https://github.com/techtalk/SpecFlow/wiki/Install-IDE-Installation</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[REST Roadmap - Upgrading in the Richardson Maturity Model]]></title>
+    <link href="http://jasonh-n-austin.github.io/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/"/>
+    <updated>2012-12-25T00:30:26-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model</id>
+    <content type="html"><![CDATA[<h2>REST Roadmap Series</h2>
+
+<p>I&rsquo;d like to kick off my new blog with a series I&rsquo;m calling, &ldquo;REST Roadmap&rdquo;. The idea is to put together a series of basic changes to the typical API which will ensure future success. The first installment is around getting a feel for what REST really is via the Richardson Maturity Model. In my experience, most organizations have made some progress, intentionally or inadvertently, in this regard, and are starting at around Level 1 of RMM.</p>
+
+<!-- more -->
+
+
+<h2>Background on RMM (the Richardson Maturity Model)</h2>
+
+<p>In the software industry (namely the Free Software Movement), the phrase &ldquo;standing on the shoulders of giants&rdquo; is oft used. When we investigate REST, proverbial technology giants like <a href="http://en.wikipedia.org/wiki/Roy_Fielding">Roy Fielding</a>, <a href="http://www.crummy.com/self/">Leonard Richardson</a>, and <a href="http://en.wikipedia.org/wiki/Martin_Fowler">Martin Fowler</a> come to mind. Fowler worked directly with Leonard Richardson, Jim Webber and others to put together some guidelines on how to architecturally construct a REST API. A wonderful culmination of their respective genius is in Martin Fowler&rsquo;s article titled <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a>.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658921/rmm_alxpgg.png" alt="" /></p>
+
+<p><em>(Image credit: Martin Fowler)</em></p>
+
+<p>The nearly oversimplified concept in this article is that a RESTful API can be built in a series of building block-style steps. In practice, there are many gritty details that occur naturally in traversing these steps.</p>
+
+<p>In my experience, reaching the first level of the RMM is fairly common &lsquo;in the wild&rsquo;. Anybody who wants to follow some sort of modern notion of REST tries not to build resources which &ldquo;smell like SOAP&rdquo;. Martin Fowler refers to this style as &ldquo;The Swamp of POX&rdquo;, aka &ldquo;Plain old XML&rdquo;. Desiging resource URIs which try to represent the CRUD style of &lsquo;objects&rsquo; in the domain is becoming more common.</p>
+
+<p>However, CRUD-driven objects as resource URIs is really only the beginning. The RMM diagram in Martin Fowler&rsquo;s document suggests we are really only halfway there at RMM Level 1.</p>
+
+<h2>Your API is not really RESTful</h2>
+
+<p>As you start to read more deeply into the world of REST, you will find that according to many experts in the field, this is the most common starting point. While everyone wants to discuss their &ldquo;REST API&rdquo;, until you have reached fully agile Hypermedia status, you are really not meeting up to the standards of <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Roy Fielding&rsquo;s 2001 dissertation on REST</a>.</p>
+
+<p>Once organizations move past &ldquo;the Swamp of POX&rdquo;, they move into using resource-oriented, CRUD-based URIs. This is an important step in the evolution of an API, but certainly should not be looked at as a stopping point.</p>
+
+<p>Many of the common misconceptions about what a REST API is comprised of are well summarized in Roy Fielding&rsquo;s article dubbed <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">REST APIs must be hypertext-driven</a>.</p>
+
+<h2>HTTP Verbs - RMM Level 1 => 2</h2>
+
+<p>We&rsquo;ve recently been working on mobile applications, moving toward utilizing HTTP status and verbs to drive action, versus binding that workflow up in application-specific JSON. As much as error/exception handling can be an afterthought in the average development cycle, it has to be a first-class citizen in an API driven world. As part of Layer 7&rsquo;s &ldquo;API Academy&rdquo; series, they did a great job at describing the &lsquo;rights&rsquo; and &lsquo;wrongs&rsquo; in the video titled <a href="http://www.youtube.com/watch?v=NTObb3ZS1nk">Handle Errors on the Web</a>.</p>
+
+<p>I put together a some materials to help walk our mobile and API teams through the steps we were about to take on this journey up the RMM ladder. I&rsquo;ve since amended the presentation with cleaned up audio, thus upgrading it to a screencast!</p>
+
+<p><a href="http://www.youtube.com/watch?v=7ue3aMk4g2I">http://www.youtube.com/watch?v=7ue3aMk4g2I</a></p>
+
+<h2>HTTP Status Codes</h2>
+
+<p>The most important thing to note is that while the RMM description talks about implementing verbs as the heart of RMM Level 2, this is an empty effort without effective communication of error statuses. HTTP Status Codes should serve to provide you with low-level, protocol-grade feedback on the state of any resource/verb you are working with. Digging into applicaiton specific messaging should only really provide you with application-specific, and/or user-specific details which allow you to address the error/exception.</p>
+
+<p>The ability to quickly recognize that an API call is not going to answer with &ldquo;OK&rdquo; is the first priority in any interaction, providing you with a responsive UI, regardless of mobile/web/whatever client. This quick protocol-level feedback also provides scaling advantages. If I&rsquo;m creating or updating a resource, there is no need to reverberate back what was provided to the server. 201/Created or 204/No Content are often the best appropriate response to indicate that the operation requested was not errant. More importantly the lack of body content means that wire traffic is non-existent past the headers.</p>
+
+<h2>Summary and What&rsquo;s Next</h2>
+
+<p>In my next article on BDD and REST, I&rsquo;ll address some of the difficulties in testing APIs that only answer in 200 &amp; 500, or OK and Oh $h1t! Looking beyond the basic CRUD functionality of a resource, and trying to envision the Hypermedia-driven behavior of a future resource/revisions is well aided by BDD/ATDD strategies.</p>
+]]></content>
+  </entry>
+  
+</feed>

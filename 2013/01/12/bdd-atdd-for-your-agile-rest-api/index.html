@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+
+
+<meta charset="utf-8">
+<meta http-equiv="cleartype" content="on">
+
+<title>BDD / ATDD for Your Agile REST API - Pragmatic API</title>
+<meta name="author" content="Jason Harmon">
+
+
+
+
+<meta name="description" content="In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often &hellip;">
+
+<meta name="keywords" content="testing automation ">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Twitter Cards -->
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content"">
+  
+  <meta name="twitter:title" content="BDD / ATDD for your Agile REST API">
+  <meta name="twitter:description" content="In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often &hellip;">
+  <meta name="twitter:creator" content="@jhrmn">
+
+
+<!-- Open Graph -->
+<meta property="og:local" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://jasonh-n-austin.github.io/2013/01/12/bdd-atdd-for-your-agile-rest-api">
+<meta property="og:title" content="BDD / ATDD for your Agile REST API">
+<meta property="og:description" content="In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often &hellip;">
+
+  <meta property="og:image" content="">
+
+<meta property="og:site_name" content="Pragmatic API">
+
+<link rel="canonical" href="http://jasonh-n-austin.github.io/2013/01/12/bdd-atdd-for-your-agile-rest-api">
+<link href="/favicon.png" rel="icon">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/atom.xml" rel="alternate" title="Pragmatic API" type="application/atom+xml">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script>Modernizr || document.write('<script src="/javascripts/vendor/modernizr-2.6.2.custom.min.js"><\/script>') </script>
+
+
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="" alt="Jason Harmon photo" class="author-photo">
+					<h4>Jason Harmon</h4>
+					<p></p>
+				</li>
+				
+				
+				<li>
+					<a href="https://twitter.com/jhrmn"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/111160376507741662259"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/categories/">All Categories</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2013/01/12/bdd-atdd-for-your-agile-rest-api/" rel="bookmark" title="BDD / ATDD for your Agile REST API">BDD / ATDD for your Agile REST API</a></h1>
+        
+        <h2>January 12, 2013</h2>
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>In any system architecture, a multi-tiered testing strategy is critical. Much of this work is typically behind the scenes in development teams, often following TDD-oriented practices. In agile terms, stakeholders and product owners often never see or grasp what&rsquo;s being tested. Within the unit testing and integration testing tiers, this tends to make sense. However <a href="http://en.wikipedia.org/wiki/Behavior-driven_development">Behavioral Driven Development</a> (aka Acceptance Test Driven Development) begins with acceptance criteria definition and finishes with the acceptance of a story, providing engagement for all members of an agile team from start to finish.</p>
+
+<!-- more -->
+
+
+<p><em>NOTE: All code from this post is on github: <a href="https://github.com/jasonh-n-austin/TwitterRestTests">https://github.com/jasonh-n-austin/TwitterRestTests</a>.</em></p>
+
+<p>In the world of defining acceptance criteria for API development, this approach can be very useful. For those of us on dedicated API teams who have tried to utilize Agile demos using SoapUI or the like, we know the cold dead eyes of bored stakeholders and product owners. It&rsquo;s hard to think about adding value to your business domain when we&rsquo;re all staring at URLs, headers, and status codes. However, the alternative of never showing anyone in the business how your API works certainly loses a depth of understanding that is requisite in today&rsquo;s web platforms.</p>
+
+<p>In some cases, a pervasive culture of <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD/Test-Driven Development</a> can provide the only practice providing cohesion between developers and business. If anything, business folks might understand terms like &ldquo;code coverage&rdquo; or &ldquo;test case&rdquo;, but really have to trust that the developer has built adequate testing when they accept the quality of new features.</p>
+
+<p>Behavioral Driven Development approaches acceptance testing by using plain english expression as the interface for the tests. This approach lends itself well to explaining the behavior of your RESTful resource in Domain Specific Language, i.e. your own business lingo. Here&rsquo;s an example of what a typical scenario definition might look like for a REST test:</p>
+
+<div><script src='https://gist.github.com/4521824.js'></script>
+<noscript><pre><code>@Positive @Get @User
+Scenario: Show twitter user
+  Given I access the resource url &quot;/1/users/show.json?screen_name=jasonh_n_austin&amp;include_entities=true&quot;
+  When I retrieve the results
+  Then the status code should be 200
+  And it should have the field &quot;name&quot; containing the value &quot;Jason Harmon&quot;
+  And it should have the field &quot;id&quot; containing the value &quot;57005215&quot;</code></pre></noscript></div>
+
+
+<p>The above example (functional in the <a href="https://github.com/jasonh-n-austin/TwitterRestTests/blob/master/TwitterRestTests/User.feature">Github</a> project) provides a rudimentary GET test on Twitter&rsquo;s public, no authorization required API. Obviously in authenticated scenarios this would look a bit more complex.</p>
+
+<p>These semantics are fairly easy to understand, and provide some means to abstract away the complexities of testing. In addition, if there are standards within the API platform that need to be verified, that can be addressed within underlying testing code, without re-establishing all of the standards in every test.</p>
+
+<p>Note the tags (delineated by the &ldquo;@&rdquo; symbol). This provides a means to provide some logical groupings by which to call various resources+verbs.</p>
+
+<p>The &lsquo;step definitions&rsquo; form the code behind the &lsquo;feature&rsquo; file you see above. An example of the step &ldquo;I retrieve the results&rdquo; follows:</p>
+
+<div><script src='https://gist.github.com/4521814.js'></script>
+<noscript><pre><code>[Binding]
+public class RestTestSteps
+{
+  private string url;
+  private string content;
+  private WebClient wc = new WebClient();
+  JObject response;
+  HttpStatusCode httpStatus;
+  
+  [Given(@&quot;I access the resource url &quot;&quot;(.*)&quot;&quot;&quot;)]
+  public void GivenIAccessTheResourceUrl(string resourceUrl)
+  {
+  this.url = &quot;https://api.twitter.com&quot; + resourceUrl;
+  }
+  
+  [When(@&quot;I retrieve the results&quot;)]
+  public void WhenRetrieveTheResults()
+  {
+    try
+    {
+      this.content = wc.DownloadString(url);
+      this.httpStatus = HttpStatusCode.OK;
+    }
+    catch (WebException we)
+    {
+      this.httpStatus = ((HttpWebResponse)we.Response).StatusCode;
+    }
+    if (this.httpStatus.Equals(HttpStatusCode.OK))
+    {
+      Assert.IsNotNullOrEmpty(this.content);
+      this.response = (JObject)JToken.Parse(this.content);
+    }
+  }</code></pre></noscript></div>
+
+
+<p>The attribute &lsquo;When&rsquo; defines the regular expression match which matches steps in the feature files. In this case, a simplistic use of the WebClient class provides us with a means to interact with the REST API. Once the interactions have taken place, assertions can take place based on status code, initially:</p>
+
+<div><script src='https://gist.github.com/4521797.js'></script>
+<noscript><pre><code>[Then(@&quot;the status code should be (.*)&quot;)]
+public void ThenTheStatusCodeShouldBe(int statusCode)
+{
+  Assert.AreEqual(statusCode, (int)this.httpStatus);
+}</code></pre></noscript></div>
+
+
+<p>Using JSON.NET, we can parse the result content and verify specific fields and values:</p>
+
+<div><script src='https://gist.github.com/4521805.js'></script>
+<noscript><pre><code>[Then(@&quot;it should have the field &quot;&quot;(.*)&quot;&quot; containing the value &quot;&quot;(.*)&quot;&quot;&quot;)]
+public void ThenItShouldContainTheFieldContainingTheValue(string field, string value)
+  {
+    if (response != null)
+    {
+      JValue val = (JValue)this.response.GetValue(field);
+      string valStr = val.Value().Trim();
+      Assert.IsNotNull(valStr);
+      Assert.AreEqual(valStr, value.Trim());
+    }
+}</code></pre></noscript></div>
+
+
+<p>Of course, these concepts can be taken further to test more details about all aspects of a RESTful API. Of course, the complexity of POST &amp; PUT are going to be more complex and will take some forethought on the approach. Hopefully this will get your thought process starting on how the BDD approach will fit into your acceptance testing strategies for your REST API.</p>
+
+<p>Once you have a test suite developed, and your team engaged in defining BDD-based acceptance criteria and running tests, you should immediately look to get integrated into a <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> server such as TeamCity or Jenkins.</p>
+
+<p><em> </em></p>
+
+<p><em>All samples utilize , a .NET-based BDD framework. These same concepts would work equally well with <a href="http://cukes.info/">Cucumber</a>, <a href="https://github.com/cucumber/cucumber-jvm">Cucumber-JVM</a>, or any <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin</a> - based framework.</em></p>
+
+<p>For SpecFlow installation in VS2012, please refer to the documentation: <a href="https://github.com/techtalk/SpecFlow/wiki/Install-IDE-Installation">https://github.com/techtalk/SpecFlow/wiki/Install-IDE-Installation</a></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/categories/#testing automation" title="Pages tagged testing automation" class="tag">testing automation</a></span>
+        <span><a href="/2013/01/12/bdd-atdd-for-your-agile-rest-api/" rel="bookmark" title="BDD / ATDD for your Agile REST API">BDD / ATDD for your Agile REST API</a> was published on <span class="entry-date date published updated"><time datetime="2013-01-12T02:36:31-06:00">January 12, 2013</time></span></span>
+        
+        <span class="author vcard"><span class="fn"><a href="" title="About Jason Harmon">Jason Harmon</a></span></span>
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    
+      <div class="read-more">
+        
+          <div class="read-more-header">
+            <a href="/2015/01/25/5-new-chapter-on-youtube/" class="btn">Read More</a>
+          </div><!-- /.read-more-header -->
+          <div class="read-more-content">
+            <h3><a href="/2015/01/25/5-new-chapter-on-youtube/" title="A new chapter on Youtube">A new chapter on Youtube</a></h3>
+            <p>2014 was an extremely busy year at Paypal: heading up the API Design team, in an effort to API-ify over 80% of the company&#8217;s capabilities. &hellip;&hellip; <a href="/2015/01/25/5-new-chapter-on-youtube/"> Continue reading</a></p>
+          </div><!-- /.read-more-content -->
+        
+        <div class="read-more-list">
+          
+            <div class="list-item">
+              <h4><a href="/2013/11/10/bdd-for-apis-talk-at-apistrat-sf-2013/" title="BDD for APIs talk at APIStrat SF 2013">BDD for APIs talk at APIStrat SF 2013</a></h4>
+              <span>Published on November 10, 2013</span>
+            </div><!-- /.list-item -->
+          
+            <div class="list-item">
+              <h4><a href="/2013/03/25/extend-your-crud-http-api-with-sub-resources/" title="Extend your CRUD HTTP API with sub-resources">Extend your CRUD HTTP API with sub-resources</a></h4>
+              <span>Published on March 25, 2013</span>
+            </div><!-- /.list-item -->
+          
+        </div><!-- /.read-more-list -->
+      </div><!-- /.read-more -->
+    
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 Jason Harmon. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/Z1MM32M4N/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+
+	        
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/javascripts/octopress.js" type="text/javascript"></script>
+<script src="/javascripts/scripts.min.js"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39563304-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'pragmaticapi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jasonh-n-austin.github.io/2013/01/12/bdd-atdd-for-your-agile-rest-api/';
+        var disqus_url = 'http://jasonh-n-austin.github.io/2013/01/12/bdd-atdd-for-your-agile-rest-api/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	        
+
+</body>
+</html>

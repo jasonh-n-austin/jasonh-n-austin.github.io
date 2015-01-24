@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+
+
+<meta charset="utf-8">
+<meta http-equiv="cleartype" content="on">
+
+<title>BDD / ATDD for Your Agile REST API, Part 2 - Pragmatic API</title>
+<meta name="author" content="Jason Harmon">
+
+
+
+
+<meta name="description" content="Part 1: http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/ I recently covered how BDD principles can provide a great touch stone &hellip;">
+
+<meta name="keywords" content="testing automation ">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Twitter Cards -->
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content"">
+  
+  <meta name="twitter:title" content="BDD / ATDD for your Agile REST API, part 2">
+  <meta name="twitter:description" content="Part 1: http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/ I recently covered how BDD principles can provide a great touch stone &hellip;">
+  <meta name="twitter:creator" content="@jhrmn">
+
+
+<!-- Open Graph -->
+<meta property="og:local" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://jasonh-n-austin.github.io/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2">
+<meta property="og:title" content="BDD / ATDD for your Agile REST API, part 2">
+<meta property="og:description" content="Part 1: http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/ I recently covered how BDD principles can provide a great touch stone &hellip;">
+
+  <meta property="og:image" content="">
+
+<meta property="og:site_name" content="Pragmatic API">
+
+<link rel="canonical" href="http://jasonh-n-austin.github.io/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2">
+<link href="/favicon.png" rel="icon">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/atom.xml" rel="alternate" title="Pragmatic API" type="application/atom+xml">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script>Modernizr || document.write('<script src="/javascripts/vendor/modernizr-2.6.2.custom.min.js"><\/script>') </script>
+
+
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="" alt="Jason Harmon photo" class="author-photo">
+					<h4>Jason Harmon</h4>
+					<p></p>
+				</li>
+				
+				
+				<li>
+					<a href="https://twitter.com/jhrmn"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/111160376507741662259"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/categories/">All Categories</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2/" rel="bookmark" title="BDD / ATDD for your Agile REST API, part 2">BDD / ATDD for your Agile REST API, part 2</a></h1>
+        
+        <h2>January 21, 2013</h2>
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>Part 1: <a href="http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/">http://pragmaticapi.com/2013/01/12/bdd-atdd-for-your-agile-rest-api/</a></p>
+
+<p>I recently covered how BDD principles can provide a great touch stone for acceptance testing in REST-based API platforms. In this brief followup, I&rsquo;ll show how the Cucumber-JVM framework provides all of the same functionality that we saw in .NET&rsquo;s SpecFlow, using the Groovy programming language.</p>
+
+<!-- more -->
+
+
+<p>Code for this example can be found on <a href="https://github.com/jasonh-n-austin/TwitterRestTestsGroovy">Github</a>. This should provide you with a working example of BDD testing the Twitter API using Cucumber-JVM, Gradle, and Groovy.</p>
+
+<p>Much like the CLR in .NET, we can use the JVM to provide access to a variety of programming languages. JUnit tests can be developed with Cucumber-JVM, looking almost just like the NUnit-based SpecFlow tests in Part 1. However, this example will show how JUnit, and thereby, any unit testing framework, doesn&rsquo;t necessarily need to be utilized.</p>
+
+<p>Using groovy command-line based invocation of Cucumber tests can be very useful in scenarios where there is interoperability with other Groovy-based tools, namely SoapUI (commonly used in QA web services testing). It is easily possible to create classes which encapsulate the logic necessary to test your API, providing hooks for your Cucumber tests alongside SoapUI, or any other Groovy-based tools.</p>
+
+<p>It is easily arguable that Groovy is well suited for this task. Groovy has some great features like the built in JsonSlurper, great library support (such as the excellent utility <a href="http://groovy.codehaus.org/modules/http-builder/doc/rest.html">RESTClient</a> library), and dynamic ability to walk JSON &amp; XML data.</p>
+
+<p>As a review, here is our feature file, for testing a basic portion of the public Twitter API. This time around, we&rsquo;ve added a few small differences, in the treatment of querystring parameters. This is meant show that there are various ways to describe your tests, not simply monolithic URLs.</p>
+
+<div><script src='https://gist.github.com/4582935.js'></script>
+<noscript><pre><code>@Positive @Get @User
+Scenario: Show twitter user
+  Given I access the resource url &quot;/1/users/show.json&quot;
+        And I provide parameter &quot;screen_name&quot; as &quot;jasonh_n_austin&quot;
+        And I provide parameter &quot;include_entities&quot; as &quot;true&quot;
+    When I retrieve the results
+    Then the status code should be 200
+    And it should have the field &quot;name&quot; containing the value &quot;Jason Harmon&quot;
+    And it should have the field &quot;id&quot; containing the value &quot;57005215&quot;</code></pre></noscript></div>
+
+
+<p>This maps to steps in our RestTests.groovy file, which utilizes the RESTClient class to manage our GET. There are plenty of options out there for a web driver, RESTClient happens to be fairly well suited for our purposes.</p>
+
+<div><script src='https://gist.github.com/4536191.js'></script>
+<noscript><pre><code>Given(~&quot;I access the resource url \&quot;([^\&quot;]*)\&quot;&quot;) { String url -&gt; 
+        resp = null
+        status = null
+
+        uri = new URIBuilder(host)        
+    path = url 
+}
+
+Given(~&quot;I provide parameter \&quot;([^\&quot;]*)\&quot; as \&quot;([^\&quot;]*)\&quot;&quot;) { String name, String value -&gt;
+    uri.addQueryParam name, value
+}
+
+When(~&quot;I retrieve the results&quot;) { -&gt;
+        try {
+        restClient = new RESTClient(uri.toString())
+                resp = restClient.get(path: path)
+        } catch (HttpResponseException ex) {
+        status = ex.getStatusCode()
+    }
+        if (resp != null) {
+        status = resp.status
+            assert ( resp.data instanceof net.sf.json.JSON )
+        assert resp.data.status.size() &gt; 0
+        parsed = resp.data
+        }
+}
+
+Then(~&quot;the status code should be (\\d+)&quot;) { int expectedStatusCode -&gt;
+    assert status == expectedStatusCode
+}
+
+Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&quot;(.*)\&quot;&quot;) { String field, String value -&gt;
+    assert parsed.&quot;${field}&quot;.toString().equals(value) 
+} </code></pre></noscript></div>
+
+
+<p>Most of this code is fairly self-explanatory. For those unexposed to the wonders of Groovy JSON handling (and XML as well), the function starting with &ldquo;it should have the field&rdquo; provides some interesting syntax:</p>
+
+<div><script src='https://gist.github.com/4582955.js'></script>
+<noscript><pre><code>Then(~&quot;it should have the field \&quot;(.*)\&quot; containing the value \&quot;(.*)\&quot;&quot;) { String field, String value -&gt;
+  assert parsed.&quot;${field}&quot;.toString().equals(value)   
+} </code></pre></noscript></div>
+
+
+<p>The &lsquo;parsed&rsquo; variable holds the parsed JSON data. As we have extracted the &lsquo;field&rsquo; variable , we can use a closure to dynamically evaluate whether that field exists in the results.</p>
+
+<p>When we run <strong><em>&ldquo;gradle &ndash;quiet cucumber&rdquo;</em></strong>, we see the following output.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658828/groovy_cucumber_twitter_lpg6yj.png" alt="" /></p>
+
+<p>Overall, compared to either Java or C#, we end up with some very terse code using Groovy. While the difference is not stark with this very simple example, the delta will start to widen as the complexity increases, especially when complex response validation comes into play. In addition, Groovy has some great built-in libraries for building up JSON data, which can be very useful when testing PUT &amp; POST scenarios.</p>
+
+<p>While the Gherkin syntax that SpecFlow and Cucumber-JVM share give us a fundamental link, the BDD premises in defining steps in plain English are really the most powerful aspect, regardless of technology. RESTful API testing can be very daunting with many of the commercial and open source tools available; it is my opinion that BDD/Cucumber based testing is a natural fit. Hopefully you&rsquo;ll find the same to be true after working with the examples in this article and the preceding article.</p>
+
+<p>Happy testing!</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/categories/#testing automation" title="Pages tagged testing automation" class="tag">testing automation</a></span>
+        <span><a href="/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2/" rel="bookmark" title="BDD / ATDD for your Agile REST API, part 2">BDD / ATDD for your Agile REST API, part 2</a> was published on <span class="entry-date date published updated"><time datetime="2013-01-21T00:30:27-06:00">January 21, 2013</time></span></span>
+        
+        <span class="author vcard"><span class="fn"><a href="" title="About Jason Harmon">Jason Harmon</a></span></span>
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    
+      <div class="read-more">
+        
+          <div class="read-more-header">
+            <a href="/2015/01/25/5-new-chapter-on-youtube/" class="btn">Read More</a>
+          </div><!-- /.read-more-header -->
+          <div class="read-more-content">
+            <h3><a href="/2015/01/25/5-new-chapter-on-youtube/" title="A new chapter on Youtube">A new chapter on Youtube</a></h3>
+            <p>2014 was an extremely busy year at Paypal: heading up the API Design team, in an effort to API-ify over 80% of the company&#8217;s capabilities. &hellip;&hellip; <a href="/2015/01/25/5-new-chapter-on-youtube/"> Continue reading</a></p>
+          </div><!-- /.read-more-content -->
+        
+        <div class="read-more-list">
+          
+            <div class="list-item">
+              <h4><a href="/2013/11/10/bdd-for-apis-talk-at-apistrat-sf-2013/" title="BDD for APIs talk at APIStrat SF 2013">BDD for APIs talk at APIStrat SF 2013</a></h4>
+              <span>Published on November 10, 2013</span>
+            </div><!-- /.list-item -->
+          
+            <div class="list-item">
+              <h4><a href="/2013/03/25/extend-your-crud-http-api-with-sub-resources/" title="Extend your CRUD HTTP API with sub-resources">Extend your CRUD HTTP API with sub-resources</a></h4>
+              <span>Published on March 25, 2013</span>
+            </div><!-- /.list-item -->
+          
+        </div><!-- /.read-more-list -->
+      </div><!-- /.read-more -->
+    
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 Jason Harmon. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/Z1MM32M4N/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+
+	        
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/javascripts/octopress.js" type="text/javascript"></script>
+<script src="/javascripts/scripts.min.js"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39563304-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'pragmaticapi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jasonh-n-austin.github.io/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2/';
+        var disqus_url = 'http://jasonh-n-austin.github.io/2013/01/21/bdd-atdd-for-your-agile-rest-api-part-2/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	        
+
+</body>
+</html>

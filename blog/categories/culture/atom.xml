@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Culture | Pragmatic API]]></title>
+  <link href="http://jasonh-n-austin.github.io/blog/categories/culture/atom.xml" rel="self"/>
+  <link href="http://jasonh-n-austin.github.io/"/>
+  <updated>2015-01-24T17:29:34-06:00</updated>
+  <id>http://jasonh-n-austin.github.io/</id>
+  <author>
+    <name><![CDATA[Jason Harmon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A New Chapter on Youtube]]></title>
+    <link href="http://jasonh-n-austin.github.io/2015/01/25/5-new-chapter-on-youtube/"/>
+    <updated>2015-01-25T13:28:00-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2015/01/25/5-new-chapter-on-youtube</id>
+    <content type="html"><![CDATA[<p>2014 was an extremely busy year at Paypal: heading up the API Design team, in an effort to API-ify over 80% of the company&rsquo;s capabilities. I only managed to get out three blog posts, all on <a href="http://apiux.com/author/jasonharmon/">http://APIUX.com</a>. As I looked at revising my strategy for sharing with the community for 2015, I had to reflect on 2014.</p>
+
+<ul>
+<li>Public speaking: I attended 12 events, I think 10 of which I gave talks at. 90% of them required travel.</li>
+<li>Work travel: I underestimated the amount of travel that my role at Paypal would entail. I visited San Jose on average every 6 weeks, Scottsdale 1x, Chicago 1x and even India/Bangalore for a week.</li>
+<li>Meetups: as part of the events I visited, some were meetups. While I really enjoyed it, the meetup I love most, <a href="http://austinapi.com">Austin API</a> was the one I visited the least. I also contributed very little to organizing, which I feel put an unfair burden on my co-organizers.</li>
+</ul>
+
+
+<h3>Unfinished business</h3>
+
+<p>I&rsquo;ve been writing all year. My Evernote has quite a few stubs for blog posts (usually written on planes with no wifi) that never seem to get to a point I feel comfortable posting. My brain gets cleared up by writing down all the lessons I learn in reviewing hundreds of REST API designs. However, I wanted to be able to provide more context to some of the content, as some of it is somewhat critical in nature. In essence, I&rsquo;ve collected lots of common mistakes and basics for folks who might not know much about APIs in general.</p>
+
+<h3>Seeds of inspiration</h3>
+
+<p>I&rsquo;ve been working with our technical trainers at Paypal on building a video series teaching API design principles, and helping guide our developers through our standards and guidance. While I felt at ease on camera, I realized how different the experience was from writing. I felt inspired to learn as much as I could about the video production and writing process.</p>
+
+<p>I spent the holidays getting my personal life in order (namely home projects), as I realized I hadn&rsquo;t been present for more than a few weeks all year (usually catching up on short-term needs). As part of cleaning up the wreckage of the post-travel dump zone known as my home office, I thought more about sharing with the API community again.</p>
+
+<p>I got a new webcam as a Christmas gift, based on a mention to a family member that I&rsquo;d thought about using video as a way to better communicate these concepts. Now that I had a clean office space, I started experimenting. By the end of my two weeks off, I had built a low grade production studio. I also eBay&rsquo;d off a bunch of old gadgets while cleaning up the office, enough to fund the purchase of a decent camera, microphones and lighting.</p>
+
+<h3>Staying home</h3>
+
+<p>I&rsquo;ve turned down quite a few speaking events for this year. I&rsquo;m cutting back to events where I know I&rsquo;ll be in the best environment for what I&rsquo;m passionate about. Additionally, I&rsquo;m hoping for a year at Paypal where things are more stable, and travel won&rsquo;t be such a big requirement.</p>
+
+<p>After visiting non-stop conferences the last few years, I have a new perspective. While we&rsquo;re finding audiences and meeting people in person (and visiting with other conference traveling friends), there&rsquo;s nothing going on in between conferences. It&rsquo;s a very time consuming proposition to attend all the API conferences, as there&rsquo;s bene such a proliferation in the last year.</p>
+
+<p>I&rsquo;ve also re-committed myself to making the Austin API Meetup a top priority. The Austin startup and tech scene in general is exploding, and there&rsquo;s so many people to share with and learn from. We&rsquo;ve made it two years, organizing top notch speakers every month&hellip;I&rsquo;m not aware of any other API meetup in the country that&rsquo;s maintained that pace. I want us to continue to strengthen the community, and I hope it leads to bigger events coming to Austin focused on APIs. I need to be home to help make all this happen.</p>
+
+<p>It sort of clicked to me that broadcasting video is a way I can be home for my family more, and still stay connected with the API community that I love spending time with.</p>
+
+<h3>Motivation</h3>
+
+<p>My kids are nuts about Youtube. As I&rsquo;ve leared more about it from them, I find myself spending most of my time on Youtube shows, and almost zero no TV. I&rsquo;ve also discovered that modern youth culture is not focused around reading, and moreso on video learning.</p>
+
+<p>For better or worse, I&rsquo;ve come to believe there are a younger generation of developers who want to learn from video, and really don&rsquo;t have the capacity to read 1000 words to learn something. I love mentoring new developers, and helping guide them to learn about the cutting edge, and video started to feel like a way I could broadcast that connection.</p>
+
+<h3>Video is hard</h3>
+
+<p>Editing a sentence in blogs is easy, when you change your mind later. With video, that often means reshooting a segment, editing and re-rending an entire episode. I&rsquo;m learning a lot, and it&rsquo;s forcing me to boil down topics more succinctly. I&rsquo;ve also had to learn how to speak to a camera, instead of a crowd.</p>
+
+<h3>A new chapter</h3>
+
+<p>I launched a new <a href="https://www.youtube.com/channel/UCKK2ir0jqCvfB-kzBGka_Lg">Youtube channel</a> yesterday, titled &ldquo;API Workshop&rdquo;. I&rsquo;m hoping to engage a different-minded aspect of the API community. Video learning oriented, perhaps younger, and hopefully thirsty for knowledge.</p>
+
+<p>My biggest backlog of unfinished posts is on common API design mistakes, which a friend helped me label <a href="https://www.youtube.com/playlist?list=PLmi7Sd1Nw3uljsMw9WE2lXE42cdZ0nEsH">&ldquo;Not Good APIs&rdquo;</a> (I laughed for days after he suggested it). As such, the first video is part of this series, titled <a href="https://www.youtube.com/watch?v=-MBXsmSrKE8&amp;list=TLUxDYVMx3C_s">&ldquo;REST API Design: Avoid future proofing with the JSON junk drawer&rdquo;</a>.</p>
+
+<p>The community response has been amazing, including a <a href="https://www.youtube.com/watch?v=Eib2IXVEq-E">video reply</a> from my friend Kin Lane, &ldquo;The API Evangelist&rdquo;. The fact that he and I were able to discuss important design concepts, and the future of APIs.json in the public space was really exciting for me.</p>
+
+<p>I&rsquo;m still hoping to get some writing done this year, but it&rsquo;s probably going to take me some time to get fast at my production process for video. Until then, see you on Youtube!</p>
+
+<p>Here&rsquo;s the first episode from the channel, enjoy!
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/oWSKdadSsmQ "></iframe></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[#API Makers/consumers: Do You Sometimes Feel Like No One Really Gets You?]]></title>
+    <link href="http://jasonh-n-austin.github.io/2013/02/28/api-makersconsumers-do-you-sometimes-feel-like-no-one-really-gets-you/"/>
+    <updated>2013-02-28T03:30:50-06:00</updated>
+    <id>http://jasonh-n-austin.github.io/2013/02/28/api-makersconsumers-do-you-sometimes-feel-like-no-one-really-gets-you</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve found myself explaining to lots of people what it is that I do, in working with APIs. Sure, at the office or a conference, I feel understood. However in social settings or around family, I sometimes feel like people just think I&rsquo;m making this stuff up. When I try to use acronym and industry jargon filled phrases, I often just get glazed over stares and slow head nodding.</p>
+
+<blockquote><p>&ldquo;I offer a series of integration points for mobile, web, and B2B web services consumers. Our RESTful API provides partners and developers and opportunity to monetize their application development by utilizing our marketplace platform.&rdquo;</p>
+
+<p>&hellip;&ldquo;{crickets chirping}&rdquo;&hellip;</p></blockquote>
+
+<!-- more -->
+
+
+<p>I&rsquo;ve tried to come up with some metaphors and analogies which help describe, to the uninitiated, what exactly an API builder does. In some situations, I think some of them have fallen flat on their faces, and others have switched on lightbulbs. Your mileage may vary, take it for what it&rsquo;s worth.</p>
+
+<ol>
+<li><p> <strong>&ldquo;All of your mobile apps are powered by APIs&rdquo;</strong>. This one gets a positive reaction (everyone wants to understand how those snazzy mobile apps work), albeit a still somewhat ambiguous vibe. I don&rsquo;t think that most folks know the difference between a SQL database connection, a NoSQL database connection, and a RESTful API call. They just know data comes from somewhere to paint a screen on their phone.</p></li>
+<li><p> <strong>&ldquo;You can&rsquo;t build a car/plane/whatever without good components&rdquo;</strong>. This starts out rough, but gets easier, at least in describing hacked compilations of various APIs. I try to explain that a car or plane company doesn&rsquo;t make gauges, shocks, and sensors; they rely on specialists to provide those components. In terms of apps/sites which can do lots of different things, they rely on API providers to create great components in their various fields of specialty.</p></li>
+<li><p> <strong>&ldquo;Brain of the business&rdquo;</strong>. I think this comes off as arrogant sometimes, but it&rsquo;s my attempt to explain the value of APIs. The notion that an API attempts to consolidate business logic behind some facade is where this comes from. This idea that we have some abstracted rug under which all business logic is swept. This has worked best for talking about more enterprise type scenarios.</p></li>
+<li><p> <strong>&ldquo;We are librarians managing the card catalog&rdquo;</strong>. Far and away my most abused metaphor, probably due to my obsession with wanting a really cool old handcrafted card catalog in my home office. I think I&rsquo;ve used this primarily in terms of describing the sorts of personalities we look for in talent acquisition for API builders. Unfortunately for younger people out there, I&rsquo;m afraid they&rsquo;ve probably never used a card catalog in a library, but I tend to hope they at least get comparison. There is a discipline in what we do which requires a deliberation of minutia not often seen in software, much like the discipline of running a library full of books. Knowing that we have to accurately describe the functionality of some abstracted business concept, and describe it&rsquo;s interaction patterns in painstaking detail. Anyone can walk into the library and lookup their book by various parameters in a consistent manner by using the card catalog, much like we expect that our API consumers can find the data they need in the same way.</p></li>
+</ol>
+
+
+<p>I&rsquo;d love to hear how you describe how APIs work to family/friends/business associates. Our field is one of disciplined craftsmen, quite often also some of the more intimately creative people I&rsquo;ve had the pleasure of meeting. Hopefully some of you are more eloquent at describing this than I am, and can help provide me with better ways of evangelizing the virtues of our practice.</p>
+]]></content>
+  </entry>
+  
+</feed>

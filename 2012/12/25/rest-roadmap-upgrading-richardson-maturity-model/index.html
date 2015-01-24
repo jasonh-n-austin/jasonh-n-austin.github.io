@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+
+
+<meta charset="utf-8">
+<meta http-equiv="cleartype" content="on">
+
+<title>REST Roadmap - Upgrading in the Richardson Maturity Model - Pragmatic API</title>
+<meta name="author" content="Jason Harmon">
+
+
+
+
+<meta name="description" content="REST Roadmap Series I&rsquo;d like to kick off my new blog with a series I&rsquo;m calling, &ldquo;REST Roadmap&rdquo;. The idea is to put together a &hellip;">
+
+<meta name="keywords" content="architecture ">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Twitter Cards -->
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content"">
+  
+  <meta name="twitter:title" content="REST Roadmap - Upgrading in the Richardson Maturity Model">
+  <meta name="twitter:description" content="REST Roadmap Series I&rsquo;d like to kick off my new blog with a series I&rsquo;m calling, &ldquo;REST Roadmap&rdquo;. The idea is to put together a &hellip;">
+  <meta name="twitter:creator" content="@jhrmn">
+
+
+<!-- Open Graph -->
+<meta property="og:local" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://jasonh-n-austin.github.io/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model">
+<meta property="og:title" content="REST Roadmap - Upgrading in the Richardson Maturity Model">
+<meta property="og:description" content="REST Roadmap Series I&rsquo;d like to kick off my new blog with a series I&rsquo;m calling, &ldquo;REST Roadmap&rdquo;. The idea is to put together a &hellip;">
+
+  <meta property="og:image" content="">
+
+<meta property="og:site_name" content="Pragmatic API">
+
+<link rel="canonical" href="http://jasonh-n-austin.github.io/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model">
+<link href="/favicon.png" rel="icon">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/atom.xml" rel="alternate" title="Pragmatic API" type="application/atom+xml">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script>Modernizr || document.write('<script src="/javascripts/vendor/modernizr-2.6.2.custom.min.js"><\/script>') </script>
+
+
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="" alt="Jason Harmon photo" class="author-photo">
+					<h4>Jason Harmon</h4>
+					<p></p>
+				</li>
+				
+				
+				<li>
+					<a href="https://twitter.com/jhrmn"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/111160376507741662259"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/categories/">All Categories</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/" rel="bookmark" title="REST Roadmap - Upgrading in the Richardson Maturity Model">REST Roadmap - Upgrading in the Richardson Maturity Model</a></h1>
+        
+        <h2>December 25, 2012</h2>
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <h2>REST Roadmap Series</h2>
+
+<p>I&rsquo;d like to kick off my new blog with a series I&rsquo;m calling, &ldquo;REST Roadmap&rdquo;. The idea is to put together a series of basic changes to the typical API which will ensure future success. The first installment is around getting a feel for what REST really is via the Richardson Maturity Model. In my experience, most organizations have made some progress, intentionally or inadvertently, in this regard, and are starting at around Level 1 of RMM.</p>
+
+<!-- more -->
+
+
+<h2>Background on RMM (the Richardson Maturity Model)</h2>
+
+<p>In the software industry (namely the Free Software Movement), the phrase &ldquo;standing on the shoulders of giants&rdquo; is oft used. When we investigate REST, proverbial technology giants like <a href="http://en.wikipedia.org/wiki/Roy_Fielding">Roy Fielding</a>, <a href="http://www.crummy.com/self/">Leonard Richardson</a>, and <a href="http://en.wikipedia.org/wiki/Martin_Fowler">Martin Fowler</a> come to mind. Fowler worked directly with Leonard Richardson, Jim Webber and others to put together some guidelines on how to architecturally construct a REST API. A wonderful culmination of their respective genius is in Martin Fowler&rsquo;s article titled <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a>.</p>
+
+<p><img src="http://res.cloudinary.com/jhrmn/image/upload/v1362658921/rmm_alxpgg.png" alt="" /></p>
+
+<p><em>(Image credit: Martin Fowler)</em></p>
+
+<p>The nearly oversimplified concept in this article is that a RESTful API can be built in a series of building block-style steps. In practice, there are many gritty details that occur naturally in traversing these steps.</p>
+
+<p>In my experience, reaching the first level of the RMM is fairly common &lsquo;in the wild&rsquo;. Anybody who wants to follow some sort of modern notion of REST tries not to build resources which &ldquo;smell like SOAP&rdquo;. Martin Fowler refers to this style as &ldquo;The Swamp of POX&rdquo;, aka &ldquo;Plain old XML&rdquo;. Desiging resource URIs which try to represent the CRUD style of &lsquo;objects&rsquo; in the domain is becoming more common.</p>
+
+<p>However, CRUD-driven objects as resource URIs is really only the beginning. The RMM diagram in Martin Fowler&rsquo;s document suggests we are really only halfway there at RMM Level 1.</p>
+
+<h2>Your API is not really RESTful</h2>
+
+<p>As you start to read more deeply into the world of REST, you will find that according to many experts in the field, this is the most common starting point. While everyone wants to discuss their &ldquo;REST API&rdquo;, until you have reached fully agile Hypermedia status, you are really not meeting up to the standards of <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Roy Fielding&rsquo;s 2001 dissertation on REST</a>.</p>
+
+<p>Once organizations move past &ldquo;the Swamp of POX&rdquo;, they move into using resource-oriented, CRUD-based URIs. This is an important step in the evolution of an API, but certainly should not be looked at as a stopping point.</p>
+
+<p>Many of the common misconceptions about what a REST API is comprised of are well summarized in Roy Fielding&rsquo;s article dubbed <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">REST APIs must be hypertext-driven</a>.</p>
+
+<h2>HTTP Verbs - RMM Level 1 => 2</h2>
+
+<p>We&rsquo;ve recently been working on mobile applications, moving toward utilizing HTTP status and verbs to drive action, versus binding that workflow up in application-specific JSON. As much as error/exception handling can be an afterthought in the average development cycle, it has to be a first-class citizen in an API driven world. As part of Layer 7&rsquo;s &ldquo;API Academy&rdquo; series, they did a great job at describing the &lsquo;rights&rsquo; and &lsquo;wrongs&rsquo; in the video titled <a href="http://www.youtube.com/watch?v=NTObb3ZS1nk">Handle Errors on the Web</a>.</p>
+
+<p>I put together a some materials to help walk our mobile and API teams through the steps we were about to take on this journey up the RMM ladder. I&rsquo;ve since amended the presentation with cleaned up audio, thus upgrading it to a screencast!</p>
+
+<p><a href="http://www.youtube.com/watch?v=7ue3aMk4g2I">http://www.youtube.com/watch?v=7ue3aMk4g2I</a></p>
+
+<h2>HTTP Status Codes</h2>
+
+<p>The most important thing to note is that while the RMM description talks about implementing verbs as the heart of RMM Level 2, this is an empty effort without effective communication of error statuses. HTTP Status Codes should serve to provide you with low-level, protocol-grade feedback on the state of any resource/verb you are working with. Digging into applicaiton specific messaging should only really provide you with application-specific, and/or user-specific details which allow you to address the error/exception.</p>
+
+<p>The ability to quickly recognize that an API call is not going to answer with &ldquo;OK&rdquo; is the first priority in any interaction, providing you with a responsive UI, regardless of mobile/web/whatever client. This quick protocol-level feedback also provides scaling advantages. If I&rsquo;m creating or updating a resource, there is no need to reverberate back what was provided to the server. 201/Created or 204/No Content are often the best appropriate response to indicate that the operation requested was not errant. More importantly the lack of body content means that wire traffic is non-existent past the headers.</p>
+
+<h2>Summary and What&rsquo;s Next</h2>
+
+<p>In my next article on BDD and REST, I&rsquo;ll address some of the difficulties in testing APIs that only answer in 200 &amp; 500, or OK and Oh $h1t! Looking beyond the basic CRUD functionality of a resource, and trying to envision the Hypermedia-driven behavior of a future resource/revisions is well aided by BDD/ATDD strategies.</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/categories/#architecture" title="Pages tagged architecture" class="tag">architecture</a></span>
+        <span><a href="/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/" rel="bookmark" title="REST Roadmap - Upgrading in the Richardson Maturity Model">REST Roadmap - Upgrading in the Richardson Maturity Model</a> was published on <span class="entry-date date published updated"><time datetime="2012-12-25T00:30:26-06:00">December 25, 2012</time></span></span>
+        
+        <span class="author vcard"><span class="fn"><a href="" title="About Jason Harmon">Jason Harmon</a></span></span>
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    
+      <div class="read-more">
+        
+          <div class="read-more-header">
+            <a href="/2015/01/25/5-new-chapter-on-youtube/" class="btn">Read More</a>
+          </div><!-- /.read-more-header -->
+          <div class="read-more-content">
+            <h3><a href="/2015/01/25/5-new-chapter-on-youtube/" title="A new chapter on Youtube">A new chapter on Youtube</a></h3>
+            <p>2014 was an extremely busy year at Paypal: heading up the API Design team, in an effort to API-ify over 80% of the company&#8217;s capabilities. &hellip;&hellip; <a href="/2015/01/25/5-new-chapter-on-youtube/"> Continue reading</a></p>
+          </div><!-- /.read-more-content -->
+        
+        <div class="read-more-list">
+          
+            <div class="list-item">
+              <h4><a href="/2013/11/10/bdd-for-apis-talk-at-apistrat-sf-2013/" title="BDD for APIs talk at APIStrat SF 2013">BDD for APIs talk at APIStrat SF 2013</a></h4>
+              <span>Published on November 10, 2013</span>
+            </div><!-- /.list-item -->
+          
+            <div class="list-item">
+              <h4><a href="/2013/03/25/extend-your-crud-http-api-with-sub-resources/" title="Extend your CRUD HTTP API with sub-resources">Extend your CRUD HTTP API with sub-resources</a></h4>
+              <span>Published on March 25, 2013</span>
+            </div><!-- /.list-item -->
+          
+        </div><!-- /.read-more-list -->
+      </div><!-- /.read-more -->
+    
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 Jason Harmon. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/Z1MM32M4N/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+
+	        
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/javascripts/octopress.js" type="text/javascript"></script>
+<script src="/javascripts/scripts.min.js"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39563304-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'pragmaticapi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jasonh-n-austin.github.io/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/';
+        var disqus_url = 'http://jasonh-n-austin.github.io/2012/12/25/rest-roadmap-upgrading-richardson-maturity-model/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	        
+
+</body>
+</html>
