@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Culture | Pragmatic API]]></title>
   <link href="http://jasonh-n-austin.github.io/blog/categories/culture/atom.xml" rel="self"/>
   <link href="http://jasonh-n-austin.github.io/"/>
-  <updated>2015-01-24T17:29:34-06:00</updated>
+  <updated>2015-01-24T17:51:58-06:00</updated>
   <id>http://jasonh-n-austin.github.io/</id>
   <author>
     <name><![CDATA[Jason Harmon]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A New Chapter on Youtube]]></title>
-    <link href="http://jasonh-n-austin.github.io/2015/01/25/5-new-chapter-on-youtube/"/>
+    <link href="http://jasonh-n-austin.github.io/2015/01/25/a-new-chapter-on-youtube/"/>
     <updated>2015-01-25T13:28:00-06:00</updated>
-    <id>http://jasonh-n-austin.github.io/2015/01/25/5-new-chapter-on-youtube</id>
+    <id>http://jasonh-n-austin.github.io/2015/01/25/a-new-chapter-on-youtube</id>
     <content type="html"><![CDATA[<p>2014 was an extremely busy year at Paypal: heading up the API Design team, in an effort to API-ify over 80% of the company&rsquo;s capabilities. I only managed to get out three blog posts, all on <a href="http://apiux.com/author/jasonharmon/">http://APIUX.com</a>. As I looked at revising my strategy for sharing with the community for 2015, I had to reflect on 2014.</p>
 
 <ul>
@@ -65,7 +65,7 @@
 
 <p>My biggest backlog of unfinished posts is on common API design mistakes, which a friend helped me label <a href="https://www.youtube.com/playlist?list=PLmi7Sd1Nw3uljsMw9WE2lXE42cdZ0nEsH">&ldquo;Not Good APIs&rdquo;</a> (I laughed for days after he suggested it). As such, the first video is part of this series, titled <a href="https://www.youtube.com/watch?v=-MBXsmSrKE8&amp;list=TLUxDYVMx3C_s">&ldquo;REST API Design: Avoid future proofing with the JSON junk drawer&rdquo;</a>.</p>
 
-<p>The community response has been amazing, including a <a href="https://www.youtube.com/watch?v=Eib2IXVEq-E">video reply</a> from my friend Kin Lane, &ldquo;The API Evangelist&rdquo;. The fact that he and I were able to discuss important design concepts, and the future of APIs.json in the public space was really exciting for me.</p>
+<p>The community response has been amazing, including a <a href="https://www.youtube.com/watch?v=Eib2IXVEq-E">video reply</a> from my friend Kin Lane, &ldquo;<a href="http://apievangelist.com">The API Evangelist</a>&rdquo;. The fact that he and I were able to discuss important design concepts, and the future of APIs.json in the public space was really exciting for me.</p>
 
 <p>I&rsquo;m still hoping to get some writing done this year, but it&rsquo;s probably going to take me some time to get fast at my production process for video. Until then, see you on Youtube!</p>
 
